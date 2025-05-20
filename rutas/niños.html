@@ -3,36 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En pareja - Rutas por el País Vasco</title>
+    <title>Rutas con Niños - País Vasco y Navarra</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div id="background-top"></div>
     <div id="background-bottom"></div>
+    <div id="background-image"></div>
+    <aside id="map-sidebar">
+        <a href="https://www.google.com/maps/place/%C3%81lava" target="_blank" title="Mapa de Álava"><img src="../img/mapa_alava.png" alt="Álava" /><span>Álava</span></a>
+        <a href="https://www.google.com/maps/place/Bizkaia" target="_blank" title="Mapa de Bizkaia"><img src="../img/mapa_bizkaia.png" alt="Bizkaia" /><span>Bizkaia</span></a>
+        <a href="https://www.google.com/maps/place/Gipuzkoa" target="_blank" title="Mapa de Gipuzkoa"><img src="../img/mapa_gipuzkoa.png" alt="Gipuzkoa" /><span>Gipuzkoa</span></a>
+        <a href="https://www.google.com/maps/place/Navarra" target="_blank" title="Mapa de Navarra"><img src="../img/mapa_navarra.png" alt="Navarra" /><span>Navarra</span></a>
+        <a href="https://www.google.com/maps/place/Cantabria" target="_blank" title="Mapa de Cantabria"><img src="../img/mapa_cantabria.png" alt="Cantabria" /><span>Cantabria</span></a>
+    </aside>
     <header>
         <nav class="navbar">
             <div class="navbar-left">
                 <button class="home-btn" onclick="window.location.href='../index.html'">Inicio</button>
             </div>
             <ul>
-                <li><a href="pareja.html">En pareja</a></li>
-                <li><a href="perros.html">Con perros</a></li>
-                <li><a href="niños.html">Con niños</a></li>
-                <li><a href="escalada.html">Escalada</a></li>
-                <li><a href="skate.html">Skate</a></li>
-                <li><a href="gastronomia.html">Gastronomía</a></li>
-                <li><a href="moto125.html">Aventura</a></li>
-                <li><a href="camper.html">MTB</a></li>
+                <li><a href="../rutas/pareja.html">En pareja</a></li>
+                <li><a href="../rutas/perros.html">Con perros</a></li>
+                <li><a href="../rutas/niños.html" class="active">Con niños</a></li>
+                <li><a href="../rutas/escalada.html">Escalada</a></li>
+                <li><a href="../rutas/skate.html">Skate</a></li>
+                <li><a href="../rutas/gastronomia.html">Gastronomía</a></li>
+                <li><a href="../rutas/moto125.html">Aventura</a></li>
+                <li><a href="../rutas/camper.html">MTB</a></li>
             </ul>
             <div class="navbar-right">
                 <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'">Contáctame</button>
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
             </div>
         </nav>
-        <h1>En pareja</h1>
+        <h1>Rutas con Niños en el País Vasco y Navarra</h1>
     </header>
     <main>
-        <p>Descubre rutas románticas y especiales para disfrutar en pareja por el País Vasco...</p>
+        <section class="route-section">
+            <h2>Álava</h2>
+            <div class="route-card">
+                <h3>Parque Natural de Gorbeia</h3>
+                <p>Ruta fácil hasta las cascadas de Gujuli, perfecta para niños. Disfrutaréis de un paisaje espectacular y podréis ver el salto de agua más alto de Álava.</p>
+                <p><strong>Dificultad:</strong> Fácil | <strong>Duración:</strong> 1.5 horas | <strong>Distancia:</strong> 3 km</p>
+            </div>
+            <div class="route-card">
+                <h3>Salburua - Ataria</h3>
+                <p>Paseo por el humedal de Salburua con centro de interpretación Ataria, ideal para observar aves y aprender sobre la naturaleza.</p>
+                <p><strong>Dificultad:</strong> Muy fácil | <strong>Duración:</strong> 1 hora | <strong>Distancia:</strong> 2 km</p>
+            </div>
+        </section>
+
+        <section class="route-section">
+            <h2>Bizkaia</h2>
+            <div class="route-card">
+                <h3>Monte Pagasarri</h3>
+                <p>Ruta desde Bilbao con sendero accesible para niños. Hay áreas de picnic y fantásticas vistas de la ciudad.</p>
+                <p><strong>Dificultad:</strong> Fácil | <strong>Duración:</strong> 2 horas | <strong>Distancia:</strong> 4 km</p>
+            </div>
+            <div class="route-card">
+                <h3>Playa de Gorliz y senda litoral</h3>
+                <p>Paseo junto al mar con playa incluida. Perfecto para combinar naturaleza y baño en días cálidos.</p>
+                <p><strong>Dificultad:</strong> Muy fácil | <strong>Duración:</strong> 1 hora | <strong>Distancia:</strong> 2.5 km</p>
+            </div>
+            <div class="route-card">
+                <h3>Bosque de Oma</h3>
+                <p>Mágico bosque pintado por Agustín Ibarrola, donde los árboles forman figuras. A los niños les encantará este museo al aire libre.</p>
+                <p><strong>Dificultad:</strong> Fácil | <strong>Duración:</strong> 1.5 horas | <strong>Distancia:</strong> 3 km</p>
+            </div>
+        </section>
+
+        <section class="route-section">
+            <h2>Guipúzcoa</h2>
+            <div class="route-card">
+                <h3>Paseo de los Tilos en Pagoeta</h3>
+                <p>Sendero sombreado entre enormes tilos centenarios, con área recreativa y ferrata infantil.</p>
+                <p><strong>Dificultad:</strong> Fácil | <strong>Duración:</strong> 1 hora | <strong>Distancia:</strong> 2 km</p>
+            </div>
+            <div class="route-card">
+                <h3>Flysch de Zumaia</h3>
+                <p>Ruta geológica por los acantilados que aparecen en Juego de Tronos. Mejor con marea baja.</p>
+                <p><strong>Dificultad:</strong> Media (con precaución) | <strong>Duración:</strong> 2 horas | <strong>Distancia:</strong> 4 km</p>
+            </div>
+            <div class="route-card">
+                <h3>Parque Natural de Aiako Harria</h3>
+                <p>Ruta hasta las minas de Arditurri, con centro de interpretación y paisajes de montaña.</p>
+                <p><strong>Dificultad:</strong> Fácil-media | <strong>Duración:</strong> 2.5 horas | <strong>Distancia:</strong> 5 km</p>
+            </div>
+        </section>
+
+        <section class="route-section">
+            <h2>Navarra</h2>
+            <div class="route-card">
+                <h3>Selva de Irati</h3>
+                <p>Uno de los bosques mejor conservados de Europa, con rutas adaptadas y centros de interpretación.</p>
+                <p><strong>Dificultad:</strong> Fácil-media | <strong>Duración:</strong> 2-3 horas | <strong>Distancia:</strong> 4-6 km</p>
+            </div>
+            <div class="route-card">
+                <h3>Parque de la Naturaleza de Sendaviva</h3>
+                <p>Combinación de parque de atracciones y zoológico, con espectáculos y actividades para niños.</p>
+                <p><strong>Dificultad:</strong> Muy fácil | <strong>Duración:</strong> Todo el día</p>
+            </div>
+            <div class="route-card">
+                <h3>Foces de Lumbier y Arbaiun</h3>
+                <p>Cañones espectaculares con pasarelas seguras y posibilidad de ver buitres.</p>
+                <p><strong>Dificultad:</strong> Fácil | <strong>Duración:</strong> 1.5 horas | <strong>Distancia:</strong> 3 km</p>
+            </div>
+        </section>
+
+        <section class="route-section">
+            <h2>Cantabria</h2>
+            <div class="route-card">
+                <h3>Parque de Cabárceno</h3>
+                <p>Parque natural con animales en semilibertad, rutas en coche y a pie, espectáculos y áreas de juego.</p>
+                <p><strong>Dificultad:</strong> Muy fácil | <strong>Duración:</strong> Todo el día</p>
+            </div>
+            <div class="route-card">
+                <h3>Senda fluvial del Nansa</h3>
+                <p>Paseo junto al río con puentes colgantes y molinos restaurados, ideal para familias.</p>
+                <p><strong>Dificultad:</strong> Fácil | <strong>Duración:</strong> 1.5 horas | <strong>Distancia:</strong> 3 km</p>
+            </div>
+            <div class="route-card">
+                <h3>Cuevas del Soplao</h3>
+                <p>Visita a esta maravilla geológica con formaciones espectaculares que fascinarán a los niños.</p>
+                <p><strong>Dificultad:</strong> Fácil (visita guiada) | <strong>Duración:</strong> 1 hora</p>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <h2>Consejos para rutas con niños</h2>
+            <ul>
+                <li>Lleva siempre agua y snacks energéticos</li>
+                <li>Elige rutas cortas con puntos de interés frecuentes</li>
+                <li>Incluye elementos lúdicos (búsqueda de hojas, piedras, etc.)</li>
+                <li>Prepara ropa de repuesto y protección solar</li>
+                <li>Planifica paradas frecuentes</li>
+                <li>Considera rutas con áreas recreativas o playas</li>
+            </ul>
+        </section>
     </main>
     <footer>
         <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
@@ -50,5 +158,20 @@
         }
     });
     </script>
+    <div id="donate-button-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
+        <div id="donate-button"></div>
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+        <script>
+        PayPal.Donation.Button({
+            env:'production',
+            hosted_button_id:'J29WKUVVJYLDS',
+            image: {
+                src:'https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif',
+                alt:'Donate with PayPal button',
+                title:'PayPal - The safer, easier way to pay online!',
+            }
+        }).render('#donate-button');
+        </script>
+    </div>
 </body>
 </html>
