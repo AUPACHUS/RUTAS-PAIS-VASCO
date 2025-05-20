@@ -1,21 +1,58 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutas de aventura en moto 125 - País Vasco</title>
+    <title>Rutas para Moto 125cc - País Vasco, Navarra y Cantabria</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .moto-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .moto-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .moto-gallery img:hover {
+            transform: scale(1.05);
+        }
+        .road-icon {
+            color: #e74c3c;
+            margin-right: 5px;
+        }
+        .food-icon {
+            color: #27ae60;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
     <div id="background-top"></div>
     <div id="background-bottom"></div>
     <div id="background-image"></div>
+    <!-- Accesos directos a mapas -->
     <aside id="map-sidebar">
-        <a href="https://www.google.com/maps/place/%C3%81lava" target="_blank" title="Mapa de Álava"><img src="../img/mapa_alava.png" alt="Álava" /><span>Álava</span></a>
-        <a href="https://www.google.com/maps/place/Bizkaia" target="_blank" title="Mapa de Bizkaia"><img src="../img/mapa_bizkaia.png" alt="Bizkaia" /><span>Bizkaia</span></a>
-        <a href="https://www.google.com/maps/place/Gipuzkoa" target="_blank" title="Mapa de Gipuzkoa"><img src="../img/mapa_gipuzkoa.png" alt="Gipuzkoa" /><span>Gipuzkoa</span></a>
-        <a href="https://www.google.com/maps/place/Navarra" target="_blank" title="Mapa de Navarra"><img src="../img/mapa_navarra.png" alt="Navarra" /><span>Navarra</span></a>
-        <a href="https://www.google.com/maps/place/Cantabria" target="_blank" title="Mapa de Cantabria"><img src="../img/mapa_cantabria.png" alt="Cantabria" /><span>Cantabria</span></a>
+        <a href="https://www.google.com/maps/place/%C3%81lava" target="_blank" title="Mapa de Álava">
+            <img src="../img/mapa_alava.png" alt="Álava" /><span>Álava</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Bizkaia" target="_blank" title="Mapa de Bizkaia">
+            <img src="../img/mapa_bizkaia.png" alt="Bizkaia" /><span>Bizkaia</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Gipuzkoa" target="_blank" title="Mapa de Gipuzkoa">
+            <img src="../img/mapa_gipuzkoa.png" alt="Gipuzkoa" /><span>Gipuzkoa</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Navarra" target="_blank" title="Mapa de Navarra">
+            <img src="../img/mapa_navarra.png" alt="Navarra" /><span>Navarra</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Cantabria" target="_blank" title="Mapa de Cantabria">
+            <img src="../img/mapa_cantabria.png" alt="Cantabria" /><span>Cantabria</span>
+        </a>
     </aside>
     <header>
         <nav class="navbar">
@@ -23,29 +60,309 @@
                 <button class="home-btn" onclick="window.location.href='../index.html'">Inicio</button>
             </div>
             <ul>
-                <li><a href="pareja.html">En pareja</a></li>
-                <li><a href="perros.html">Con perros</a></li>
-                <li><a href="niños.html">Con niños</a></li>
-                <li><a href="escalada.html">Escalada</a></li>
-                <li><a href="skate.html">Skate</a></li>
-                <li><a href="gastronomia.html">Gastronomía</a></li>
-                <li><a href="moto125.html">Aventura</a></li>
-                <li><a href="camper.html">MTB</a></li>
+                <li><a href="../rutas/pareja.html" data-key="navPareja">En pareja</a></li>
+                <li><a href="../rutas/perros.html" data-key="navPerros">Con perros</a></li>
+                <li><a href="../rutas/niños.html" data-key="navNinos">Con niños</a></li>
+                <li><a href="../rutas/escalada.html" data-key="navEscalada">Escalada</a></li>
+                <li><a href="../rutas/skate.html" data-key="navSkate">Skate</a></li>
+                <li><a href="../rutas/gastronomia.html" data-key="navGastronomia">Gastronomía</a></li>
+                <li><a href="../rutas/moto125.html" data-key="navAventura" class="active">Aventura</a></li>
+                <li><a href="../rutas/camper.html" data-key="navMTB">MTB</a></li>
             </ul>
             <div class="navbar-right">
-                <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'">Contáctame</button>
+                <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'" data-key="contacto">Contáctame</button>
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
             </div>
         </nav>
-        <h1>Rutas de aventura en moto 125</h1>
+        <h1 id="main-title">Rutas para Moto 125cc en el Norte de España</h1>
+        <div id="lang-switcher" style="margin:1em 0; text-align:center;">
+            <button class="lang-btn" data-lang="es" title="Español">🇪🇸</button>
+            <button class="lang-btn" data-lang="eu" title="Euskera">🇪🇺</button>
+            <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+        </div>
     </header>
     <main>
-        <p>Recorre el País Vasco en moto 125cc con estas rutas llenas de aventura.</p>
+        <section class="intro-section">
+            <p data-key="introMoto">Descubre las mejores carreteras para motos 125cc en el País Vasco, Navarra y Cantabria. Rutas con curvas emocionantes pero seguras, y con buenos sitios para parar a comer.</p>
+        </section>
+
+        <section class="route-section">
+            <h2 data-key="bizkaiaTitle">Bizkaia</h2>
+            <div class="route-card moto-card">
+                <h3 data-key="ruta1Title">Circuito de Urkiola</h3>
+                <div class="moto-details">
+                    <p><span class="road-icon">🛣️</span> <strong data-key="ruta">Ruta:</strong> Durango - Urkiola - Atxondo - Elorrio - Durango</p>
+                    <p><span class="road-icon">📏</span> <strong data-key="distancia">Distancia:</strong> 65 km</p>
+                    <p><span class="road-icon">⏱️</span> <strong data-key="duracion">Duración:</strong> 2 horas (sin paradas)</p>
+                    <p><span class="food-icon">🍴</span> <strong data-key="comida">Lugares para comer:</strong> 
+                        <a href="https://goo.gl/maps/XYzABC123" target="_blank">Asador Urkiola</a> (junto al santuario),
+                        <a href="https://goo.gl/maps/XYzABC124" target="_blank">Bar-Restaurante Atxondo</a>
+                    </p>
+                </div>
+                <p data-key="ruta1Desc">Una de las rutas más famosas para moteros en Bizkaia. Carreteras BI-623 y BI-482 con curvas constantes pero no demasiado cerradas, perfectas para 125cc. Paisajes espectaculares del Parque Natural de Urkiola.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d11675.123456789!2d-2.6324567!3d43.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0xd4e4f123456789ab%3A0x1234567890abcdef!2sDurango%2C%20Bizkaia!3m2!1d43.1688888!2d-2.6322222!4m5!1s0xd4e4f123456789ab%3A0x1234567890abcdef!2sSantuario%20de%20Urkiola%2C%20Abadi%C3%B1o!3m2!1d43.1234567!2d-2.6324567!5e0!3m2!1ses!2ses!4v1234567890" width="100%" height="300" style="border:0; border-radius:8px; margin-top:15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section class="route-section">
+            <h2 data-key="gipuzkoaTitle">Gipuzkoa</h2>
+            <div class="route-card moto-card">
+                <h3 data-key="ruta2Title">Costa de Gipuzkoa</h3>
+                <div class="moto-details">
+                    <p><span class="road-icon">🛣️</span> <strong data-key="ruta">Ruta:</strong> Donostia - Zarautz - Zumaia - Deba - Mutriku</p>
+                    <p><span class="road-icon">📏</span> <strong data-key="distancia">Distancia:</strong> 50 km (solo ida)</p>
+                    <p><span class="road-icon">⏱️</span> <strong data-key="duracion">Duración:</strong> 1.5 horas (sin paradas)</p>
+                    <p><span class="food-icon">🍴</span> <strong data-key="comida">Lugares para comer:</strong> 
+                        <a href="https://goo.gl/maps/XYzABC125" target="_blank">Asador Katxipe</a> (Zarautz),
+                        <a href="https://goo.gl/maps/XYzABC126" target="_blank">Restaurante Itsas Etxea</a> (Zumaia)
+                    </p>
+                </div>
+                <p data-key="ruta2Desc">Preciosa ruta costera por la GI-638 y GI-632, con vistas al mar y curvas suaves. Perfecta para disfrutar del paisaje sin exigir demasiado a la moto. Varios miradores para hacer fotos.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d11675.123456789!2d-2.1234567!3d43.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0xd4e4f123456789ab%3A0x1234567890abcdef!2sDonostia-San%20Sebasti%C3%A1n!3m2!1d43.318334!2d-1.9812313!4m5!1s0xd4e4f123456789ab%3A0x1234567890abcdef!2sMutriku%2C%20Gipuzkoa!3m2!1d43.3066667!2d-2.3877778!5e0!3m2!1ses!2ses!4v1234567890" width="100%" height="300" style="border:0; border-radius:8px; margin-top:15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section class="route-section">
+            <h2 data-key="navarraTitle">Navarra</h2>
+            <div class="route-card moto-card">
+                <h3 data-key="ruta3Title">Selva de Irati y Pirineos</h3>
+                <div class="moto-details">
+                    <p><span class="road-icon">🛣️</span> <strong data-key="ruta">Ruta:</strong> Pamplona - Aoiz - Orbaizeta - Selva de Irati - Ochagavía</p>
+                    <p><span class="road-icon">📏</span> <strong data-key="distancia">Distancia:</strong> 120 km (circular)</p>
+                    <p><span class="road-icon">⏱️</span> <strong data-key="duracion">Duración:</strong> 3.5 horas (sin paradas)</p>
+                    <p><span class="food-icon">🍴</span> <strong data-key="comida">Lugares para comer:</strong> 
+                        <a href="https://goo.gl/maps/XYzABC127" target="_blank">Casa Sabina</a> (Orbaizeta),
+                        <a href="https://goo.gl/maps/XYzABC128" target="_blank">Restaurante Andia</a> (Ochagavía)
+                    </p>
+                </div>
+                <p data-key="ruta3Desc">Ruta por la NA-140 y NA-2010 que atraviesa uno de los hayedos más grandes de Europa. Carreteras bien asfaltadas con curvas abiertas, ideales para 125cc. Mucha sombra en verano.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d11675.123456789!2d-1.1234567!3d42.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0xd4e4f123456789ab%3A0x1234567890abcdef!2sPamplona!3m2!1d42.8166667!2d-1.6333333!4m5!1s0xd4e4f123456789ab%3A0x1234567890abcdef!2sOchagav%C3%ADa%2C%20Navarra!3m2!1d42.9055556!2d-1.0902778!5e0!3m2!1ses!2ses!4v1234567890" width="100%" height="300" style="border:0; border-radius:8px; margin-top:15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section class="route-section">
+            <h2 data-key="cantabriaTitle">Cantabria</h2>
+            <div class="route-card moto-card">
+                <h3 data-key="ruta4Title">Desfiladero de La Hermida</h3>
+                <div class="moto-details">
+                    <p><span class="road-icon">🛣️</span> <strong data-key="ruta">Ruta:</strong> San Vicente de la Barquera - Unquera - Panes - Desfiladero de La Hermida - Potes</p>
+                    <p><span class="road-icon">📏</span> <strong data-key="distancia">Distancia:</strong> 70 km (solo ida)</p>
+                    <p><span class="road-icon">⏱️</span> <strong data-key="duracion">Duración:</strong> 2 horas (sin paradas)</p>
+                    <p><span class="food-icon">🍴</span> <strong data-key="comida">Lugares para comer:</strong> 
+                        <a href="https://goo.gl/maps/XYzABC129" target="_blank">Mesón La Cueva</a> (La Hermida),
+                        <a href="https://goo.gl/maps/XYzABC130" target="_blank">Restaurante El Torreón</a> (Potes)
+                    </p>
+                </div>
+                <p data-key="ruta4Desc">Impresionante ruta por la N-621 que recorre el desfiladero junto al río Deva. Túneles y curvas con paredes verticales a ambos lados. Perfecta para motos 125cc aunque con algún tramo de pendiente pronunciada.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d11675.123456789!2d-4.1234567!3d43.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0xd4e4f123456789ab%3A0x1234567890abcdef!2sSan%20Vicente%20de%20la%20Barquera!3m2!1d43.3833333!2d-4.4!4m5!1s0xd4e4f123456789ab%3A0x1234567890abcdef!2sPotes!3m2!1d43.1536111!2d-4.6219444!5e0!3m2!1ses!2ses!4v1234567890" width="100%" height="300" style="border:0; border-radius:8px; margin-top:15px;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section class="tips-section">
+            <h2 data-key="consejosTitle">Consejos para rutas en 125cc</h2>
+            <ul>
+                <li data-key="consejo1">Revisa neumáticos, frenos y cadena antes de salir</li>
+                <li data-key="consejo2">Lleva ropa adecuada aunque haga calor (guantes, chaqueta)</li>
+                <li data-key="consejo3">Planifica paradas cada 60-90 minutos</li>
+                <li data-key="consejo4">Evita autopistas (limitación de 125cc)</li>
+                <li data-key="consejo5">En grupo, mantén distancia de seguridad</li>
+                <li data-key="consejo6">Lleva herramientas básicas y kit de pinchazos</li>
+            </ul>
+        </section>
+
+        <section class="moto-gallery-section">
+            <h2 data-key="galeriaTitle">Motos 125cc típicas para estas rutas</h2>
+            <div class="moto-gallery">
+                <img src="../img/motos/moto1.jpg" alt="Yamaha MT-125" title="Yamaha MT-125">
+                <img src="../img/motos/moto2.jpg" alt="KTM 125 Duke" title="KTM 125 Duke">
+                <img src="../img/motos/moto3.jpg" alt="Honda CB125R" title="Honda CB125R">
+                <img src="../img/motos/moto4.jpg" alt="Suzuki GSX-R125" title="Suzuki GSX-R125">
+                <img src="../img/motos/moto5.jpg" alt="Kawasaki Z125" title="Kawasaki Z125">
+                <img src="../img/motos/moto6.jpg" alt="Aprilia RS 125" title="Aprilia RS 125">
+                <img src="../img/motos/moto7.jpg" alt="Honda CBR125R" title="Honda CBR125R">
+                <img src="../img/motos/moto8.jpg" alt="Yamaha YZF-R125" title="Yamaha YZF-R125">
+                <img src="../img/motos/moto9.jpg" alt="Derbi Senda DRD X-Treme 125" title="Derbi Senda DRD X-Treme 125">
+                <img src="../img/motos/moto10.jpg" alt="Beta RR 125 LC" title="Beta RR 125 LC">
+                <img src="../img/motos/moto11.jpg" alt="Honda Varadero 125" title="Honda Varadero 125">
+                <img src="../img/motos/moto12.jpg" alt="Yamaha XT125X" title="Yamaha XT125X">
+                <img src="../img/motos/moto13.jpg" alt="Sinnis Terrain 125" title="Sinnis Terrain 125">
+                <img src="../img/motos/moto14.jpg" alt="Lexmoto LXR125" title="Lexmoto LXR125">
+                <img src="../img/motos/moto15.jpg" alt="Honda PCX125" title="Honda PCX125">
+                <img src="../img/motos/moto16.jpg" alt="Yamaha NMAX 125" title="Yamaha NMAX 125">
+                <img src="../img/motos/moto17.jpg" alt="Vespa Primavera 125" title="Vespa Primavera 125">
+                <img src="../img/motos/moto18.jpg" alt="Piaggio Beverly 125" title="Piaggio Beverly 125">
+                <img src="../img/motos/moto19.jpg" alt="Kymco Agility 125" title="Kymco Agility 125">
+                <img src="../img/motos/moto20.jpg" alt="Sym Jet 125" title="Sym Jet 125">
+            </div>
+        </section>
     </main>
     <footer>
         <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
     </footer>
     <script src="../js/background.js"></script>
-    <!-- Resto de scripts, como el de PayPal -->
+    <script>
+    // Traducciones específicas para moto125
+    const translations = {
+        es: {
+            mainTitle: "Rutas para Moto 125cc en el Norte de España",
+            introMoto: "Descubre las mejores carreteras para motos 125cc en el País Vasco, Navarra y Cantabria. Rutas con curvas emocionantes pero seguras, y con buenos sitios para parar a comer.",
+            bizkaiaTitle: "Bizkaia",
+            gipuzkoaTitle: "Gipuzkoa",
+            navarraTitle: "Navarra",
+            cantabriaTitle: "Cantabria",
+            ruta1Title: "Circuito de Urkiola",
+            ruta1Desc: "Una de las rutas más famosas para moteros en Bizkaia. Carreteras BI-623 y BI-482 con curvas constantes pero no demasiado cerradas, perfectas para 125cc. Paisajes espectaculares del Parque Natural de Urkiola.",
+            ruta2Title: "Costa de Gipuzkoa",
+            ruta2Desc: "Preciosa ruta costera por la GI-638 y GI-632, con vistas al mar y curvas suaves. Perfecta para disfrutar del paisaje sin exigir demasiado a la moto. Varios miradores para hacer fotos.",
+            ruta3Title: "Selva de Irati y Pirineos",
+            ruta3Desc: "Ruta por la NA-140 y NA-2010 que atraviesa uno de los hayedos más grandes de Europa. Carreteras bien asfaltadas con curvas abiertas, ideales para 125cc. Mucha sombra en verano.",
+            ruta4Title: "Desfiladero de La Hermida",
+            ruta4Desc: "Impresionante ruta por la N-621 que recorre el desfiladero junto al río Deva. Túneles y curvas con paredes verticales a ambos lados. Perfecta para motos 125cc aunque con algún tramo de pendiente pronunciada.",
+            ruta: "Ruta:",
+            distancia: "Distancia:",
+            duracion: "Duración:",
+            comida: "Lugares para comer:",
+            consejosTitle: "Consejos para rutas en 125cc",
+            consejo1: "Revisa neumáticos, frenos y cadena antes de salir",
+            consejo2: "Lleva ropa adecuada aunque haga calor (guantes, chaqueta)",
+            consejo3: "Planifica paradas cada 60-90 minutos",
+            consejo4: "Evita autopistas (limitación de 125cc)",
+            consejo5: "En grupo, mantén distancia de seguridad",
+            consejo6: "Lleva herramientas básicas y kit de pinchazos",
+            galeriaTitle: "Motos 125cc típicas para estas rutas",
+            navPareja: "En pareja",
+            navPerros: "Con perros",
+            navNinos: "Con niños",
+            navEscalada: "Escalada",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomía",
+            navAventura: "Aventura",
+            navMTB: "MTB",
+            contacto: "Contáctame"
+        },
+        eu: {
+            mainTitle: "125cc-ko motoentzako ibilbideak Ipar Euskal Herrian",
+            introMoto: "Ezagutu Euskal Herrian, Nafarroan eta Kantabrian 125cc-ko motoentzako errepide onenak. Kurbak seguruak baina zirraragarriak, eta jateko leku onekin.",
+            bizkaiaTitle: "Bizkaia",
+            gipuzkoaTitle: "Gipuzkoa",
+            navarraTitle: "Nafarroa",
+            cantabriaTitle: "Kantabria",
+            ruta1Title: "Urkiolako zirkuitua",
+            ruta1Desc: "Bizkaiko motoentzako ibilbiderik ospetsuenetako bat. BI-623 eta BI-482 errepideak, etengabeko kurbak baina ez oso itxiak, 125cc-rentzat perfektuak. Urkiolako Parke Naturalaren ikuspegi ikusgarriak.",
+            ruta2Title: "Gipuzkoako kostaldea",
+            ruta2Desc: "GI-638 eta GI-632 errepide ederrak itsasoaren ikuspegiarekin eta kurbak leunekin. Paisaiaz gozatzeko perfektua, motoari gehiegi eskatu gabe. Argazkiak ateratzeko hainbat mirador.",
+            ruta3Title: "Iratiko oihana eta Pirinioak",
+            ruta3Desc: "NA-140 eta NA-2010 errepideak Europako pagadietako handienetako bat zeharkatzen du. Ondo asfaltatutako errepideak, kurbak zabalekin, 125cc-rentzat idealak. Udaran itzal asko.",
+            ruta4Title: "La Hermidako arroila",
+            ruta4Desc: "N-621 errepide ikusgarria Deba ibaiaren ondoan. Tunelak eta kurbak bi aldeetan pareta bertikalekin. 125cc-ko motoentzat egokia, nahiz eta malda handiko tarte batzuk izan.",
+            ruta: "Ibilbidea:",
+            distancia: "Distantzia:",
+            duracion: "Iraupena:",
+            comida: "Jateko lekuak:",
+            consejosTitle: "125cc-ko ibilbideetarako aholkuak",
+            consejo1: "Egiaztatu pneumatikoak, frenoak eta katea irten aurretik",
+            consejo2: "Eraman arropa egokia bero egiten badu ere (eskularruak, txaketa)",
+            consejo3: "Planifikatu geldialdiak 60-90 minuturo",
+            consejo4: "Saihestu autobideak (125cc-ren mugak)",
+            consejo5: "Taldean, mantendu segurtasun distantzia",
+            consejo6: "Eraman tresna oinarriak eta zulaketa kit-a",
+            galeriaTitle: "Ibilbide hauetarako 125cc-ko moto tipikoak",
+            navPareja: "Bikotean",
+            navPerros: "Txakurrekin",
+            navNinos: "Haurrekin",
+            navEscalada: "Eskalada",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomia",
+            navAventura: "Abentura",
+            navMTB: "MTB",
+            contacto: "Kontaktatu"
+        },
+        en: {
+            mainTitle: "Routes for 125cc Motorcycles in Northern Spain",
+            introMoto: "Discover the best roads for 125cc motorcycles in Basque Country, Navarre and Cantabria. Routes with exciting but safe curves, and good places to stop for food.",
+            bizkaiaTitle: "Bizkaia",
+            gipuzkoaTitle: "Gipuzkoa",
+            navarraTitle: "Navarre",
+            cantabriaTitle: "Cantabria",
+            ruta1Title: "Urkiola Circuit",
+            ruta1Desc: "One of the most famous routes for motorcyclists in Bizkaia. BI-623 and BI-482 roads with constant but not too tight curves, perfect for 125cc. Spectacular views of Urkiola Natural Park.",
+            ruta2Title: "Gipuzkoa Coast",
+            ruta2Desc: "Beautiful coastal route along GI-638 and GI-632, with sea views and gentle curves. Perfect to enjoy the scenery without demanding too much from the bike. Several viewpoints for photos.",
+            ruta3Title: "Irati Forest and Pyrenees",
+            ruta3Desc: "Route along NA-140 and NA-2010 that crosses one of the largest beech forests in Europe. Well-paved roads with open curves, ideal for 125cc. Lots of shade in summer.",
+            ruta4Title: "La Hermida Gorge",
+            ruta4Desc: "Impressive route along the N-621 that runs through the gorge next to the Deva river. Tunnels and curves with vertical walls on both sides. Perfect for 125cc bikes although with some steep sections.",
+            ruta: "Route:",
+            distancia: "Distance:",
+            duracion: "Duration:",
+            comida: "Places to eat:",
+            consejosTitle: "Tips for 125cc routes",
+            consejo1: "Check tires, brakes and chain before leaving",
+            consejo2: "Wear proper gear even if it's hot (gloves, jacket)",
+            consejo3: "Plan stops every 60-90 minutes",
+            consejo4: "Avoid highways (125cc limitation)",
+            consejo5: "In group, keep safety distance",
+            consejo6: "Bring basic tools and puncture kit",
+            galeriaTitle: "Typical 125cc motorcycles for these routes",
+            navPareja: "For couples",
+            navPerros: "With dogs",
+            navNinos: "With children",
+            navEscalada: "Climbing",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomy",
+            navAventura: "Adventure",
+            navMTB: "MTB",
+            contacto: "Contact me"
+        }
+    };
+
+    function setLanguage(lang) {
+        document.getElementById('main-title').textContent = translations[lang].mainTitle;
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (translations[lang][key]) {
+                if (el.tagName === 'H2' || el.tagName === 'P' || el.tagName === 'BUTTON') {
+                    el.innerHTML = translations[lang][key];
+                } else {
+                    el.textContent = translations[lang][key];
+                }
+            }
+        });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.getAttribute('data-lang'));
+        });
+    });
+
+    // Dark mode toggle
+    const toggle = document.getElementById('darkmode-toggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('darkmode');
+        if(document.body.classList.contains('darkmode')) {
+            toggle.textContent = '☀️';
+        } else {
+            toggle.textContent = '🌙';
+        }
+    });
+    </script>
+
+    <!-- Botón de donación PayPal fijo abajo a la derecha -->
+    <div id="donate-button-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
+        <div id="donate-button"></div>
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+        <script>
+        PayPal.Donation.Button({
+            env:'production',
+            hosted_button_id:'J29WKUVVJYLDS',
+            image: {
+                src:'https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif',
+                alt:'Donate with PayPal button',
+                title:'PayPal - The safer, easier way to pay online!',
+            }
+        }).render('#donate-button');
+        </script>
+    </div>
 </body>
 </html>
