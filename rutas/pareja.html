@@ -126,6 +126,33 @@
             toggle.textContent = '🌙';
         }
     });
+
+    // Cambia automáticamente la imagen de fondo cada 20 segundos
+    const fondoNaturaleza = [
+        '../img/naturaleza1.jpg',
+        '../img/naturaleza2.jpg',
+        '../img/naturaleza3.jpg',
+        '../img/naturaleza4.jpg',   
+        '../img/naturaleza5.jpg',
+        '../img/naturaleza6.jpg',
+        '../img/naturaleza7.jpg',
+        '../img/naturaleza8.jpg',
+        '../img/naturaleza9.jpg',
+        '../img/naturaleza10.jpg',
+        '../img/naturaleza11.jpg',
+        '../img/naturaleza12.jpg',
+        '../img/naturaleza13.jpg',                  
+         // Añade más imágenes si lo deseas
+        // Añade más si tienes más imágenes
+    ];
+    let fondoIndex = 0;
+    const bgDiv = document.getElementById('background-image');
+    function cambiarFondo() {
+        bgDiv.style.backgroundImage = `url('${fondoNaturaleza[fondoIndex]}')`;
+        fondoIndex = (fondoIndex + 1) % fondoNaturaleza.length;
+    }
+    cambiarFondo();
+    setInterval(cambiarFondo, 20000);
     </script>
     <div id="donate-button-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
         <div id="donate-button"></div>
