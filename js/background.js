@@ -1,4 +1,4 @@
-// Lista de imágenes de fondo (ajusta la cantidad según tus archivos)
+// Lista de imágenes de fondo (ajusta según tus archivos en img/)
 const fondoImagenes = [
     'img/naturaleza1.jpg',
     'img/naturaleza2.jpg',
@@ -17,19 +17,24 @@ const fondoImagenes = [
     // Añade más si tienes más imágenes
 ];
 
+// Crea o selecciona el div para la imagen de fondo expandida
+let bgDiv = document.getElementById('background-image');
+if (!bgDiv) {
+    bgDiv = document.createElement('div');
+    bgDiv.id = 'background-image';
+    document.body.prepend(bgDiv);
+}
+
 function cambiarFondo() {
     const random = Math.floor(Math.random() * fondoImagenes.length);
-    document.body.style.backgroundImage = `url('${fondoImagenes[random]}')`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundRepeat = 'no-repeat';
+    bgDiv.style.backgroundImage = `url('${fondoImagenes[random]}')`;
 }
 
 // Cambia el fondo al cargar la página
 cambiarFondo();
 
-// Cambia el fondo cada minuto (60000 ms)
-setInterval(cambiarFondo, 60000);
+// Cambia el fondo cada 20 segundos (20000 ms)
+setInterval(cambiarFondo, 20000);
 
 // Efecto simple de animación de fondo (puedes personalizarlo)
 document.addEventListener('DOMContentLoaded', () => {
