@@ -3,20 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutas con niños - País Vasco</title>
+    <title>En pareja - Rutas por el País Vasco</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div id="background-top"></div>
     <div id="background-bottom"></div>
-    <div id="background-image"></div>
-    <aside id="map-sidebar">
-        <a href="https://www.google.com/maps/place/%C3%81lava" target="_blank" title="Mapa de Álava"><img src="../img/mapa_alava.png" alt="Álava" /><span>Álava</span></a>
-        <a href="https://www.google.com/maps/place/Bizkaia" target="_blank" title="Mapa de Bizkaia"><img src="../img/mapa_bizkaia.png" alt="Bizkaia" /><span>Bizkaia</span></a>
-        <a href="https://www.google.com/maps/place/Gipuzkoa" target="_blank" title="Mapa de Gipuzkoa"><img src="../img/mapa_gipuzkoa.png" alt="Gipuzkoa" /><span>Gipuzkoa</span></a>
-        <a href="https://www.google.com/maps/place/Navarra" target="_blank" title="Mapa de Navarra"><img src="../img/mapa_navarra.png" alt="Navarra" /><span>Navarra</span></a>
-        <a href="https://www.google.com/maps/place/Cantabria" target="_blank" title="Mapa de Cantabria"><img src="../img/mapa_cantabria.png" alt="Cantabria" /><span>Cantabria</span></a>
-    </aside>
     <header>
         <nav class="navbar">
             <div class="navbar-left">
@@ -37,10 +29,10 @@
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
             </div>
         </nav>
-        <h1>Rutas con niños</h1>
+        <h1>En pareja</h1>
     </header>
     <main>
-        <p>Rutas divertidas y seguras para hacer en familia con niños en el País Vasco.</p>
+        <p>Descubre rutas románticas y especiales para disfrutar en pareja por el País Vasco...</p>
     </main>
     <footer>
         <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
@@ -58,21 +50,5 @@
         }
     });
     </script>
-    <!-- Botón de donación PayPal fijo abajo a la derecha -->
-    <div id="donate-button-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
-        <div id="donate-button"></div>
-        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-        <script>
-        PayPal.Donation.Button({
-            env:'production',
-            hosted_button_id:'J29WKUVVJYLDS',
-            image: {
-                src:'https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif',
-                alt:'Donate with PayPal button',
-                title:'PayPal - The safer, easier way to pay online!',
-            }
-        }).render('#donate-button');
-        </script>
-    </div>
 </body>
 </html>
