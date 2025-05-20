@@ -3,8 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutas MTB y camper - País Vasco</title>
+    <title>Rutas Camper Norte</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script>
+    const translations = {
+      es: {
+        title: "Rutas Camper por el Norte",
+        routes: "Rutas recomendadas",
+        workshops: "Talleres recomendados",
+        sleep: "Dormir gratis",
+        lang: "Idioma"
+      },
+      en: {
+        title: "Camper Routes in the North",
+        routes: "Recommended Routes",
+        workshops: "Recommended Workshops",
+        sleep: "Free Overnight Spots",
+        lang: "Language"
+      },
+      eu: {
+        title: "Iparraldeko Camper Ibilbideak",
+        routes: "Gomendatutako ibilbideak",
+        workshops: "Gomendatutako tailerrak",
+        sleep: "Doan lo egiteko tokiak",
+        lang: "Hizkuntza"
+      }
+    };
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById("page-title").innerText = translations[lang].title;
+      document.getElementById("routes-title").innerText = translations[lang].routes;
+      document.getElementById("workshops-title").innerText = translations[lang].workshops;
+      document.getElementById("sleep-title").innerText = translations[lang].sleep;
+      document.getElementById("lang-label").innerText = translations[lang].lang;
+    }
+    </script>
 </head>
 <body>
     <div id="background-top"></div>
@@ -30,22 +63,127 @@
                 <li><a href="skate.html">Skate</a></li>
                 <li><a href="gastronomia.html">Gastronomía</a></li>
                 <li><a href="moto125.html">Aventura</a></li>
-                <li><a href="camper.html">MTB</a></li>
+                <li><a href="camper.html" class="active">MTB</a></li>
             </ul>
             <div class="navbar-right">
                 <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'">Contáctame</button>
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
             </div>
         </nav>
-        <h1>Rutas MTB y camper</h1>
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <h1 id="page-title" style="margin: 1rem 0;">Rutas Camper por el Norte</h1>
+            <div style="margin: 1rem 0;">
+                <label id="lang-label" for="lang" style="font-weight: bold; margin-right: 0.5rem;">Idioma</label>
+                <select id="lang" onchange="setLanguage(this.value)" style="padding: 0.3rem 0.7rem; border-radius: 4px;">
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="eu">Euskera</option>
+                </select>
+            </div>
+        </div>
     </header>
-    <main>
-        <p>Las mejores rutas para recorrer en MTB o en camper por el País Vasco.</p>
+    <main style="max-width: 1100px; margin: 0 auto; padding: 1rem;">
+        <section>
+            <h2 id="routes-title" class="section-title">Rutas recomendadas</h2>
+            <div class="grid-container">
+                <a href="https://www.rutascamperpaisvasco.com" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">Ruta costera - País Vasco</h3>
+                        <p>Desde Hondarribia hasta Bilbao, bordeando la costa.</p>
+                    </div>
+                </a>
+                <a href="https://www.rutascampercantabria.com" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">Ruta montañesa - Cantabria</h3>
+                        <p>Picos de Europa, Liébana y costa occidental.</p>
+                    </div>
+                </a>
+                <a href="https://www.rutascampernavarra.com" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">Ruta de los bosques - Navarra</h3>
+                        <p>Selva de Irati, Roncesvalles y valle del Baztán.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section style="margin-top: 2rem;">
+            <h2 id="workshops-title" class="section-title">Talleres recomendados</h2>
+            <div class="grid-container">
+                <a href="https://camperizacionbilbao.com" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">Bilbao Camper</h3>
+                        <p>Especialistas en camperización en Bizkaia.</p>
+                    </div>
+                </a>
+                <a href="https://campercantabria.com" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">Cantabria Camper</h3>
+                        <p>Reparaciones y accesorios camper en Santander.</p>
+                    </div>
+                </a>
+                <a href="https://navarravan.com" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">Navarravan</h3>
+                        <p>Conversión integral de furgonetas en Pamplona.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section style="margin-top: 2rem;">
+            <h2 id="sleep-title" class="section-title">Dormir gratis</h2>
+            <div class="grid-container">
+                <a href="https://park4night.com" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">Park4Night</h3>
+                        <p>Explora lugares gratuitos en Euskadi, Cantabria y Navarra.</p>
+                    </div>
+                </a>
+                <a href="https://furgovw.org" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">Furgovw Mapas</h3>
+                        <p>Mapa comunitario de áreas recomendadas para pernoctar.</p>
+                    </div>
+                </a>
+                <a href="https://www.areasac.es" target="_blank" class="card">
+                    <div class="card-content">
+                        <h3 class="font-bold">AreasAc</h3>
+                        <p>Búsqueda avanzada por comunidad y tipo de área.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
     </main>
     <footer>
         <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
     </footer>
     <script src="../js/background.js"></script>
-    <!-- Resto de scripts, como el de PayPal -->
+    <script>
+    // Dark mode toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.getElementById('darkmode-toggle');
+        if(toggle) {
+            toggle.addEventListener('click', () => {
+                document.body.classList.toggle('darkmode');
+                toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙';
+            });
+        }
+    });
+    </script>
+    <!-- Botón de donación PayPal fijo abajo a la derecha -->
+    <div id="donate-button-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
+        <div id="donate-button"></div>
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+        <script>
+        PayPal.Donation.Button({
+            env:'production',
+            hosted_button_id:'J29WKUVVJYLDS',
+            image: {
+                src:'https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif',
+                alt:'Donate with PayPal button',
+                title:'PayPal - The safer, easier way to pay online!',
+            }
+        }).render('#donate-button');
+        </script>
+    </div>
 </body>
 </html>
