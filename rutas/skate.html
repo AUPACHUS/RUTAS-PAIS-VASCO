@@ -3,8 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutas de skate - País Vasco</title>
+    <title>Skateparks del País Vasco</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .skatepark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .skatepark-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .skatepark-card:hover {
+            transform: translateY(-5px);
+        }
+        .skatepark-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .skatepark-info {
+            padding: 15px;
+            text-align: center;
+        }
+        .skatepark-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+        .location-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .location-btn:hover {
+            background: #2980b9;
+        }
+        @media (max-width: 768px) {
+            .skatepark-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="background-top"></div>
@@ -30,10 +81,65 @@
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
             </div>
         </nav>
-        <h1>Rutas de skate</h1>
+        <h1>Skateparks del País Vasco</h1>
     </header>
     <main>
-        <p>Descubre los mejores spots y rutas para practicar skate en el País Vasco.</p>
+        <div class="skatepark-grid">
+
+            <!-- Skatepark 1: Aiete_bowl (San Sebastián) -->
+            <div class="skatepark-card">
+                <img src="../img/skateparkdeaiete_bowl.png" alt="Skatepark de Aiete_bowl" class="skatepark-img">
+                <div class="skatepark-info">
+                    <div class="skatepark-name">Skatepark de Aiete_bowl (San Sebastián)</div>
+                    <a href="https://www.google.com/maps/place/Skatepark+de+Aiete+(bowl)/@43.2983919,-1.9928411,17z/data=!3m1!4b1!4m6!3m5!1s0xd51b01c08934105:0x8be9fe6e394891f2!8m2!3d43.2983919!4d-1.9928411!16s%2Fg%2F11bw4v22f6?hl=es&entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-btn">Ver ubicación</a>
+                </div>
+            </div>
+
+            <!-- Skatepark 2: Pumptrack Zorrotza (Bilbao) -->
+            <div class="skatepark-card">
+                <img src="../img/pumptruck zorrotza.png" alt="Pumptrack Zorrotza" class="skatepark-img">
+                <div class="skatepark-info">
+                    <div class="skatepark-name">Pumptrack Zorrotza (Bilbao)</div>
+                    <a href="https://goo.gl/maps/XYZ456" target="_blank" class="location-btn">Ver ubicación</a>
+                </div>
+            </div>
+
+            <!-- Skatepark 3: Skate Santa Lucía (Vitoria-Gasteiz) -->
+            <div class="skatepark-card">
+                <img src="../img/skateparksantalucia.png" alt="Skate Santa Lucía" class="skatepark-img">
+                <div class="skatepark-info">
+                    <div class="skatepark-name">Skate Santa Lucía (Vitoria-Gasteiz)</div>
+                    <a href="https://www.google.com/maps/place/Skate+Santa+Luc%C3%ADa/@42.844376,-2.6587544,17z/data=!3m1!4b1!4m6!3m5!1s0xd4fc2629d9d7af3:0x81d6b25bc22c67df!8m2!3d42.844376!4d-2.6587544!16s%2Fg%2F11bw47fj_2?hl=es&entry=ttu&g_ep=EgoyMDI1MDUxNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-btn">Ver ubicación</a>
+                </div>
+            </div>
+
+            <!-- Skatepark 4: Barakaldo -->
+            <div class="skatepark-card">
+                <img src="https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Skatepark Barakaldo" class="skatepark-img">
+                <div class="skatepark-info">
+                    <div class="skatepark-name">Skatepark de Barakaldo</div>
+                    <a href="https://goo.gl/maps/XYZ012" target="_blank" class="location-btn">Ver ubicación</a>
+                </div>
+            </div>
+
+            <!-- Skatepark 5: Irun -->
+            <div class="skatepark-card">
+                <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Skatepark Irun" class="skatepark-img">
+                <div class="skatepark-info">
+                    <div class="skatepark-name">Skatepark de Irun</div>
+                    <a href="https://goo.gl/maps/XYZ345" target="_blank" class="location-btn">Ver ubicación</a>
+                </div>
+            </div>
+
+            <!-- Skatepark 6: Eibar -->
+            <div class="skatepark-card">
+                <img src="https://images.unsplash.com/photo-1571140407346-d6f5888a9b9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Skatepark Eibar" class="skatepark-img">
+                <div class="skatepark-info">
+                    <div class="skatepark-name">Skatepark de Eibar</div>
+                    <a href="https://goo.gl/maps/XYZ678" target="_blank" class="location-btn">Ver ubicación</a>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
