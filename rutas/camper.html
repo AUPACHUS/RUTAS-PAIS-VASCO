@@ -1,174 +1,582 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rutas Camper Norte</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script>
-    const translations = {
-      es: {
-        title: "Rutas Camper por el Norte",
-        routes: "Rutas recomendadas",
-        workshops: "Talleres recomendados",
-        sleep: "Dormir gratis",
-        lang: "Idioma"
-      },
-      en: {
-        title: "Camper Routes in the North",
-        routes: "Recommended Routes",
-        workshops: "Recommended Workshops",
-        sleep: "Free Overnight Spots",
-        lang: "Language"
-      },
-      eu: {
-        title: "Iparraldeko Camper Ibilbideak",
-        routes: "Gomendatutako ibilbideak",
-        workshops: "Gomendatutako tailerrak",
-        sleep: "Doan lo egiteko tokiak",
-        lang: "Hizkuntza"
-      }
-    };
-    function setLanguage(lang) {
-      document.documentElement.lang = lang;
-      document.getElementById("page-title").innerText = translations[lang].title;
-      document.getElementById("routes-title").innerText = translations[lang].routes;
-      document.getElementById("workshops-title").innerText = translations[lang].workshops;
-      document.getElementById("sleep-title").innerText = translations[lang].sleep;
-      document.getElementById("lang-label").innerText = translations[lang].lang;
-    }
-    </script>
+    <title>Rutas en Camper por el País Vasco, Cantabria y Navarra</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        body.darkmode {
+            background-color: #222;
+            color: #eee;
+        }
+        
+        .darkmode .cuadro-historia {
+            background-color: #333;
+            color: #eee;
+            border-color: #555;
+        }
+        
+        #background-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #2c3e50;
+            z-index: -1;
+        }
+        
+        #background-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #2c3e50;
+            z-index: -1;
+        }
+        
+        #background-image {
+            position: fixed;
+            top: 150px;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 250px);
+            background-image: url('https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .darkmode .navbar {
+            background-color: rgba(51, 51, 51, 0.9);
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar li {
+            margin: 0 1rem;
+        }
+        
+        .navbar a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .darkmode .navbar a {
+            color: #eee;
+        }
+        
+        .navbar a:hover {
+            color: #e74c3c;
+        }
+        
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .home-btn {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .contact-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .darkmode-btn {
+            background-color: #444;
+            color: white;
+            margin-left: 1rem;
+        }
+        
+        .lang-btn {
+            background-color: transparent;
+            border: 1px solid #ccc;
+            margin: 0 0.2rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        #main-title {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .darkmode #main-title {
+            color: #eee;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .darkmode main {
+            background-color: rgba(51, 51, 51, 0.9);
+        }
+        
+        .cuadro-historia {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cuadro-historia h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .darkmode .cuadro-historia h2 {
+            color: #eee;
+        }
+        
+        .area-section {
+            margin-bottom: 3rem;
+        }
+        
+        .area-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .darkmode .area-title {
+            color: #eee;
+        }
+        
+        .lugar {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .darkmode .lugar {
+            background-color: #444;
+        }
+        
+        .lugar h3 {
+            color: #e74c3c;
+            margin-top: 0;
+        }
+        
+        .lugar p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .gratis {
+            background-color: #e8f5e9;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .darkmode .gratis {
+            background-color: #2e7d32;
+            color: white;
+        }
+        
+        .recomendado {
+            background-color: #e3f2fd;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .darkmode .recomendado {
+            background-color: #0d47a1;
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #2c3e50;
+        }
+        
+        .darkmode footer {
+            color: #eee;
+        }
+        
+        #map-sidebar {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        #map-sidebar a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #2c3e50;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .darkmode #map-sidebar a {
+            background-color: rgba(51, 51, 51, 0.9);
+            color: #eee;
+        }
+        
+        #map-sidebar a:hover {
+            transform: translateX(-5px);
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        #map-sidebar img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        
+        #map-sidebar span {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            #map-sidebar {
+                display: none;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 1rem 0;
+            }
+            
+            .navbar li {
+                margin: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="background-top"></div>
     <div id="background-bottom"></div>
     <div id="background-image"></div>
+    
+    <!-- Accesos directos a mapas -->
     <aside id="map-sidebar">
-        <a href="https://www.google.com/maps/place/%C3%81lava" target="_blank" title="Mapa de Álava"><img src="../img/mapa_alava.png" alt="Álava" /><span>Álava</span></a>
-        <a href="https://www.google.com/maps/place/Bizkaia" target="_blank" title="Mapa de Bizkaia"><img src="../img/mapa_bizkaia.png" alt="Bizkaia" /><span>Bizkaia</span></a>
-        <a href="https://www.google.com/maps/place/Gipuzkoa" target="_blank" title="Mapa de Gipuzkoa"><img src="../img/mapa_gipuzkoa.png" alt="Gipuzkoa" /><span>Gipuzkoa</span></a>
-        <a href="https://www.google.com/maps/place/Navarra" target="_blank" title="Mapa de Navarra"><img src="../img/mapa_navarra.png" alt="Navarra" /><span>Navarra</span></a>
-        <a href="https://www.google.com/maps/place/Cantabria" target="_blank" title="Mapa de Cantabria"><img src="../img/mapa_cantabria.png" alt="Cantabria" /><span>Cantabria</span></a>
+        <a href="https://www.google.com/maps/place/%C3%81lava" target="_blank" title="Mapa de Álava">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Flag_of_%C3%81lava.svg/1200px-Flag_of_%C3%81lava.svg.png" alt="Álava" /><span>Álava</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Bizkaia" target="_blank" title="Mapa de Bizkaia">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_Biscay.svg/1200px-Flag_of_Biscay.svg.png" alt="Bizkaia" /><span>Bizkaia</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Gipuzkoa" target="_blank" title="Mapa de Gipuzkoa">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Flag_of_Gipuzkoa.svg/1200px-Flag_of_Gipuzkoa.svg.png" alt="Gipuzkoa" /><span>Gipuzkoa</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Navarra" target="_blank" title="Mapa de Navarra">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Flag_of_Navarre.svg/1200px-Flag_of_Navarre.svg.png" alt="Navarra" /><span>Navarra</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Cantabria" target="_blank" title="Mapa de Cantabria">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Cantabria.svg/1200px-Flag_of_Cantabria.svg.png" alt="Cantabria" /><span>Cantabria</span>
+        </a>
     </aside>
+    
     <header>
         <nav class="navbar">
             <div class="navbar-left">
-                <button class="home-btn" onclick="window.location.href='../index.html'">Inicio</button>
+                <button class="home-btn" onclick="window.location.href='index.html'">Inicio</button>
             </div>
             <ul>
-                <li><a href="pareja.html">En pareja</a></li>
-                <li><a href="perros.html">Con perros</a></li>
-                <li><a href="niños.html">Con niños</a></li>
-                <li><a href="escalada.html">Escalada</a></li>
-                <li><a href="skate.html">Skate</a></li>
-                <li><a href="gastronomia.html">Gastronomía</a></li>
-                <li><a href="moto125.html">Aventura</a></li>
-                <li><a href="camper.html" class="active">MTB</a></li>
+                <li><a href="rutas/pareja.html">En pareja</a></li>
+                <li><a href="rutas/perros.html">Con perros</a></li>
+                <li><a href="rutas/niños.html">Con niños</a></li>
+                <li><a href="rutas/escalada.html">Escalada</a></li>
+                <li><a href="rutas/skate.html">Skate</a></li>
+                <li><a href="rutas/gastronomia.html">Gastronomía</a></li>
+                <li><a href="rutas/moto125.html">Aventura</a></li>
+                <li><a href="rutas/camper.html">MTB</a></li>
             </ul>
             <div class="navbar-right">
                 <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'">Contáctame</button>
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
             </div>
         </nav>
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-            <h1 id="page-title" style="margin: 1rem 0;">Rutas Camper por el Norte</h1>
-            <div style="margin: 1rem 0;">
-                <label id="lang-label" for="lang" style="font-weight: bold; margin-right: 0.5rem;">Idioma</label>
-                <select id="lang" onchange="setLanguage(this.value)" style="padding: 0.3rem 0.7rem; border-radius: 4px;">
-                    <option value="es">Español</option>
-                    <option value="en">English</option>
-                    <option value="eu">Euskera</option>
-                </select>
-            </div>
+        <h1 id="main-title">Rutas en Camper por el País Vasco, Cantabria y Navarra</h1>
+        <div id="lang-switcher" style="margin:1em 0; text-align:center;">
+            <button class="lang-btn" data-lang="es" title="Español">🇪🇸</button>
+            <button class="lang-btn" data-lang="eu" title="Euskera">🇪🇺</button>
+            <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
         </div>
     </header>
-    <main style="max-width: 1100px; margin: 0 auto; padding: 1rem;">
-        <section>
-            <h2 id="routes-title" class="section-title">Rutas recomendadas</h2>
-            <div class="grid-container">
-                <a href="https://www.rutascamperpaisvasco.com" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">Ruta costera - País Vasco</h3>
-                        <p>Desde Hondarribia hasta Bilbao, bordeando la costa.</p>
-                    </div>
-                </a>
-                <a href="https://www.rutascampercantabria.com" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">Ruta montañesa - Cantabria</h3>
-                        <p>Picos de Europa, Liébana y costa occidental.</p>
-                    </div>
-                </a>
-                <a href="https://www.rutascampernavarra.com" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">Ruta de los bosques - Navarra</h3>
-                        <p>Selva de Irati, Roncesvalles y valle del Baztán.</p>
-                    </div>
-                </a>
+    
+    <main>
+        <p>Descubre los mejores lugares para visitar con tu camper en el norte de España. Encuentra áreas para pernoctar gratuitas, sitios recomendados y toda la información que necesitas para tu aventura sobre ruedas.</p>
+        
+        <div class="area-section">
+            <h2 class="area-title">País Vasco</h2>
+            
+            <div class="lugar">
+                <h3>Playa de Laida (Urdaibai, Bizkaia)</h3>
+                <p><span class="gratis">GRATIS</span> <span class="recomendado">RECOMENDADO</span></p>
+                <p><strong>Ubicación:</strong> Reserva de la Biosfera de Urdaibai</p>
+                <p><strong>Pernocta:</strong> Aparcamiento junto a la playa (máx. 24h)</p>
+                <p><strong>Servicios:</strong> Sin servicios específicos para camper, pero cerca hay restaurantes y baños públicos.</p>
+                <p><strong>Atractivos:</strong> Una de las playas más bonitas de Bizkaia, ideal para surfistas y amantes de la naturaleza.</p>
             </div>
-        </section>
-        <section style="margin-top: 2rem;">
-            <h2 id="workshops-title" class="section-title">Talleres recomendados</h2>
-            <div class="grid-container">
-                <a href="https://camperizacionbilbao.com" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">Bilbao Camper</h3>
-                        <p>Especialistas en camperización en Bizkaia.</p>
-                    </div>
-                </a>
-                <a href="https://campercantabria.com" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">Cantabria Camper</h3>
-                        <p>Reparaciones y accesorios camper en Santander.</p>
-                    </div>
-                </a>
-                <a href="https://navarravan.com" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">Navarravan</h3>
-                        <p>Conversión integral de furgonetas en Pamplona.</p>
-                    </div>
-                </a>
+            
+            <div class="lugar">
+                <h3>Parking de Hondarribia (Gipuzkoa)</h3>
+                <p><span class="gratis">GRATIS</span></p>
+                <p><strong>Ubicación:</strong> Aparcamiento junto al puerto pesquero</p>
+                <p><strong>Pernocta:</strong> Tolerado fuera de temporada alta</p>
+                <p><strong>Servicios:</strong> Sin servicios, pero a 5 minutos del centro histórico.</p>
+                <p><strong>Atractivos:</strong> Precioso casco histórico amurallado y excelente gastronomía vasca.</p>
             </div>
-        </section>
-        <section style="margin-top: 2rem;">
-            <h2 id="sleep-title" class="section-title">Dormir gratis</h2>
-            <div class="grid-container">
-                <a href="https://park4night.com" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">Park4Night</h3>
-                        <p>Explora lugares gratuitos en Euskadi, Cantabria y Navarra.</p>
-                    </div>
-                </a>
-                <a href="https://furgovw.org" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">Furgovw Mapas</h3>
-                        <p>Mapa comunitario de áreas recomendadas para pernoctar.</p>
-                    </div>
-                </a>
-                <a href="https://www.areasac.es" target="_blank" class="card">
-                    <div class="card-content">
-                        <h3 class="font-bold">AreasAc</h3>
-                        <p>Búsqueda avanzada por comunidad y tipo de área.</p>
-                    </div>
-                </a>
+            
+            <div class="lugar">
+                <h3>Área de Laguardia (Álava)</h3>
+                <p><span class="recomendado">RECOMENDADO</span></p>
+                <p><strong>Ubicación:</strong> En las afueras del pueblo medieval</p>
+                <p><strong>Pernocta:</strong> Área específica para autocaravanas (pago módico)</p>
+                <p><strong>Servicios:</strong> Agua, electricidad y vaciado de aguas.</p>
+                <p><strong>Atractivos:</strong> En plena Rioja Alavesa, rodeado de bodegas y paisajes de viñedos.</p>
             </div>
-        </section>
+            
+            <div class="lugar">
+                <h3>Playa de Zarautz (Gipuzkoa)</h3>
+                <p><span class="gratis">GRATIS</span></p>
+                <p><strong>Ubicación:</strong> Aparcamiento junto al paseo marítimo</p>
+                <p><strong>Pernocta:</strong> Tolerado fuera de temporada alta</p>
+                <p><strong>Servicios:</strong> Baños públicos cerca y numerosos restaurantes.</p>
+                <p><strong>Atractivos:</strong> Una de las playas urbanas más largas del País Vasco, famosa por el surf.</p>
+            </div>
+        </div>
+        
+        <div class="area-section">
+            <h2 class="area-title">Cantabria</h2>
+            
+            <div class="lugar">
+                <h3>Playa de Berria (Santoña)</h3>
+                <p><span class="gratis">GRATIS</span> <span class="recomendado">RECOMENDADO</span></p>
+                <p><strong>Ubicación:</strong> Aparcamiento junto a la playa</p>
+                <p><strong>Pernocta:</strong> Tolerado fuera de temporada alta</p>
+                <p><strong>Servicios:</strong> Sin servicios específicos, pero cerca hay restaurantes.</p>
+                <p><strong>Atractivos:</strong> Playa salvaje espectacular, ideal para senderismo y avistamiento de aves.</p>
+            </div>
+            
+            <div class="lugar">
+                <h3>Área de San Vicente de la Barquera</h3>
+                <p><span class="recomendado">RECOMENDADO</span></p>
+                <p><strong>Ubicación:</strong> Junto al puerto pesquero</p>
+                <p><strong>Pernocta:</strong> Área específica para autocaravanas (pago módico)</p>
+                <p><strong>Servicios:</strong> Agua, electricidad y vaciado de aguas.</p>
+                <p><strong>Atractivos:</strong> Pueblo marinero con castillo medieval y excelente marisco.</p>
+            </div>
+            
+            <div class="lugar">
+                <h3>Parking de Cabárceno</h3>
+                <p><span class="gratis">GRATIS</span></p>
+                <p><strong>Ubicación:</strong> Parque de la Naturaleza de Cabárceno</p>
+                <p><strong>Pernocta:</strong> Permitido en parking exterior</p>
+                <p><strong>Servicios:</strong> Sin servicios, pero acceso al parque.</p>
+                <p><strong>Atractivos:</strong> Uno de los parques zoológicos más espectaculares de Europa.</p>
+            </div>
+            
+            <div class="lugar">
+                <h3>Playa de Oyambre (Comillas)</h3>
+                <p><span class="gratis">GRATIS</span></p>
+                <p><strong>Ubicación:</strong> Aparcamiento junto al Parque Natural de Oyambre</p>
+                <p><strong>Pernocta:</strong> Tolerado fuera de temporada alta</p>
+                <p><strong>Servicios:</strong> Sin servicios específicos.</p>
+                <p><strong>Atractivos:</strong> Playa salvaje en entorno natural protegido, cerca de Comillas con su Capricho de Gaudí.</p>
+            </div>
+        </div>
+        
+        <div class="area-section">
+            <h2 class="area-title">Navarra</h2>
+            
+            <div class="lugar">
+                <h3>Área de Ochagavía (Selva de Irati)</h3>
+                <p><span class="recomendado">RECOMENDADO</span></p>
+                <p><strong>Ubicación:</strong> En el pueblo de Ochagavía</p>
+                <p><strong>Pernocta:</strong> Área específica para autocaravanas (gratis)</p>
+                <p><strong>Servicios:</strong> Agua y vaciado de aguas.</p>
+                <p><strong>Atractivos:</strong> Puerta de entrada a la Selva de Irati, uno de los hayedos más grandes de Europa.</p>
+            </div>
+            
+            <div class="lugar">
+                <h3>Parking de Ujué</h3>
+                <p><span class="gratis">GRATIS</span></p>
+                <p><strong>Ubicación:</strong> Aparcamiento superior del pueblo medieval</p>
+                <p><strong>Pernocta:</strong> Tolerado</p>
+                <p><strong>Servicios:</strong> Sin servicios específicos.</p>
+                <p><strong>Atractivos:</strong> Pueblo medieval espectacular con vistas a toda la Navarra media.</p>
+            </div>
+            
+            <div class="lugar">
+                <h3>Área de Bardenas Reales</h3>
+                <p><span class="recomendado">RECOMENDADO</span></p>
+                <p><strong>Ubicación:</strong> Junto al centro de visitantes</p>
+                <p><strong>Pernocta:</strong> Área específica para autocaravanas (pago módico)</p>
+                <p><strong>Servicios:</strong> Agua, electricidad y vaciado de aguas.</p>
+                <p><strong>Atractivos:</strong> Parque natural semidesértico de paisajes lunares, escenario de Juego de Tronos.</p>
+            </div>
+            
+            <div class="lugar">
+                <h3>Parking de Roncesvalles</h3>
+                <p><span class="gratis">GRATIS</span></p>
+                <p><strong>Ubicación:</strong> Aparcamiento del monasterio</p>
+                <p><strong>Pernocta:</strong> Tolerado</p>
+                <p><strong>Servicios:</strong> Sin servicios específicos, pero acceso al albergue de peregrinos.</p>
+                <p><strong>Atractivos:</strong> Punto de inicio del Camino de Santiago en España, entorno histórico y natural.</p>
+            </div>
+        </div>
+        
+        <div class="cuadro-historia">
+            <h2>Consejos para viajar en camper</h2>
+            <p>
+                <strong>Respeto al medio ambiente:</strong> Siempre deja los lugares como los encontraste o mejor. No dejes basura y utiliza los servicios de vaciado adecuados.<br><br>
+                <strong>Normativas locales:</strong> Infórmate sobre las normativas específicas de cada municipio respecto a la pernocta de autocaravanas.<br><br>
+                <strong>Temporada alta:</strong> En verano y puentes, muchas zonas restringen la pernocta. Planifica con antelación.<br><br>
+                <strong>Seguridad:</strong> Evita lugares aislados o poco transitados para pernoctar. Los aparcamientos bien iluminados cerca de zonas urbanas suelen ser más seguros.<br><br>
+                <strong>Apps útiles:</strong> Park4Night, CamperContact y Google Maps son tus mejores aliados para encontrar lugares donde dormir.
+            </p>
+        </div>
     </main>
+    
     <footer>
-        <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
+        <p>© 2023 - Rutas en Camper por el Norte de España</p>
     </footer>
-    <script src="../js/background.js"></script>
+    
     <script>
+    // Traducciones
+    const translations = {
+        es: {
+            mainTitle: "Rutas en Camper por el País Vasco, Cantabria y Navarra",
+            bienvenida: "Descubre los mejores lugares para visitar con tu camper en el norte de España.",
+            navPareja: "En pareja",
+            navPerros: "Con perros",
+            navNinos: "Con niños",
+            navEscalada: "Escalada",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomía",
+            navAventura: "Aventura",
+            navMTB: "MTB",
+            contacto: "Contáctame"
+        },
+        eu: {
+            mainTitle: "Euskal Herria, Kantabria eta Nafarroara Camping-auto bidaiak",
+            bienvenida: "Ezagutu iparraldeko leku onenak zure camping-autoarekin bisitatzeko.",
+            navPareja: "Bikotean",
+            navPerros: "Txakurrekin",
+            navNinos: "Haurrekin",
+            navEscalada: "Eskalada",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomia",
+            navAventura: "Abentura",
+            navMTB: "MTB",
+            contacto: "Kontaktatu"
+        },
+        en: {
+            mainTitle: "Camper Routes in Basque Country, Cantabria and Navarra",
+            bienvenida: "Discover the best places to visit with your camper in northern Spain.",
+            navPareja: "For couples",
+            navPerros: "With dogs",
+            navNinos: "With children",
+            navEscalada: "Climbing",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomy",
+            navAventura: "Adventure",
+            navMTB: "MTB",
+            contacto: "Contact me"
+        }
+    };
+
+    function setLanguage(lang) {
+        document.getElementById('main-title').textContent = translations[lang].mainTitle;
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.getAttribute('data-lang'));
+        });
+    });
+
     // Dark mode toggle
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggle = document.getElementById('darkmode-toggle');
-        if(toggle) {
-            toggle.addEventListener('click', () => {
-                document.body.classList.toggle('darkmode');
-                toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙';
-            });
+    const toggle = document.getElementById('darkmode-toggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('darkmode');
+        if(document.body.classList.contains('darkmode')) {
+            toggle.textContent = '☀️';
+        } else {
+            toggle.textContent = '🌙';
         }
     });
     </script>
+    
     <!-- Botón de donación PayPal fijo abajo a la derecha -->
     <div id="donate-button-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
         <div id="donate-button"></div>
