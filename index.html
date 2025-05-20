@@ -368,5 +368,22 @@
         }
     });
     </script>
+
+    <!-- Botón de donación PayPal fijo abajo a la derecha -->
+    <div id="donate-button-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
+        <div id="donate-button"></div>
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+        <script>
+        PayPal.Donation.Button({
+            env:'production',
+            hosted_button_id:'J29WKUVVJYLDS',
+            image: {
+                src:'https://www.paypalobjects.com/en_US/ES/i/btn/btn_donateCC_LG.gif',
+                alt:'Donate with PayPal button',
+                title:'PayPal - The safer, easier way to pay online!',
+            }
+        }).render('#donate-button');
+        </script>
+    </div>
 </body>
 </html>
