@@ -199,6 +199,67 @@ footer {
     border-top: 6px solid #fff;
 }
 
+/* Sidebar del mapa */
+#map-sidebar {
+    position: fixed;
+    top: 120px;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    background: rgba(255,255,255,0.85);
+    border-radius: 0 12px 12px 0;
+    box-shadow: 2px 2px 12px #0002;
+    padding: 1em 0.5em 1em 0.5em;
+}
+#map-sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 8px;
+    padding: 0.2em 0.5em;
+}
+#map-sidebar a:hover {
+    background: #e30613;
+    color: #fff;
+}
+#map-sidebar img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+#map-sidebar span {
+    min-width: 70px;
+}
+@media (max-width: 700px) {
+    #map-sidebar {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        border-radius: 0 0 12px 12px;
+        box-shadow: none;
+        padding: 0.5em 0;
+        margin-bottom: 1em;
+    }
+    #map-sidebar a {
+        font-size: 0.95em;
+        padding: 0.2em 0.3em;
+    }
+    #map-sidebar img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
 /* Dark mode styles */
 body.darkmode {
     background: #181818 !important;
