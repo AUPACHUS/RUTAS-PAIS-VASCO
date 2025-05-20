@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutas gastronómicas - País Vasco</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="background-top"></div>
+    <div id="background-bottom"></div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <button class="home-btn" onclick="window.location.href='../index.html'">Inicio</button>
+            </div>
+            <ul>
+                <li><a href="pareja.html">En pareja</a></li>
+                <li><a href="perros.html">Con perros</a></li>
+                <li><a href="niños.html">Con niños</a></li>
+                <li><a href="escalada.html">Escalada</a></li>
+                <li><a href="skate.html">Skate</a></li>
+                <li><a href="gastronomia.html">Gastronomía</a></li>
+                <li><a href="moto125.html">Aventura</a></li>
+                <li><a href="camper.html">MTB</a></li>
+            </ul>
+            <div class="navbar-right">
+                <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'">Contáctame</button>
+                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
+            </div>
+        </nav>
+        <h1>Rutas gastronómicas</h1>
+    </header>
+    <main>
+        <p>Saborea la mejor gastronomía vasca con estas rutas culinarias.</p>
+    </main>
+    <footer>
+        <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
+    </footer>
+    <script src="../js/background.js"></script>
+    <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkmode-toggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('darkmode');
+        if(document.body.classList.contains('darkmode')) {
+            toggle.textContent = '☀️';
+        } else {
+            toggle.textContent = '🌙';
+        }
+    });
+    </script>
+</body>
+</html>

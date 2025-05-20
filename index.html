@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutas por el País Vasco</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="background-top"></div>
+    <div id="background-bottom"></div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-left">
+                <button class="home-btn" onclick="window.location.href='index.html'">Inicio</button>
+            </div>
+            <ul>
+                <li><a href="rutas/pareja.html">En pareja</a></li>
+                <li><a href="rutas/perros.html">Con perros</a></li>
+                <li><a href="rutas/niños.html">Con niños</a></li>
+                <li><a href="rutas/escalada.html">Escalada</a></li>
+                <li><a href="rutas/skate.html">Skate</a></li>
+                <li><a href="rutas/gastronomia.html">Gastronomía</a></li>
+                <li><a href="rutas/moto125.html">Aventura</a></li>
+                <li><a href="rutas/camper.html">moto125.html</a></li>
+                <li><a href="rutas/mtb.html">camper.html</a></li>
+            </ul>
+            <div class="navbar-right">
+                <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'">Contáctame</button>
+                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
+            </div>
+        </nav>
+        <h1>Rutas por el País Vasco</h1>
+    </header>
+    <main>
+        <p>Bienvenido a la guía de rutas turísticas del País Vasco.</p>
+        <p>Explora la belleza natural y cultural de esta región a través de nuestras rutas seleccionadas.</p>
+        <p>Ya sea que busques aventuras al aire libre, gastronomía local o actividades para toda la familia, aquí encontrarás lo que necesitas.</p>     
+        <p>Haz clic en los enlaces de arriba para descubrir rutas específicas según tus intereses.</p>
+        <p>¡Disfruta de tu viaje!</p>
+        <p>Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos.</p>
+    </main>
+    <footer>
+        <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
+    </footer>
+    <script src="js/background.js"></script>
+    <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkmode-toggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('darkmode');
+        if(document.body.classList.contains('darkmode')) {
+            toggle.textContent = '☀️';
+        } else {
+            toggle.textContent = '🌙';
+        }
+    });
+    </script>
+</body>
+</html>
