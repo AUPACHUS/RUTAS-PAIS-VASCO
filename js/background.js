@@ -1,41 +1,35 @@
-const images = [
-    "img/naturaleza1.jpg",
-    "img/naturaleza2.jpg",
-    "img/naturaleza3.jpg",
-    "img/naturaleza4.jpg",
-    "img/naturaleza5.jpg",
-    "img/naturaleza6.jpg",
-    "img/naturaleza7.jpg",
-    "img/naturaleza8.jpg",
-    "img/naturaleza9.jpg",
-    "img/naturaleza10.jpg",
-    "img/naturaleza11.jpg",
-    "img/naturaleza12.jpg",
-    "img/naturaleza13.jpg",
-    "img/naturaleza14.jpg",
-    "img/naturaleza15.jpg",
-    "img/naturaleza16.jpg",
-    "img/naturaleza17.jpg",
-    "img/naturaleza18.jpg",
-    "img/naturaleza19.jpg",
-    "img/naturaleza20.jpg"
+// Lista de imágenes de fondo (ajusta la cantidad según tus archivos)
+const fondoImagenes = [
+    'img/naturaleza1.jpg',
+    'img/naturaleza2.jpg',
+    'img/naturaleza3.jpg',
+    'img/naturaleza4.jpg'   ,
+    'img/naturaleza5.jpg',                  
+    'img/naturaleza6.jpg',
+    'img/naturaleza7.jpg',              
+    'img/naturaleza8.jpg',
+    'img/naturaleza9.jpg',  
+    'img/naturaleza10.jpg',
+    'img/naturaleza11.jpg',
+    'img/naturaleza12.jpg',
+    'img/naturaleza13.jpg',
+
+    // Añade más si tienes más imágenes
 ];
 
-function setRandomBackgrounds() {
-    let idx1 = Math.floor(Math.random() * images.length);
-    let idx2;
-    do {
-        idx2 = Math.floor(Math.random() * images.length);
-    } while (idx2 === idx1);
-
-    const topDiv = document.getElementById('background-top');
-    const bottomDiv = document.getElementById('background-bottom');
-    topDiv.style.backgroundImage = `url('${images[idx1]}')`;
-    bottomDiv.style.backgroundImage = `url('${images[idx2]}')`;
+function cambiarFondo() {
+    const random = Math.floor(Math.random() * fondoImagenes.length);
+    document.body.style.backgroundImage = `url('${fondoImagenes[random]}')`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundRepeat = 'no-repeat';
 }
 
-setRandomBackgrounds();
-setInterval(setRandomBackgrounds, 300000); // 5 minutos
+// Cambia el fondo al cargar la página
+cambiarFondo();
+
+// Cambia el fondo cada minuto (60000 ms)
+setInterval(cambiarFondo, 60000);
 
 // Efecto simple de animación de fondo (puedes personalizarlo)
 document.addEventListener('DOMContentLoaded', () => {

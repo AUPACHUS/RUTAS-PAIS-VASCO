@@ -3,9 +3,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
     color: #222;
     transition: background 0.3s, color 0.3s;
+    /* No pongas background: #f4f4f4; aquí */
 }
 
 #background-image {
