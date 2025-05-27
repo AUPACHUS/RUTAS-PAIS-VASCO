@@ -1,12 +1,45 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutas de Escalada - País Vasco y Navarra</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Estilos específicos para las tarjetas de escalada */
+        .escalada-card {
+            /* Asegura que la tarjeta sea un contenedor flexible si es necesario,
+               o ajusta el layout de sus hijos */
+        }
+
+        /* Estilos para el párrafo de descripción que contendrá el botón de mapa */
+        .route-card.escalada-card p[data-key$="Desc"] { /* Selecciona los párrafos de descripción */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Alinea el texto arriba si hay varias líneas */
+            margin-bottom: 1em; /* Espacio debajo del párrafo */
+            padding-bottom: 0.8em;
+            border-bottom: 1px dashed #ccc; /* Separador visual */
+        }
+        .darkmode .route-card.escalada-card p[data-key$="Desc"] {
+             border-bottom-color: #555;
+        }
+
+        .route-card.escalada-card p[data-key$="Desc"] .activity-text { /* Para el texto de la descripción */
+            flex-grow: 1;
+            margin-right: 10px; /* Espacio entre el texto y el botón */
+        }
+
+        /* Clase para los botones de mapa en línea */
+        .map-link-btn-inline {
+            padding: 0.4em 0.7em; /* Un poco más de padding */
+            font-size: 1em; /* Tamaño de fuente del botón */
+            margin-left: auto; /* Empuja el botón a la derecha */
+            flex-shrink: 0; /* Evita que el botón se encoja */
+        }
+    </style>
 </head>
-<body>
+<body class="darkmode">
     <div id="background-top"></div>
     <div id="background-bottom"></div>
     <div id="background-image"></div>
@@ -31,21 +64,21 @@
     <header>
         <nav class="navbar">
             <div class="navbar-left">
-                <button class="home-btn" onclick="window.location.href='../index.html'">Inicio</button>
+                <button class="home-btn" onclick="window.location.href='../index.html'" data-key="navHome">Inicio</button>
             </div>
             <ul>
-                <li><a href="../rutas/pareja.html" data-key="navPareja">En pareja</a></li>
-                <li><a href="../rutas/perros.html" data-key="navPerros">Con perros</a></li>
-                <li><a href="../rutas/niños.html" data-key="navNinos">Con niños</a></li>
-                <li><a href="../rutas/escalada.html" data-key="navEscalada" class="active">Escalada</a></li>
-                <li><a href="../rutas/skate.html" data-key="navSkate">Skate</a></li>
-                <li><a href="../rutas/gastronomia.html" data-key="navGastronomia">Gastronomía</a></li>
-                <li><a href="../rutas/moto125.html" data-key="navAventura">Aventura</a></li>
-                <li><a href="../rutas/camper.html" data-key="navMTB">MTB</a></li>
+                <li><a href="pareja.html" data-key="navPareja">En pareja</a></li>
+                <li><a href="perros.html" data-key="navPerros">Con perros</a></li>
+                <li><a href="niños.html" data-key="navNinos">Con niños</a></li>
+                <li><a href="escalada.html" data-key="navEscalada" class="active">Escalada</a></li>
+                <li><a href="skate.html" data-key="navSkate">Skate</a></li>
+                <li><a href="gastronomia.html" data-key="navGastronomia">Gastronomía</a></li>
+                <li><a href="moto125.html" data-key="navAventura">Aventura</a></li>
+                <li><a href="camper.html" data-key="navMTB">MTB</a></li>
             </ul>
             <div class="navbar-right">
                 <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'" data-key="contacto">Contáctame</button>
-                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
+                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">☀️</button>
             </div>
         </nav>
         <h1 id="main-title">Rutas de Escalada en el País Vasco y Navarra</h1>
@@ -70,12 +103,12 @@
             <h2 data-key="alavaTitle">Álava</h2>
             <div class="route-card escalada-card">
                 <h3 data-key="sierraCantabriaTitle">Sierra de Cantabria - Peña Las Doce</h3>
-                <p data-key="sierraCantabriaDesc">Más de 100 vías de escalada en roca caliza con dificultades desde IV hasta 7b. Zona ideal para escalada deportiva con vistas espectaculares sobre los viñedos de Rioja Alavesa.</p>
+                <p data-key="sierraCantabriaDesc"><span class="activity-text">Más de 100 vías de escalada en roca caliza con dificultades desde IV hasta 7b. Zona ideal para escalada deportiva con vistas espectaculares sobre los viñedos de Rioja Alavesa.</span><a href="https://www.google.com/maps/search/Peña+Las+Doce+Sierra+de+Cantabria" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
                 <div class="escalada-details">
-                    <p><strong data-key="dificultad">Dificultad:</strong> IV a 7b</p>
-                    <p><strong data-key="tipo">Tipo:</strong> Deportiva</p>
-                    <p><strong data-key="acceso">Acceso:</strong> 45 min desde Vitoria-Gasteiz</p>
-                    <p><strong data-key="mejorEpoca">Mejor época:</strong> Primavera y otoño</p>
+                    <p data-key="sierraCantabriaDificultad"><strong>Dificultad:</strong> IV a 7b</p>
+                    <p data-key="sierraCantabriaTipo"><strong>Tipo:</strong> Deportiva</p>
+                    <p data-key="sierraCantabriaAcceso"><strong>Acceso:</strong> 45 min desde Vitoria-Gasteiz</p>
+                    <p data-key="sierraCantabriaMejorEpoca"><strong>Mejor época:</strong> Primavera y otoño</p>
                 </div>
                 <div class="escalada-grade">
                     <span class="grade-label" data-key="grado">Grado:</span>
@@ -88,12 +121,12 @@
             <h2 data-key="bizkaiaTitle">Bizkaia</h2>
             <div class="route-card escalada-card">
                 <h3 data-key="pegoTitle">Pego de Etxauri - Bizkaia</h3>
-                <p data-key="pegoDesc">Sector con más de 50 vías en conglomerado, perfecto para iniciación y escalada clásica. Vías bien equipadas y de longitud media (15-25m).</p>
+                <p data-key="pegoDesc"><span class="activity-text">Sector con más de 50 vías en conglomerado, perfecto para iniciación y escalada clásica. Vías bien equipadas y de longitud media (15-25m).</span><a href="https://www.google.com/maps/search/Pego+de+Etxauri" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
                 <div class="escalada-details">
-                    <p><strong data-key="dificultad">Dificultad:</strong> III a 6c</p>
-                    <p><strong data-key="tipo">Tipo:</strong> Tradicional y deportiva</p>
-                    <p><strong data-key="acceso">Acceso:</strong> 30 min desde Bilbao</p>
-                    <p><strong data-key="mejorEpoca">Mejor época:</strong> Todo el año (evitar verano)</p>
+                    <p data-key="pegoDificultad"><strong>Dificultad:</strong> III a 6c</p>
+                    <p data-key="pegoTipo"><strong>Tipo:</strong> Tradicional y deportiva</p>
+                    <p data-key="pegoAcceso"><strong>Acceso:</strong> 30 min desde Bilbao</p>
+                    <p data-key="pegoMejorEpoca"><strong>Mejor época:</strong> Todo el año (evitar verano)</p>
                 </div>
                 <div class="escalada-grade">
                     <span class="grade-label" data-key="grado">Grado:</span>
@@ -103,12 +136,12 @@
 
             <div class="route-card escalada-card">
                 <h3 data-key="urtzaganTitle">Urtzagan</h3>
-                <p data-key="urtzaganDesc">Uno de los mejores lugares de escalada deportiva en Bizkaia, con más de 200 vías en roca caliza de calidad. Sector bien equipado y mantenido.</p>
+                <p data-key="urtzaganDesc"><span class="activity-text">Uno de los mejores lugares de escalada deportiva en Bizkaia, con más de 200 vías en roca caliza de calidad. Sector bien equipado y mantenido.</span><a href="https://www.google.com/maps/search/Urtzagan+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
                 <div class="escalada-details">
-                    <p><strong data-key="dificultad">Dificultad:</strong> 5a a 8a</p>
-                    <p><strong data-key="tipo">Tipo:</strong> Deportiva</p>
-                    <p><strong data-key="acceso">Acceso:</strong> 40 min desde Bilbao</p>
-                    <p><strong data-key="mejorEpoca">Mejor época:</strong> Primavera y otoño</p>
+                    <p data-key="urtzaganDificultad"><strong>Dificultad:</strong> 5a a 8a</p>
+                    <p data-key="urtzaganTipo"><strong>Tipo:</strong> Deportiva</p>
+                    <p data-key="urtzaganAcceso"><strong>Acceso:</strong> 40 min desde Bilbao</p>
+                    <p data-key="urtzaganMejorEpoca"><strong>Mejor época:</strong> Primavera y otoño</p>
                 </div>
                 <div class="escalada-grade">
                     <span class="grade-label" data-key="grado">Grado:</span>
@@ -121,12 +154,12 @@
             <h2 data-key="gipuzkoaTitle">Gipuzkoa</h2>
             <div class="route-card escalada-card">
                 <h3 data-key="jaizkibelTitle">Jaizkibel</h3>
-                <p data-key="jaizkibelDesc">Escalada en acantilados marinos con vistas al Cantábrico. Más de 150 vías en roca arenisca, incluyendo algunas big walls para escalada de varios largos.</p>
+                <p data-key="jaizkibelDesc"><span class="activity-text">Escalada en acantilados marinos con vistas al Cantábrico. Más de 150 vías en roca arenisca, incluyendo algunas big walls para escalada de varios largos.</span><a href="https://www.google.com/maps/search/Jaizkibel+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
                 <div class="escalada-details">
-                    <p><strong data-key="dificultad">Dificultad:</strong> 4a a 7c</p>
-                    <p><strong data-key="tipo">Tipo:</strong> Tradicional y deportiva</p>
-                    <p><strong data-key="acceso">Acceso:</strong> 20 min desde Donostia-San Sebastián</p>
-                    <p><strong data-key="mejorEpoca">Mejor época:</strong> Verano (brisa marina refrescante)</p>
+                    <p data-key="jaizkibelDificultad"><strong>Dificultad:</strong> 4a a 7c</p>
+                    <p data-key="jaizkibelTipo"><strong>Tipo:</strong> Tradicional y deportiva</p>
+                    <p data-key="jaizkibelAcceso"><strong>Acceso:</strong> 20 min desde Donostia-San Sebastián</p>
+                    <p data-key="jaizkibelMejorEpoca"><strong>Mejor época:</strong> Verano (brisa marina refrescante)</p>
                 </div>
                 <div class="escalada-grade">
                     <span class="grade-label" data-key="grado">Grado:</span>
@@ -139,12 +172,12 @@
             <h2 data-key="navarraTitle">Navarra</h2>
             <div class="route-card escalada-card">
                 <h3 data-key="etxauriTitle">Etxauri</h3>
-                <p data-key="etxauriDesc">Meca de la escalada en Navarra con más de 500 vías en roca caliza. Sector mítico para escalada deportiva y tradicional, con vías de todos los niveles.</p>
+                <p data-key="etxauriDesc"><span class="activity-text">Meca de la escalada en Navarra con más de 500 vías en roca caliza. Sector mítico para escalada deportiva y tradicional, con vías de todos los niveles.</span><a href="https://www.google.com/maps/search/Etxauri+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
                 <div class="escalada-details">
-                    <p><strong data-key="dificultad">Dificultad:</strong> III a 8c</p>
-                    <p><strong data-key="tipo">Tipo:</strong> Tradicional y deportiva</p>
-                    <p><strong data-key="acceso">Acceso:</strong> 30 min desde Pamplona</p>
-                    <p><strong data-key="mejorEpoca">Mejor época:</strong> Primavera y otoño</p>
+                    <p data-key="etxauriDificultad"><strong>Dificultad:</strong> III a 8c</p>
+                    <p data-key="etxauriTipo"><strong>Tipo:</strong> Tradicional y deportiva</p>
+                    <p data-key="etxauriAcceso"><strong>Acceso:</strong> 30 min desde Pamplona</p>
+                    <p data-key="etxauriMejorEpoca"><strong>Mejor época:</strong> Primavera y otoño</p>
                 </div>
                 <div class="escalada-grade">
                     <span class="grade-label" data-key="grado">Grado:</span>
@@ -154,12 +187,12 @@
 
             <div class="route-card escalada-card">
                 <h3 data-key="lezizaTitle">Leziza</h3>
-                <p data-key="lezizaDesc">Sector de escalada deportiva con más de 100 vías bien equipadas en roca caliza. Ideal para escaladores de nivel intermedio.</p>
+                <p data-key="lezizaDesc"><span class="activity-text">Sector de escalada deportiva con más de 100 vías bien equipadas en roca caliza. Ideal para escaladores de nivel intermedio.</span><a href="https://www.google.com/maps/search/Leziza+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
                 <div class="escalada-details">
-                    <p><strong data-key="dificultad">Dificultad:</strong> 5a a 7b</p>
-                    <p><strong data-key="tipo">Tipo:</strong> Deportiva</p>
-                    <p><strong data-key="acceso">Acceso:</strong> 40 min desde Pamplona</p>
-                    <p><strong data-key="mejorEpoca">Mejor época:</strong> Primavera y otoño</p>
+                    <p data-key="lezizaDificultad"><strong>Dificultad:</strong> 5a a 7b</p>
+                    <p data-key="lezizaTipo"><strong>Tipo:</strong> Deportiva</p>
+                    <p data-key="lezizaAcceso"><strong>Acceso:</strong> 40 min desde Pamplona</p>
+                    <p data-key="lezizaMejorEpoca"><strong>Mejor época:</strong> Primavera y otoño</p>
                 </div>
                 <div class="escalada-grade">
                     <span class="grade-label" data-key="grado">Grado:</span>
@@ -172,12 +205,12 @@
             <h2 data-key="cantabriaTitle">Cantabria</h2>
             <div class="route-card escalada-card">
                 <h3 data-key="santaMariaTitle">Santa María de Águilas</h3>
-                <p data-key="santaMariaDesc">Escalada en roca caliza con más de 80 vías equipadas. Sector orientado al sur, ideal para escalar en invierno.</p>
+                <p data-key="santaMariaDesc"><span class="activity-text">Escalada en roca caliza con más de 80 vías equipadas. Sector orientado al sur, ideal para escalar en invierno.</span><a href="https://www.google.com/maps/search/Santa+María+de+Águilas+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
                 <div class="escalada-details">
-                    <p><strong data-key="dificultad">Dificultad:</strong> 4b a 7c</p>
-                    <p><strong data-key="tipo">Tipo:</strong> Deportiva</p>
-                    <p><strong data-key="acceso">Acceso:</strong> 1h desde Santander</p>
-                    <p><strong data-key="mejorEpoca">Mejor época:</strong> Otoño a primavera</p>
+                    <p data-key="santaMariaDificultad"><strong>Dificultad:</strong> 4b a 7c</p>
+                    <p data-key="santaMariaTipo"><strong>Tipo:</strong> Deportiva</p>
+                    <p data-key="santaMariaAcceso"><strong>Acceso:</strong> 1h desde Santander</p>
+                    <p data-key="santaMariaMejorEpoca"><strong>Mejor época:</strong> Otoño a primavera</p>
                 </div>
                 <div class="escalada-grade">
                     <span class="grade-label" data-key="grado">Grado:</span>
@@ -188,32 +221,15 @@
 
         <section class="tips-section">
             <h2 data-key="consejosTitle">Consejos para escalada segura</h2>
-            <ul>
-                <li data-key="consejo1">Revisa siempre el equipo antes de escalar</li>
-                <li data-key="consejo2">Escoge rutas acordes a tu nivel</li>
-                <li data-key="consejo3">Consulta las condiciones meteorológicas</li>
-                <li data-key="consejo4">Lleva suficiente agua y comida</li>
-                <li data-key="consejo5">Informa a alguien de tu ruta prevista</li>
-                <li data-key="consejo6">Respeta las normas de cada zona de escalada</li>
-                <li data-key="consejo7">Considera contratar un guía si eres principiante</li>
+            <ul data-key="listaConsejosEscalada">
+                <!-- Contenido generado por JS -->
             </ul>
         </section>
 
         <section class="resources-section">
             <h2 data-key="recursosTitle">Recursos útiles</h2>
-            <div class="resources-grid">
-                <a href="https://www.fedme.es" target="_blank" class="resource-card" data-key="fedme">
-                    <h3>Federación Española de Montañismo</h3>
-                    <p>Cursos, seguros y normativas</p>
-                </a>
-                <a href="https://www.mendiak.eus" target="_blank" class="resource-card" data-key="mendiak">
-                    <h3>Mendiak</h3>
-                    <p>Guía de escalada en Euskadi</p>
-                </a>
-                <a href="https://www.thecrag.com" target="_blank" class="resource-card" data-key="crag">
-                    <h3>The Crag</h3>
-                    <p>Base de datos mundial de escalada</p>
-                </a>
+            <div class="resources-grid" data-key="listaRecursosEscalada">
+                <!-- Contenido generado por JS -->
             </div>
         </section>
     </main>
@@ -224,10 +240,12 @@
     <script>
     // Traducciones específicas para escalada
     const translations = {
+        // Añade navHome y otros nav links si no están ya en style.css o un script global
         es: {
+            navHome: "Inicio", // Asegúrate de que esta clave exista si el botón de inicio tiene data-key="navHome"
             mainTitle: "Rutas de Escalada en el País Vasco y Navarra",
             introEscalada: "Descubre los mejores lugares para practicar escalada en el norte de España, con rutas para todos los niveles en roca caliza, arenisca y conglomerado.",
-            alavaTitle: "Álava",
+            alavaTitle: "Álava", // Ya existe, pero asegúrate de que esté aquí
             bizkaiaTitle: "Bizkaia",
             gipuzkoaTitle: "Gipuzkoa",
             navarraTitle: "Navarra",
@@ -245,24 +263,74 @@
             lezizaTitle: "Leziza",
             lezizaDesc: "Sector de escalada deportiva con más de 100 vías bien equipadas en roca caliza. Ideal para escaladores de nivel intermedio.",
             santaMariaTitle: "Santa María de Águilas",
-            santaMariaDesc: "Escalada en roca caliza con más de 80 vías equipadas. Sector orientado al sur, ideal para escalar en invierno.",
-            dificultad: "Dificultad:",
-            tipo: "Tipo:",
-            acceso: "Acceso:",
-            mejorEpoca: "Mejor época:",
+            // Modificamos las descripciones para incluir el botón de mapa
+            sierraCantabriaDesc: `<span class="activity-text">Más de 100 vías de escalada en roca caliza con dificultades desde IV hasta 7b. Zona ideal para escalada deportiva con vistas espectaculares sobre los viñedos de Rioja Alavesa.</span><a href="https://www.google.com/maps/search/Peña+Las+Doce+Sierra+de+Cantabria" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            pegoDesc: `<span class="activity-text">Sector con más de 50 vías en conglomerado, perfecto para iniciación y escalada clásica. Vías bien equipadas y de longitud media (15-25m).</span><a href="https://www.google.com/maps/search/Pego+de+Etxauri" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            urtzaganDesc: `<span class="activity-text">Uno de los mejores lugares de escalada deportiva en Bizkaia, con más de 200 vías en roca caliza de calidad. Sector bien equipado y mantenido.</span><a href="https://www.google.com/maps/search/Urtzagan+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            jaizkibelDesc: `<span class="activity-text">Escalada en acantilados marinos con vistas al Cantábrico. Más de 150 vías en roca arenisca, incluyendo algunas big walls para escalada de varios largos.</span><a href="https://www.google.com/maps/search/Jaizkibel+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            etxauriDesc: `<span class="activity-text">Meca de la escalada en Navarra con más de 500 vías en roca caliza. Sector mítico para escalada deportiva y tradicional, con vías de todos los niveles.</span><a href="https://www.google.com/maps/search/Etxauri+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            lezizaDesc: `<span class="activity-text">Sector de escalada deportiva con más de 100 vías bien equipadas en roca caliza. Ideal para escaladores de nivel intermedio.</span><a href="https://www.google.com/maps/search/Leziza+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            santaMariaDesc: `<span class="activity-text">Escalada en roca caliza con más de 80 vías equipadas. Sector orientado al sur, ideal para escalar en invierno.</span><a href="https://www.google.com/maps/search/Santa+María+de+Águilas+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+
+            // Move data-key from <strong> to <p> and include <strong> in translation
+            sierraCantabriaDificultad: "<strong>Dificultad:</strong> IV a 7b",
+            sierraCantabriaTipo: "<strong>Tipo:</strong> Deportiva",
+            sierraCantabriaAcceso: "<strong>Acceso:</strong> 45 min desde Vitoria-Gasteiz",
+            sierraCantabriaMejorEpoca: "<strong>Mejor época:</strong> Primavera y otoño",
+            pegoDificultad: "<strong>Dificultad:</strong> III a 6c",
+            pegoTipo: "<strong>Tipo:</strong> Tradicional y deportiva",
+            pegoAcceso: "<strong>Acceso:</strong> 30 min desde Bilbao",
+            pegoMejorEpoca: "<strong>Mejor época:</strong> Todo el año (evitar verano)",
+            urtzaganDificultad: "<strong>Dificultad:</strong> 5a a 8a",
+            urtzaganTipo: "<strong>Tipo:</strong> Deportiva",
+            urtzaganAcceso: "<strong>Acceso:</strong> 40 min desde Bilbao",
+            urtzaganMejorEpoca: "<strong>Mejor época:</strong> Primavera y otoño",
+            jaizkibelDificultad: "<strong>Dificultad:</strong> 4a a 7c",
+            jaizkibelTipo: "<strong>Tipo:</strong> Tradicional y deportiva",
+            jaizkibelAcceso: "<strong>Acceso:</strong> 20 min desde Donostia-San Sebastián",
+            jaizkibelMejorEpoca: "<strong>Mejor época:</strong> Verano (brisa marina refrescante)",
+            etxauriDificultad: "<strong>Dificultad:</strong> III a 8c",
+            etxauriTipo: "<strong>Tipo:</strong> Tradicional y deportiva",
+            etxauriAcceso: "<strong>Acceso:</strong> 30 min desde Pamplona",
+            etxauriMejorEpoca: "<strong>Mejor época:</strong> Primavera y otoño",
+            lezizaDificultad: "<strong>Dificultad:</strong> 5a a 7b",
+            lezizaTipo: "<strong>Tipo:</strong> Deportiva",
+            lezizaAcceso: "<strong>Acceso:</strong> 40 min desde Pamplona",
+            lezizaMejorEpoca: "<strong>Mejor época:</strong> Primavera y otoño",
+            santaMariaDificultad: "<strong>Dificultad:</strong> 4b a 7c",
+            santaMariaTipo: "<strong>Tipo:</strong> Deportiva",
+            santaMariaAcceso: "<strong>Acceso:</strong> 1h desde Santander",
+            santaMariaMejorEpoca: "<strong>Mejor época:</strong> Otoño a primavera",
             grado: "Grado:",
             consejosTitle: "Consejos para escalada segura",
-            consejo1: "Revisa siempre el equipo antes de escalar",
-            consejo2: "Escoge rutas acordes a tu nivel",
-            consejo3: "Consulta las condiciones meteorológicas",
-            consejo4: "Lleva suficiente agua y comida",
-            consejo5: "Informa a alguien de tu ruta prevista",
-            consejo6: "Respeta las normas de cada zona de escalada",
-            consejo7: "Considera contratar un guía si eres principiante",
+            listaConsejosEscalada: `
+                <li>Revisa siempre el equipo antes de escalar</li>
+                <li>Escoge rutas acordes a tu nivel</li>
+                <li>Consulta las condiciones meteorológicas</li>
+                <li>Lleva suficiente agua y comida</li>
+                <li>Informa a alguien de tu ruta prevista</li>
+                <li>Respeta las normas de cada zona de escalada</li>
+                <li>Considera contratar un guía si eres principiante</li>
+            `,
             recursosTitle: "Recursos útiles",
-            fedme: "Federación Española de Montañismo",
-            mendiak: "Mendiak",
-            crag: "The Crag",
+            listaRecursosEscalada: `
+                <a href="https://www.fedme.es" target="_blank" class="resource-card">
+                    <h3>Federación Española de Montañismo</h3>
+                    <p>Cursos, seguros y normativas</p>
+                </a>
+                <a href="https://www.mendiak.eus" target="_blank" class="resource-card">
+                    <h3>Mendiak</h3>
+                    <p>Guía de escalada en Euskadi</p>
+                </a>
+                <a href="https://www.thecrag.com" target="_blank" class="resource-card">
+                    <h3>The Crag</h3>
+                    <p>Base de datos mundial de escalada</p>
+                </a>
+            `,
+            verEnMapaBtn: "🗺️", // Usamos solo el emoji para el botón
+            titleVerEnMapaBtn: "Ver en Google Maps", // Tooltip para el enlace
+
+            // Navigation links (ensure they are present if used with data-key)
             navPareja: "En pareja",
             navPerros: "Con perros",
             navNinos: "Con niños",
@@ -272,11 +340,13 @@
             navAventura: "Aventura",
             navMTB: "MTB",
             contacto: "Contáctame"
+            // Add other nav keys if needed
         },
         eu: {
+            navHome: "Hasiera",
             mainTitle: "Euskal Herriko eta Nafarroako Eskalada Ibilbideak",
             introEscalada: "Ezagutu Espainiako iparraldeko eskala-lekurik onenak, maila guztietarako ibilbideak kareharrian, hareharrian eta konglomeratuetan.",
-            alavaTitle: "Araba",
+            alavaTitle: "Araba", // Ya existe
             bizkaiaTitle: "Bizkaia",
             gipuzkoaTitle: "Gipuzkoa",
             navarraTitle: "Nafarroa",
@@ -294,24 +364,74 @@
             lezizaTitle: "Leziza",
             lezizaDesc: "Eskala kirolerako sektorea, 100 bide baino gehiago ondo hornituta kareharrian. Maila ertaineko eskalatzaileentzat ideala.",
             santaMariaTitle: "Santa María de Águilas",
-            santaMariaDesc: "Eskalatzea kareharrian, 80 bide baino gehiago hornituta. Hegoaldera begira dagoen sektorea, neguan eskalatzeko ideala.",
-            dificultad: "Zailtasuna:",
-            tipo: "Mota:",
-            acceso: "Sarbidea:",
-            mejorEpoca: "Garairik onena:",
+            // Modificamos las descripciones para incluir el botón de mapa
+            sierraCantabriaDesc: `<span class="activity-text">100 bide baino gehiago kareharrian, IV mailatik 7b-ra. Eskalada kirolerako gune ideal Arabako Errioxako mahastien ikuspegi ederrekin.</span><a href="https://www.google.com/maps/search/Peña+Las+Doce+Sierra+de+Cantabria" target="_blank" rel="noopener noreferrer" title="Ikusi Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            pegoDesc: `<span class="activity-text">50 bide baino gehiago konglomeratuan, hasiberrientzat eta eskala klasikoarentzat perfektua. Ondo hornitutako bideak eta luzera ertaina (15-25m).</span><a href="https://www.google.com/maps/search/Pego+de+Etxauri" target="_blank" rel="noopener noreferrer" title="Ikusi Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            urtzaganDesc: `<span class="activity-text">Bizkaiko eskala kirolerako lekurik onenetakoa, 200 bide baino gehiago kalitatezko kareharrian. Ondo hornitutako eta mantendutako sektorea.</span><a href="https://www.google.com/maps/search/Urtzagan+escalada" target="_blank" rel="noopener noreferrer" title="Ikusi Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            jaizkibelDesc: `<span class="activity-text">Itsaslabarretan eskalatzea Kantauri itsasoaren ikuspegiarekin. 150 bide baino gehiago hareharrian, hainbat luzeratako big walls barne.</span><a href="https://www.google.com/maps/search/Jaizkibel+escalada" target="_blank" rel="noopener noreferrer" title="Ikusi Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            etxauriDesc: `<span class="activity-text">Nafarroako eskala-leku mitikoa, 500 bide baino gehiago kareharrian. Maila guztietarako bideak dituen sektorea eskala kirolerako eta tradizionalerako.</span><a href="https://www.google.com/maps/search/Etxauri+escalada" target="_blank" rel="noopener noreferrer" title="Ikusi Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            lezizaDesc: `<span class="activity-text">Eskala kirolerako sektorea, 100 bide baino gehiago ondo hornituta kareharrian. Maila ertaineko eskalatzaileentzat ideala.</span><a href="https://www.google.com/maps/search/Leziza+escalada" target="_blank" rel="noopener noreferrer" title="Ikusi Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            santaMariaDesc: `<span class="activity-text">Eskalatzea kareharrian, 80 bide baino gehiago hornituta. Hegoaldera begira dagoen sektorea, neguan eskalatzeko ideala.</span><a href="https://www.google.com/maps/search/Santa+María+de+Águilas+escalada" target="_blank" rel="noopener noreferrer" title="Ikusi Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+
+            // Move data-key from <strong> to <p> and include <strong> in translation
+            sierraCantabriaDificultad: "<strong>Zailtasuna:</strong> IV - 7b",
+            sierraCantabriaTipo: "<strong>Mota:</strong> Kirol eskalada",
+            sierraCantabriaAcceso: "<strong>Sarbidea:</strong> Gasteiztik 45 min",
+            sierraCantabriaMejorEpoca: "<strong>Garairik onena:</strong> Udaberria eta udazkena",
+            pegoDificultad: "<strong>Zailtasuna:</strong> III - 6c",
+            pegoTipo: "<strong>Mota:</strong> Tradizionala eta kirol eskalada",
+            pegoAcceso: "<strong>Sarbidea:</strong> Bilbotik 30 min",
+            pegoMejorEpoca: "<strong>Garairik onena:</strong> Urte osoan (uda saihestu)",
+            urtzaganDificultad: "<strong>Zailtasuna:</strong> 5a - 8a",
+            urtzaganTipo: "<strong>Mota:</strong> Kirol eskalada",
+            urtzaganAcceso: "<strong>Sarbidea:</strong> Bilbotik 40 min",
+            urtzaganMejorEpoca: "<strong>Garairik onena:</strong> Udaberria eta udazkena",
+            jaizkibelDificultad: "<strong>Zailtasuna:</strong> 4a - 7c",
+            jaizkibelTipo: "<strong>Mota:</strong> Tradizionala eta kirol eskalada",
+            jaizkibelAcceso: "<strong>Sarbidea:</strong> Donostiatik 20 min",
+            jaizkibelMejorEpoca: "<strong>Garairik onena:</strong> Uda (itsas haize freskagarria)",
+            etxauriDificultad: "<strong>Zailtasuna:</strong> III - 8c",
+            etxauriTipo: "<strong>Mota:</strong> Tradizionala eta kirol eskalada",
+            etxauriAcceso: "<strong>Sarbidea:</strong> Iruñetik 30 min",
+            etxauriMejorEpoca: "<strong>Garairik onena:</strong> Udaberria eta udazkena",
+            lezizaDificultad: "<strong>Zailtasuna:</strong> 5a - 7b",
+            lezizaTipo: "<strong>Mota:</strong> Kirol eskalada",
+            lezizaAcceso: "<strong>Sarbidea:</strong> Iruñetik 40 min",
+            lezizaMejorEpoca: "<strong>Garairik onena:</strong> Udaberria eta udazkena",
+            santaMariaDificultad: "<strong>Zailtasuna:</strong> 4b - 7c",
+            santaMariaTipo: "<strong>Mota:</strong> Kirol eskalada",
+            santaMariaAcceso: "<strong>Sarbidea:</strong> Santanderretik ordu 1",
+            santaMariaMejorEpoca: "<strong>Garairik onena:</strong> Udazkenetik udaberrira",
             grado: "Maila:",
             consejosTitle: "Eskalada segururako aholkuak",
-            consejo1: "Egiaztatu beti ekipamendua eskalatu aurretik",
-            consejo2: "Aukeratu zure mailari dagozkion ibilbideak",
-            consejo3: "Konsultatu eguraldi-baldintzak",
-            consejo4: "Eraman ur eta janari nahikoa",
-            consejo5: "Jakinarazi norbaiti zure aurreikusitako ibilbidea",
-            consejo6: "Errespetatu eskala-gune bakoitzeko arauak",
-            consejo7: "Kontratatu gida bat hasi zara bada",
+            listaConsejosEscalada: `
+                <li>Egiaztatu beti ekipamendua eskalatu aurretik</li>
+                <li>Aukeratu zure mailari dagozkion ibilbideak</li>
+                <li>Konsultatu eguraldi-baldintzak</li>
+                <li>Eraman ur eta janari nahikoa</li>
+                <li>Jakinarazi norbaiti zure aurreikusitako ibilbidea</li>
+                <li>Errespetatu eskala-gune bakoitzeko arauak</li>
+                <li>Kontratatu gida bat hasi zara bada</li>
+            `,
             recursosTitle: "Baliozko baliabideak",
-            fedme: "Espainiako Mendi Federazioa",
-            mendiak: "Mendiak",
-            crag: "The Crag",
+            listaRecursosEscalada: `
+                <a href="https://www.fedme.es" target="_blank" class="resource-card">
+                    <h3>Espainiako Mendi Federazioa</h3>
+                    <p>Ikastaroak, aseguruak eta araudia</p>
+                </a>
+                <a href="https://www.mendiak.eus" target="_blank" class="resource-card">
+                    <h3>Mendiak</h3>
+                    <p>Euskadiko eskalada gida</p>
+                </a>
+                <a href="https://www.thecrag.com" target="_blank" class="resource-card">
+                    <h3>The Crag</h3>
+                    <p>Munduko eskalada datu-basea</p>
+                </a>
+            `,
+            verEnMapaBtn: "🗺️",
+            titleVerEnMapaBtn: "Ikusi Google Maps-en",
+
+            // Navigation links
             navPareja: "Bikotean",
             navPerros: "Txakurrekin",
             navNinos: "Haurrekin",
@@ -321,11 +441,13 @@
             navAventura: "Abentura",
             navMTB: "MTB",
             contacto: "Kontaktatu"
+            // Add other nav keys if needed
         },
         en: {
+            navHome: "Home",
             mainTitle: "Climbing Routes in Basque Country and Navarre",
             introEscalada: "Discover the best climbing spots in northern Spain, with routes for all levels on limestone, sandstone and conglomerate rock.",
-            alavaTitle: "Álava",
+            alavaTitle: "Álava", // Ya existe
             bizkaiaTitle: "Bizkaia",
             gipuzkoaTitle: "Gipuzkoa",
             navarraTitle: "Navarre",
@@ -343,24 +465,74 @@
             lezizaTitle: "Leziza",
             lezizaDesc: "Sport climbing sector with over 100 well-equipped routes on limestone. Ideal for intermediate climbers.",
             santaMariaTitle: "Santa María de Águilas",
-            santaMariaDesc: "Climbing on limestone with over 80 equipped routes. South-facing sector, ideal for winter climbing.",
-            dificultad: "Difficulty:",
-            tipo: "Type:",
-            acceso: "Access:",
-            mejorEpoca: "Best season:",
+            // Modify descriptions to include the map button
+            sierraCantabriaDesc: `<span class="activity-text">Over 100 climbing routes on limestone with difficulties from IV to 7b. Ideal area for sport climbing with spectacular views over the vineyards of Rioja Alavesa.</span><a href="https://www.google.com/maps/search/Peña+Las+Doce+Sierra+de+Cantabria" target="_blank" rel="noopener noreferrer" title="View on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            pegoDesc: `<span class="activity-text">Sector with more than 50 routes on conglomerate, perfect for beginners and classic climbing. Well-equipped routes of medium length (15-25m).</span><a href="https://www.google.com/maps/search/Pego+de+Etxauri" target="_blank" rel="noopener noreferrer" title="View on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            urtzaganDesc: `<span class="activity-text">One of the best sport climbing areas in Bizkaia, with over 200 routes on quality limestone. Well-equipped and maintained sector.</span><a href="https://www.google.com/maps/search/Urtzagan+escalada" target="_blank" rel="noopener noreferrer" title="View on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            jaizkibelDesc: `<span class="activity-text">Climbing on sea cliffs with views of the Cantabrian Sea. Over 150 routes on sandstone, including some big walls for multi-pitch climbing.</span><a href="https://www.google.com/maps/search/Jaizkibel+escalada" target="_blank" rel="noopener noreferrer" title="View on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            etxauriDesc: `<span class="activity-text">Mecca of climbing in Navarre with more than 500 routes on limestone. Legendary sector for sport and traditional climbing, with routes for all levels.</span><a href="https://www.google.com/maps/search/Etxauri+escalada" target="_blank" rel="noopener noreferrer" title="View on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            lezizaDesc: `<span class="activity-text">Sport climbing sector with over 100 well-equipped routes on limestone. Ideal for intermediate climbers.</span><a href="https://www.google.com/maps/search/Leziza+escalada" target="_blank" rel="noopener noreferrer" title="View on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+            santaMariaDesc: `<span class="activity-text">Climbing on limestone with over 80 equipped routes. South-facing sector, ideal for winter climbing.</span><a href="https://www.google.com/maps/search/Santa+María+de+Águilas+escalada" target="_blank" rel="noopener noreferrer" title="View on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>`,
+
+            // Move data-key from <strong> to <p> and include <strong> in translation
+            sierraCantabriaDificultad: "<strong>Difficulty:</strong> IV to 7b",
+            sierraCantabriaTipo: "<strong>Type:</strong> Sport",
+            sierraCantabriaAcceso: "<strong>Access:</strong> 45 min from Vitoria-Gasteiz",
+            sierraCantabriaMejorEpoca: "<strong>Best season:</strong> Spring and autumn",
+            pegoDificultad: "<strong>Difficulty:</strong> III to 6c",
+            pegoTipo: "<strong>Type:</strong> Traditional and sport",
+            pegoAcceso: "<strong>Access:</strong> 30 min from Bilbao",
+            pegoMejorEpoca: "<strong>Best season:</strong> All year (avoid summer)",
+            urtzaganDificultad: "<strong>Difficulty:</strong> 5a to 8a",
+            urtzaganTipo: "<strong>Type:</strong> Sport",
+            urtzaganAcceso: "<strong>Access:</strong> 40 min from Bilbao",
+            urtzaganMejorEpoca: "<strong>Best season:</strong> Spring and autumn",
+            jaizkibelDificultad: "<strong>Difficulty:</strong> 4a to 7c",
+            jaizkibelTipo: "<strong>Type:</strong> Traditional and sport",
+            jaizkibelAcceso: "<strong>Access:</strong> 20 min from Donostia-San Sebastián",
+            jaizkibelMejorEpoca: "<strong>Best season:</strong> Summer (refreshing sea breeze)",
+            etxauriDificultad: "<strong>Difficulty:</strong> III to 8c",
+            etxauriTipo: "<strong>Type:</strong> Traditional and sport",
+            etxauriAcceso: "<strong>Access:</strong> 30 min from Pamplona",
+            etxauriMejorEpoca: "<strong>Best season:</strong> Spring and autumn",
+            lezizaDificultad: "<strong>Difficulty:</strong> 5a to 7b",
+            lezizaTipo: "<strong>Type:</strong> Sport",
+            lezizaAcceso: "<strong>Access:</strong> 40 min from Pamplona",
+            lezizaMejorEpoca: "<strong>Best season:</strong> Spring and autumn",
+            santaMariaDificultad: "<strong>Difficulty:</strong> 4b to 7c",
+            santaMariaTipo: "<strong>Type:</strong> Sport",
+            santaMariaAcceso: "<strong>Access:</strong> 1h from Santander",
+            santaMariaMejorEpoca: "<strong>Best season:</strong> Autumn to spring",
             grado: "Grade:",
             consejosTitle: "Safety tips for climbing",
-            consejo1: "Always check equipment before climbing",
-            consejo2: "Choose routes according to your level",
-            consejo3: "Check weather conditions",
-            consejo4: "Bring enough water and food",
-            consejo5: "Inform someone of your planned route",
-            consejo6: "Respect the rules of each climbing area",
-            consejo7: "Consider hiring a guide if you're a beginner",
+            listaConsejosEscalada: `
+                <li>Always check equipment before climbing</li>
+                <li>Choose routes according to your level</li>
+                <li>Check weather conditions</li>
+                <li>Bring enough water and food</li>
+                <li>Inform someone of your planned route</li>
+                <li>Respect the rules of each climbing area</li>
+                <li>Consider hiring a guide if you're a beginner</li>
+            `,
             recursosTitle: "Useful resources",
-            fedme: "Spanish Mountaineering Federation",
-            mendiak: "Mendiak",
-            crag: "The Crag",
+            listaRecursosEscalada: `
+                <a href="https://www.fedme.es" target="_blank" class="resource-card">
+                    <h3>Spanish Mountaineering Federation</h3>
+                    <p>Courses, insurance and regulations</p>
+                </a>
+                <a href="https://www.mendiak.eus" target="_blank" class="resource-card">
+                    <h3>Mendiak</h3>
+                    <p>Climbing guide in Euskadi</p>
+                </a>
+                <a href="https://www.thecrag.com" target="_blank" class="resource-card">
+                    <h3>The Crag</h3>
+                    <p>World climbing database</p>
+                </a>
+            `,
+            verEnMapaBtn: "🗺️",
+            titleVerEnMapaBtn: "View on Google Maps",
+
+            // Navigation links
             navPareja: "For couples",
             navPerros: "With dogs",
             navNinos: "With children",
@@ -370,18 +542,20 @@
             navAventura: "Adventure",
             navMTB: "MTB",
             contacto: "Contact me"
+            // Add other nav keys if needed
         }
     };
 
     function setLanguage(lang) {
-        document.getElementById('main-title').textContent = translations[lang].mainTitle;
+        document.getElementById('main-title').textContent = translations[lang].mainTitle || translations['es'].mainTitle; // Fallback to Spanish if key is missing
         document.querySelectorAll('[data-key]').forEach(el => {
             const key = el.getAttribute('data-key');
             if (translations[lang][key]) {
-                if (el.tagName === 'H2' || el.tagName === 'P' || el.tagName === 'BUTTON') {
+                // Use innerHTML for elements that might contain HTML tags (like strong, span, a, button)
+                if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'P' || el.tagName === 'BUTTON' || el.tagName === 'UL' || el.tagName === 'DIV' || el.tagName === 'A' || el.tagName === 'SPAN') {
                     el.innerHTML = translations[lang][key];
                 } else {
-                    el.textContent = translations[lang][key];
+                     el.textContent = translations[lang][key]; // Use textContent for simple text nodes
                 }
             }
         });
@@ -393,16 +567,15 @@
         });
     });
 
+    // Set initial language (default to Spanish if browser language not available)
+    // const userLang = navigator.language.split('-')[0] || 'es';
+    // setLanguage(translations[userLang] ? userLang : 'es');
+    // Or simply set a default language
+    setLanguage('es');
+
     // Dark mode toggle
     const toggle = document.getElementById('darkmode-toggle');
-    toggle.addEventListener('click', () => {
-        document.body.classList.toggle('darkmode');
-        if(document.body.classList.contains('darkmode')) {
-            toggle.textContent = '☀️';
-        } else {
-            toggle.textContent = '🌙';
-        }
-    });
+    toggle.addEventListener('click', () => { document.body.classList.toggle('darkmode'); toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙'; });
     </script>
 
     <!-- Botón de donación PayPal fijo abajo a la derecha -->

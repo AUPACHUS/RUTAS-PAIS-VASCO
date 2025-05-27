@@ -38,6 +38,33 @@
         margin-bottom: 1rem;
         font-size: 1.25rem;
     }
+
+    /* Estilos para la lista de actividades destacadas y sus botones de mapa */
+    .cuadro-historia ul[data-key="listaNinosLugares"] li {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; /* Mejor para texto que puede envolver */
+        margin-bottom: 0.8em;
+        padding-bottom: 0.5em;
+        border-bottom: 1px dashed #ccc;
+    }
+    .darkmode .cuadro-historia ul[data-key="listaNinosLugares"] li {
+        border-bottom-color: #555;
+    }
+    .cuadro-historia ul[data-key="listaNinosLugares"] li:last-child {
+        border-bottom: none; /* No border for the last item */
+    }
+
+    .cuadro-historia ul li .activity-text {
+        flex-grow: 1;
+        margin-right: 10px; /* Espacio entre el texto y el botón */
+    }
+
+    .map-link-btn-inline {
+        padding: 0.4em 0.7em; /* Un poco más de padding */
+        font-size: 1em; /* Tamaño de fuente del botón */
+        margin-left: auto; /* Empuja el botón a la derecha */
+    }
 </style>
 <body class="darkmode">
     <div id="background-top"></div>
@@ -87,12 +114,12 @@
         <div class="cuadro-historia">
             <h2 data-key="subtituloNinosLugares">Lugares y Actividades Destacadas</h2>
             <ul data-key="listaNinosLugares">
-                <li><strong>Aquarium de San Sebastián (Gipuzkoa):</strong> Un clásico que nunca falla. Los túneles de tiburones y la variedad de especies marinas fascinarán a niños y adultos.</li>
-                <li><strong>Museo Guggenheim Bilbao con talleres infantiles (Bizkaia):</strong> Muchos museos ofrecen actividades especiales para niños. El Guggenheim es impresionante por fuera y por dentro, y sus talleres son una gran opción.</li>
-                <li><strong>Parque de la Naturaleza de Cabárceno (Cantabria):</strong> Un lugar espectacular donde los animales viven en semilibertad en un entorno natural impresionante.</li>
-                <li><strong>Sendaviva (Navarra):</strong> Parque de aventura y diversión con animales, atracciones y espectáculos.</li>
-                <li><strong>Cuevas de Pozalagua (Bizkaia):</strong> Un viaje al interior de la tierra para descubrir estalactitas excéntricas únicas en el mundo.</li>
-                <li><strong>Monte Igueldo (San Sebastián, Gipuzkoa):</strong> Además de unas vistas espectaculares de la bahía, cuenta con un parque de atracciones con encanto vintage.</li>
+                <!-- El contenido de esta lista se generará mediante JavaScript y las traducciones -->
+                <!-- Ejemplo de cómo se verá un elemento (no poner directamente aquí):
+                <li>
+                    <span class="activity-text"><strong>Aquarium de San Sebastián (Gipuzkoa):</strong> Un clásico que nunca falla...</span>
+                    <a href="URL_MAPA" target="_blank" rel="noopener noreferrer" title="Ver en mapa"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li> -->
             </ul>
         </div>
 
@@ -172,12 +199,30 @@
             introNinos: "El País Vasco, Navarra y Cantabria ofrecen un montón de planes divertidos para disfrutar en familia. ¡Descubre lugares mágicos y actividades inolvidables para los más pequeños!",
             subtituloNinosLugares: "Lugares y Actividades Destacadas",
             listaNinosLugares: `
-                <li><strong>Aquarium de San Sebastián (Gipuzkoa):</strong> Un clásico que nunca falla. Los túneles de tiburones y la variedad de especies marinas fascinarán a niños y adultos.</li>
-                <li><strong>Museo Guggenheim Bilbao con talleres infantiles (Bizkaia):</strong> Muchos museos ofrecen actividades especiales para niños. El Guggenheim es impresionante por fuera y por dentro, y sus talleres son una gran opción.</li>
-                <li><strong>Parque de la Naturaleza de Cabárceno (Cantabria):</strong> Un lugar espectacular donde los animales viven en semilibertad en un entorno natural impresionante.</li>
-                <li><strong>Sendaviva (Navarra):</strong> Parque de aventura y diversión con animales, atracciones y espectáculos.</li>
-                <li><strong>Cuevas de Pozalagua (Bizkaia):</strong> Un viaje al interior de la tierra para descubrir estalactitas excéntricas únicas en el mundo.</li>
-                <li><strong>Parque de Atracciones Monte Igueldo (San Sebastián, Gipuzkoa):</strong> Además de unas vistas espectaculares de la bahía, cuenta con un parque de atracciones con encanto vintage.</li>
+                <li>
+                    <span class="activity-text"><strong>Aquarium de San Sebastián (Gipuzkoa):</strong> Un clásico que nunca falla. Los túneles de tiburones y la variedad de especies marinas fascinarán a niños y adultos.</span>
+                    <a href="https://www.google.com/maps/search/Aquarium+San+Sebastián" target="_blank" rel="noopener noreferrer" title="Ver Aquarium en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Museo Guggenheim Bilbao con talleres infantiles (Bizkaia):</strong> Muchos museos ofrecen actividades especiales para niños. El Guggenheim es impresionante por fuera y por dentro, y sus talleres son una gran opción.</span>
+                    <a href="https://www.google.com/maps/search/Museo+Guggenheim+Bilbao" target="_blank" rel="noopener noreferrer" title="Ver Guggenheim en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Parque de la Naturaleza de Cabárceno (Cantabria):</strong> Un lugar espectacular donde los animales viven en semilibertad en un entorno natural impresionante.</span>
+                    <a href="https://www.google.com/maps/search/Parque+de+la+Naturaleza+de+Cabárceno" target="_blank" rel="noopener noreferrer" title="Ver Cabárceno en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Sendaviva (Navarra):</strong> Parque de aventura y diversión con animales, atracciones y espectáculos.</span>
+                    <a href="https://www.google.com/maps/search/Sendaviva+Arguedas" target="_blank" rel="noopener noreferrer" title="Ver Sendaviva en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Cuevas de Pozalagua (Bizkaia):</strong> Un viaje al interior de la tierra para descubrir estalactitas excéntricas únicas en el mundo.</span>
+                    <a href="https://www.google.com/maps/search/Cuevas+de+Pozalagua+Karrantza" target="_blank" rel="noopener noreferrer" title="Ver Cuevas de Pozalagua en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Parque de Atracciones Monte Igueldo (San Sebastián, Gipuzkoa):</strong> Además de unas vistas espectaculares de la bahía, cuenta con un parque de atracciones con encanto vintage.</span>
+                    <a href="https://www.google.com/maps/search/Parque+de+Atracciones+Monte+Igueldo" target="_blank" rel="noopener noreferrer" title="Ver Monte Igueldo en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
             `,
             subtituloNinosSenderismo: "Rutas de Senderismo Fáciles para Niños",
             descNinosSenderismo: "Explora la naturaleza con estas sencillas rutas, perfectas para iniciar a los más pequeños en el senderismo y disfrutar de paisajes increíbles en familia.",
@@ -215,12 +260,30 @@
             introNinos: "Euskal Herriak, Nafarroak eta Kantauriak familian gozatzeko plan dibertigarri ugari eskaintzen dituzte. Ezagutu leku magikoak eta jarduera ahaztezinak txikienentzat!",
             subtituloNinosLugares: "Leku eta Jarduera Nabarmenak",
             listaNinosLugares: `
-                <li><strong>Donostiako Aquariuma (Gipuzkoa):</strong> Inoiz huts egiten ez duen klasikoa. Marrazoen tunelak eta itsas espezieen aniztasunak haurrak eta helduak liluratuko ditu.</li>
-                <li><strong>Bilboko Guggenheim Museoa haurrentzako tailerrekin (Bizkaia):</strong> Museo askok haurrentzako jarduera bereziak eskaintzen dituzte. Guggenheim ikusgarria da kanpotik eta barrutik, eta bertako tailerrak aukera bikaina dira.</li>
-                <li><strong>Cabarcenoko Natur Parkea (Kantabria):</strong> Animaliak erdi-askatasunean bizi diren leku ikusgarria, ingurune natural paregabean.</li>
-                <li><strong>Sendaviva (Nafarroa):</strong> Abentura eta dibertsio parkea, animaliekin, atrakzioekin eta ikuskizunekin.</li>
-                <li><strong>Pozalaguako Haitzuloak (Bizkaia):</strong> Lurraren barrenetara bidaia, munduan bakarrak diren estalaktita eszentrikoak ezagutzeko.</li>
-                <li><strong>Igeldoko Mendiko Jolas Parkea (Donostia, Gipuzkoa):</strong> Badiako ikuspegi zoragarriez gain, xarma handiko jolas-parke bat du.</li>
+                <li>
+                    <span class="activity-text"><strong>Donostiako Aquariuma (Gipuzkoa):</strong> Inoiz huts egiten ez duen klasikoa. Marrazoen tunelak eta itsas espezieen aniztasunak haurrak eta helduak liluratuko ditu.</span>
+                    <a href="https://www.google.com/maps/search/Aquarium+San+Sebastián" target="_blank" rel="noopener noreferrer" title="Ikusi Aquarium Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Bilboko Guggenheim Museoa haurrentzako tailerrekin (Bizkaia):</strong> Museo askok haurrentzako jarduera bereziak eskaintzen dituzte. Guggenheim ikusgarria da kanpotik eta barrutik, eta bertako tailerrak aukera bikaina dira.</span>
+                    <a href="https://www.google.com/maps/search/Museo+Guggenheim+Bilbao" target="_blank" rel="noopener noreferrer" title="Ikusi Guggenheim Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Cabarcenoko Natur Parkea (Kantabria):</strong> Animaliak erdi-askatasunean bizi diren leku ikusgarria, ingurune natural paregabean.</span>
+                    <a href="https://www.google.com/maps/search/Parque+de+la+Naturaleza+de+Cabárceno" target="_blank" rel="noopener noreferrer" title="Ikusi Cabárceno Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Sendaviva (Nafarroa):</strong> Abentura eta dibertsio parkea, animaliekin, atrakzioekin eta ikuskizunekin.</span>
+                    <a href="https://www.google.com/maps/search/Sendaviva+Arguedas" target="_blank" rel="noopener noreferrer" title="Ikusi Sendaviva Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Pozalaguako Haitzuloak (Bizkaia):</strong> Lurraren barrenetara bidaia, munduan bakarrak diren estalaktita eszentrikoak ezagutzeko.</span>
+                    <a href="https://www.google.com/maps/search/Cuevas+de+Pozalagua+Karrantza" target="_blank" rel="noopener noreferrer" title="Ikusi Pozalaguako Haitzuloak Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Igeldoko Mendiko Jolas Parkea (Donostia, Gipuzkoa):</strong> Badiako ikuspegi zoragarriez gain, xarma handiko jolas-parke bat du.</span>
+                    <a href="https://www.google.com/maps/search/Parque+de+Atracciones+Monte+Igueldo" target="_blank" rel="noopener noreferrer" title="Ikusi Igeldoko Mendia Google Maps-en"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
             `,
             subtituloNinosSenderismo: "Haurrentzako Mendi Ibilbide Errazak",
             descNinosSenderismo: "Arakatu natura ibilbide erraz hauekin, txikienak mendizaletasunean hasteko eta familian paisaia ikaragarriez gozatzeko ezin hobeak.",
@@ -258,12 +321,30 @@
             introNinos: "The Basque Country, Navarre, and Cantabria offer plenty of fun plans to enjoy as a family. Discover magical places and unforgettable activities for the little ones!",
             subtituloNinosLugares: "Featured Places and Activities",
             listaNinosLugares: `
-                <li><strong>San Sebastián Aquarium (Gipuzkoa):</strong> A classic that never fails. The shark tunnels and variety of marine species will fascinate children and adults alike.</li>
-                <li><strong>Guggenheim Museum Bilbao with children's workshops (Bizkaia):</strong> Many museums offer special activities for children. The Guggenheim is impressive inside and out, and its workshops are a great option.</li>
-                <li><strong>Cabárceno Nature Park (Cantabria):</strong> A spectacular place where animals live in semi-freedom in an impressive natural environment.</li>
-                <li><strong>Sendaviva (Navarre):</strong> Adventure and amusement park with animals, attractions, and shows.</li>
-                <li><strong>Pozalagua Caves (Bizkaia):</strong> A journey into the earth to discover eccentric stalactites unique in the world.</li>
-                <li><strong>Monte Igueldo Amusement Park (San Sebastián, Gipuzkoa):</strong> In addition to spectacular views of the bay, it has a charming vintage amusement park.</li>
+                <li>
+                    <span class="activity-text"><strong>San Sebastián Aquarium (Gipuzkoa):</strong> A classic that never fails. The shark tunnels and variety of marine species will fascinate children and adults alike.</span>
+                    <a href="https://www.google.com/maps/search/Aquarium+San+Sebastián" target="_blank" rel="noopener noreferrer" title="View Aquarium on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Guggenheim Museum Bilbao with children's workshops (Bizkaia):</strong> Many museums offer special activities for children. The Guggenheim is impressive inside and out, and its workshops are a great option.</span>
+                    <a href="https://www.google.com/maps/search/Museo+Guggenheim+Bilbao" target="_blank" rel="noopener noreferrer" title="View Guggenheim on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Cabárceno Nature Park (Cantabria):</strong> A spectacular place where animals live in semi-freedom in an impressive natural environment.</span>
+                    <a href="https://www.google.com/maps/search/Parque+de+la+Naturaleza+de+Cabárceno" target="_blank" rel="noopener noreferrer" title="View Cabárceno on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Sendaviva (Navarre):</strong> Adventure and amusement park with animals, attractions, and shows.</span>
+                    <a href="https://www.google.com/maps/search/Sendaviva+Arguedas" target="_blank" rel="noopener noreferrer" title="View Sendaviva on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Pozalagua Caves (Bizkaia):</strong> A journey into the earth to discover eccentric stalactites unique in the world.</span>
+                    <a href="https://www.google.com/maps/search/Cuevas+de+Pozalagua+Karrantza" target="_blank" rel="noopener noreferrer" title="View Pozalagua Caves on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
+                <li>
+                    <span class="activity-text"><strong>Monte Igueldo Amusement Park (San Sebastián, Gipuzkoa):</strong> In addition to spectacular views of the bay, it has a charming vintage amusement park.</span>
+                    <a href="https://www.google.com/maps/search/Parque+de+Atracciones+Monte+Igueldo" target="_blank" rel="noopener noreferrer" title="View Monte Igueldo on Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a>
+                </li>
             `,
             subtituloNinosSenderismo: "Easy Hiking Trails for Kids",
             descNinosSenderismo: "Explore nature with these simple trails, perfect for introducing little ones to hiking and enjoying incredible family landscapes.",
