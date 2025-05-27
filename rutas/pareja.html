@@ -20,30 +20,36 @@
     <header>
         <nav class="navbar">
             <div class="navbar-left">
-                <button class="home-btn" onclick="window.location.href='../index.html'">Rutas País Vasco</button>
+                <button class="home-btn" onclick="window.location.href='../index.html'" data-key="navHome">Inicio</button>
             </div>
             <ul>
-                <li><a href="pareja.html">En pareja</a></li>
-                <li><a href="perros.html">Con perros</a></li>
-                <li><a href="niños.html">Con niños</a></li>
-                <li><a href="escalada.html">Escalada</a></li>
-                <li><a href="skate.html">Skate</a></li>
-                <li><a href="gastronomia.html">Gastronomía</a></li>
-                <li><a href="moto125.html">Aventura</a></li>
-                <li><a href="camper.html">MTB</a></li>
+                <li><a href="pareja.html" class="active" data-key="navPareja">En pareja</a></li>
+                <li><a href="perros.html" data-key="navPerros">Con perros</a></li>
+                <li><a href="niños.html" data-key="navNinos">Con niños</a></li>
+                <li><a href="escalada.html" data-key="navEscalada">Escalada</a></li>
+                <li><a href="skate.html" data-key="navSkate">Skate</a></li>
+                <li><a href="gastronomia.html" data-key="navGastronomia">Gastronomía</a></li>
+                <li><a href="moto125.html" data-key="navAventura">Aventura</a></li>
+                <li><a href="camper.html" data-key="navMTB">MTB</a></li>
             </ul>
             <div class="navbar-right">
-                <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'">Contáctame</button>
+                <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'" data-key="contacto">Contáctame</button>
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
             </div>
         </nav>
-        <h1>Rutas en pareja</h1>
+        <h1 id="main-title" data-key="mainTitlePareja">Rutas en pareja</h1>
+        <div id="lang-switcher" style="margin:1em 0; text-align:center;">
+            <button class="lang-btn" data-lang="es" title="Español">🇪🇸</button>
+            <button class="lang-btn" data-lang="eu" title="Euskera">🇪🇺</button>
+            <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
+            <!-- Podrías añadir más idiomas si es necesario, como en index.html -->
+        </div>
     </header>
     <main>
-     <p>Descubre las mejores rutas románticas para disfrutar en pareja por el País Vasco.</p>
+     <p data-key="introPareja">Descubre las mejores rutas románticas para disfrutar en pareja por el País Vasco.</p>
         <div class="cuadro-historia">
-            <h2>El País Vasco en pareja: ideas y rincones románticos</h2>
-            <p>
+            <h2 data-key="subtituloPareja">El País Vasco en pareja: ideas y rincones románticos</h2>
+            <p data-key="descPareja1">
                 El País Vasco es un destino ideal para parejas, con una mezcla de paisajes espectaculares, pueblos con encanto, gastronomía exquisita y rincones románticos. Aquí tienes algunas ideas para visitar en pareja:
             </p>
             <ol>
@@ -98,16 +104,16 @@
                     Balneario de Araxa (Álava) o Balneario de La Perla (San Sebastián): Para un día de relax juntos.
                 </li>
             </ol>
-            <h3>Experiencias gastronómicas para parejas</h3>
+            <h3 data-key="gastroParejaTitulo">Experiencias gastronómicas para parejas</h3>
             <ul>
-                <li>Cena en un asador tradicional (como Asador Etxebarri en Axpe).</li>
-                <li>Degustación de pintxos en San Sebastián.</li>
-                <li>Menú degustación en un restaurante con estrella Michelin (como Azurmendi o Arzak).</li>
+                <li data-key="gastroPareja1">Cena en un asador tradicional (como Asador Etxebarri en Axpe).</li>
+                <li data-key="gastroPareja2">Degustación de pintxos en San Sebastián.</li>
+                <li data-key="gastroPareja3">Menú degustación en un restaurante con estrella Michelin (como Azurmendi o Arzak).</li>
             </ul>
-            <p>
+            <p data-key="descPareja2">
                 El País Vasco ofrece una combinación perfecta de naturaleza, cultura y gastronomía, ideal para una escapada romántica. ¿Buscas algo más activo, tranquilo o gourmet?
             </p>
-            <p><strong>¡Disfruten del viaje! 💑✨</strong></p>
+            <p><strong data-key="despedidaPareja">¡Disfruten del viaje! 💑✨</strong></p>
         
         <!-- CONTENIDO DE LA SECCIÓN EN PAREJA AQUÍ -->
     </main>
@@ -116,6 +122,98 @@
     </footer>
     <script src="../js/background.js"></script>
     <script>
+    // Traducciones
+    const translations = {
+        es: {
+            navHome: "Inicio",
+            navPareja: "En pareja",
+            navPerros: "Con perros",
+            navNinos: "Con niños",
+            navEscalada: "Escalada",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomía",
+            navAventura: "Aventura",
+            navMTB: "MTB",
+            contacto: "Contáctame",
+            mainTitlePareja: "Rutas en pareja",
+            introPareja: "Descubre las mejores rutas románticas para disfrutar en pareja por el País Vasco.",
+            subtituloPareja: "El País Vasco en pareja: ideas y rincones románticos",
+            descPareja1: "El País Vasco es un destino ideal para parejas, con una mezcla de paisajes espectaculares, pueblos con encanto, gastronomía exquisita y rincones románticos. Aquí tienes algunas ideas para visitar en pareja:",
+            gastroParejaTitulo: "Experiencias gastronómicas para parejas",
+            gastroPareja1: "Cena en un asador tradicional (como Asador Etxebarri en Axpe).",
+            gastroPareja2: "Degustación de pintxos en San Sebastián.",
+            gastroPareja3: "Menú degustación en un restaurante con estrella Michelin (como Azurmendi o Arzak).",
+            descPareja2: "El País Vasco ofrece una combinación perfecta de naturaleza, cultura y gastronomía, ideal para una escapada romántica. ¿Buscas algo más activo, tranquilo o gourmet?",
+            despedidaPareja: "¡Disfruten del viaje! 💑✨"
+        },
+        eu: {
+            navHome: "Hasiera",
+            navPareja: "Bikotean",
+            navPerros: "Txakurrekin",
+            navNinos: "Haurrekin",
+            navEscalada: "Eskalada",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomia",
+            navAventura: "Abentura",
+            navMTB: "MTB",
+            contacto: "Kontaktatu",
+            mainTitlePareja: "Ibilbideak bikotean",
+            introPareja: "Ezagutu Euskal Herrian bikotean gozatzeko ibilbide erromantiko onenak.",
+            subtituloPareja: "Euskal Herria bikotean: ideia eta txoko erromantikoak",
+            descPareja1: "Euskal Herria bikoteentzako helmuga aproposa da, paisaia ikusgarriak, herri xarmagarriak, gastronomia bikaina eta txoko erromantikoak nahasten dituena. Hona hemen bikotean bisitatzeko ideia batzuk:",
+            gastroParejaTitulo: "Esperientzia gastronomikoak bikoteentzat",
+            gastroPareja1: "Afaria ohiko erretegi batean (Axpeko Asador Etxebarri, adibidez).",
+            gastroPareja2: "Pintxo dastaketa Donostian.",
+            gastroPareja3: "Dastatze menua Michelin izarra duen jatetxe batean (Azurmendi edo Arzak, adibidez).",
+            descPareja2: "Euskal Herriak natura, kultura eta gastronomiaren konbinazio perfektua eskaintzen du, ihesaldi erromantiko baterako aproposa. Zerbait aktiboagoa, lasaiagoa edo gourmetagoa bilatzen duzu?",
+            despedidaPareja: "Gozatu bidaiaz! 💑✨"
+        },
+        en: {
+            navHome: "Home",
+            navPareja: "For couples",
+            navPerros: "With dogs",
+            navNinos: "With children",
+            navEscalada: "Climbing",
+            navSkate: "Skate",
+            navGastronomia: "Gastronomy",
+            navAventura: "Adventure",
+            navMTB: "MTB",
+            contacto: "Contact me",
+            mainTitlePareja: "Routes for couples",
+            introPareja: "Discover the best romantic routes to enjoy as a couple in the Basque Country.",
+            subtituloPareja: "The Basque Country for couples: ideas and romantic spots",
+            descPareja1: "The Basque Country is an ideal destination for couples, with a mix of spectacular landscapes, charming towns, exquisite gastronomy, and romantic corners. Here are some ideas to visit as a couple:",
+            gastroParejaTitulo: "Gastronomic experiences for couples",
+            gastroPareja1: "Dinner at a traditional grill (like Asador Etxebarri in Axpe).",
+            gastroPareja2: "Pintxos tasting in San Sebastián.",
+            gastroPareja3: "Tasting menu at a Michelin-starred restaurant (like Azurmendi or Arzak).",
+            descPareja2: "The Basque Country offers a perfect combination of nature, culture, and gastronomy, ideal for a romantic getaway. Are you looking for something more active, quiet, or gourmet?",
+            despedidaPareja: "Enjoy the trip! 💑✨"
+        }
+        // Puedes añadir más idiomas (de, fr, ru, ar, zh, ja) si es necesario,
+        // traduciendo las claves específicas de esta página.
+    };
+
+    function setLanguage(lang) {
+        document.getElementById('main-title').textContent = translations[lang].mainTitlePareja || translations[lang].mainTitle; // Fallback por si acaso
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (translations[lang][key]) {
+                if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'P' || el.tagName === 'BUTTON' || el.tagName === 'STRONG' || el.tagName === 'LI') {
+                    el.innerHTML = translations[lang][key];
+                } else {
+                    el.textContent = translations[lang][key];
+                }
+            }
+        });
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setLanguage(btn.getAttribute('data-lang'));
+        });
+    });
+
     // Dark mode toggle
     const toggle = document.getElementById('darkmode-toggle');
     toggle.addEventListener('click', () => {

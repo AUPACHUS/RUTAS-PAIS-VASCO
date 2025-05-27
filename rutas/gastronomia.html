@@ -3,130 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Gastronómica del Norte de España</title>
+    <title>Guía Gastronómica del Norte de España</title>    
+    <link rel="stylesheet" href="../css/style.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-            transition: all 0.3s ease;
-        }
-        
-        body.darkmode {
-            background-color: #222;
-            color: #eee;
-        }
-        
-        .darkmode .cuadro-historia, .darkmode .restaurante {
-            background-color: #333;
-            color: #eee;
-            border-color: #555;
-        }
-        
-        #background-top {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            background-color: #2c3e50;
-            z-index: -1;
-        }
-        
-        #background-bottom {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background-color: #2c3e50;
-            z-index: -1;
-        }
-        
-        #background-image {
-            position: fixed;
-            top: 150px;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 250px);
-            background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            z-index: -1;
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .darkmode .navbar {
-            background-color: rgba(51, 51, 51, 0.9);
-        }
-        
-        .navbar ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .navbar li {
-            margin: 0 1rem;
-        }
-        
-        .navbar a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        
-        .darkmode .navbar a {
-            color: #eee;
-        }
-        
-        .navbar a:hover {
-            color: #e74c3c;
-        }
-        
-        button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .home-btn {
-            background-color: #3498db;
-            color: white;
-        }
-        
-        .contact-btn {
-            background-color: #e74c3c;
-            color: white;
-        }
-        
-        .darkmode-btn {
-            background-color: #444;
-            color: white;
-            margin-left: 1rem;
-        }
-        
-        .lang-btn {
-            background-color: transparent;
-            border: 1px solid #ccc;
-            margin: 0 0.2rem;
-        }
-        
         header {
             text-align: center;
             padding: 2rem 0;
@@ -141,6 +20,7 @@
         .darkmode #main-title {
             color: #eee;
         }
+
         
         main {
             max-width: 1200px;
@@ -154,6 +34,7 @@
         .darkmode main {
             background-color: rgba(51, 51, 51, 0.9);
         }
+
         
         .cuadro-historia {
             background-color: #f9f9f9;
@@ -161,6 +42,11 @@
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 2rem;
+        }
+
+        .darkmode .cuadro-historia {
+            background-color: #333;
+            border-color: #555;
         }
         
         .restaurante {
@@ -173,6 +59,7 @@
         
         .darkmode .restaurante {
             background-color: #444;
+            border-color: #555;
         }
         
         .restaurante h2 {
@@ -182,6 +69,7 @@
             padding-bottom: 0.5rem;
         }
         
+        /* This image style seems specific to the main restaurant image */
         .restaurante img {
             width: 100%;
             height: 300px;
@@ -190,6 +78,7 @@
             margin: 1rem 0;
         }
         
+        /* Gallery styles */
         .galeria {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -197,6 +86,7 @@
             margin: 1rem 0;
         }
         
+        /* Gallery image styles */
         .galeria img {
             height: 150px;
             cursor: pointer;
@@ -204,6 +94,7 @@
         }
         
         .galeria img:hover {
+            /* This hover effect is specific to gallery images */
             transform: scale(1.05);
         }
         
@@ -226,6 +117,7 @@
             display: inline-block;
         }
         
+        /* Footer styles */
         footer {
             text-align: center;
             padding: 2rem;
@@ -235,12 +127,11 @@
         .darkmode footer {
             color: #eee;
         }
-        
+
         #map-sidebar {
             position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
+            top: 20px; /* Alineada cerca del borde superior */
+            left: 20px; /* Posicionada en el lado izquierdo */
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -271,6 +162,7 @@
             color: white;
         }
         
+        /* Map sidebar image styles */
         #map-sidebar img {
             width: 40px;
             height: 40px;
@@ -280,10 +172,12 @@
         }
         
         #map-sidebar span {
+            /* Map sidebar text style */
             font-size: 12px;
             font-weight: bold;
         }
         
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             #map-sidebar {
                 display: none;
@@ -309,6 +203,7 @@
             }
         }
         
+        /* Modal styles */
         /* Modal para imágenes */
         .modal {
             display: none;
@@ -345,6 +240,7 @@
         .close:hover {
             color: #e74c3c;
         }
+        /* End Modal styles */
     </style>
 </head>
 <body>
