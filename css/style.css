@@ -198,6 +198,57 @@ footer {
     width: 100%;
     border-top: 6px solid #fff;
 }
+/* Estilos para el botón desplegable de repositorios */
+.navbar-right .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px; /* Espacio entre el desplegable y el botón de contacto */
+}
+
+.navbar-right .dropdown-toggle-btn {
+    padding: 0.5rem 1rem; /* Adjust to match your other main buttons */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #e74c3c; /* Example: same as contact-btn, or your primary button color */
+    color: white;
+    font-weight: bold;
+    font-family: inherit; /* Ensure it uses the same font as other buttons */
+}
+.darkmode .navbar-right .dropdown-toggle-btn {
+    background-color: #c0392b; /* Darker shade for dark mode, adjust as needed */
+}
+
+.navbar-right .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001; /* Encima de la barra de navegación si es necesario */
+    border-radius: 4px;
+    right: 0; /* Alinea a la derecha del botón, o ajusta según necesidad */
+    text-align: left; /* Asegura que el texto dentro del desplegable esté alineado a la izquierda */
+}
+.darkmode .navbar-right .dropdown-content {
+    background-color: #3a3a3a;
+}
+
+.navbar-right .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.darkmode .navbar-right .dropdown-content a {
+    color: #eee;
+}
+.navbar-right .dropdown-content a:hover {background-color: #f1f1f1;}
+.darkmode .navbar-right .dropdown-content a:hover {background-color: #555;}
+
+.navbar-right .dropdown-content.show {
+    display: block;
+}
 
 /* Sidebar del mapa */
 #map-sidebar {
