@@ -283,6 +283,16 @@
                 <li><a href="camper.html" data-key="navMTB">MTB</a></li>
             </ul>
             <div class="navbar-right">
+                <div class="dropdown">
+                    <button class="dropdown-toggle-btn" id="repo-dropdown-btn" data-key="navRepos">Mis Repositorios ▼</button>
+                    <div class="dropdown-content" id="repo-dropdown-content">
+                        <a href="https://github.com/AUPACHUS/Rutas-Pais-Vasco" target="_blank" rel="noopener noreferrer">Rutas País Vasco (Este Proyecto)</a>
+                        <a href="https://github.com/AUPACHUS/AUPACHUS" target="_blank" rel="noopener noreferrer">Mi Perfil Principal</a>
+                        <a href="https://aupachus.github.io/web2/#top" target="_blank" rel="noopener noreferrer">Mi Web Personal (web2)</a>
+                        <a href="https://aupachus.github.io/HACKENVIRONMENT/" target="_blank" rel="noopener noreferrer">Hack Environment</a>
+                        <a href="https://github.com/AUPACHUS?tab=repositories" target="_blank" rel="noopener noreferrer">Todos mis Repositorios</a>
+                    </div>
+                </div>
                 <button class="contact-btn" id="contact-btn" data-key="contacto">Contáctame</button>
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">☀️</button>
             </div>
@@ -453,7 +463,8 @@
             navGastronomia: "Gastronomía",
             navAventura: "Aventura",
             navMTB: "MTB",
-            contacto: "Contáctame"
+            contacto: "Contáctame",
+            navRepos: "Mis Repositorios ▼"
         },
         eu: {
             mainTitle: "Iparraldeko Sukaldaritzaren Gida",
@@ -466,7 +477,8 @@
             navGastronomia: "Gastronomia",
             navAventura: "Abentura",
             navMTB: "MTB",
-            contacto: "Kontaktatu"
+            contacto: "Kontaktatu",
+            navRepos: "Nire Biltegiak ▼"
         },
         en: {
             mainTitle: "Northern Spain Food Guide",
@@ -479,7 +491,8 @@
             navGastronomia: "Gastronomy",
             navAventura: "Adventure",
             navMTB: "MTB",
-            contacto: "Contact me"
+            contacto: "Contact me",
+            navRepos: "My Repositories ▼"
         }
     };
 
@@ -511,6 +524,7 @@
         window.location.href = 'mailto:tartemugiocursojava@gmail.com';
     });
 
+    // Dropdown script should be in ../js/dropdown.js and linked
     // Modal para imágenes
     const modal = document.getElementById("imagenModal");
     const modalImg = document.getElementById("imgModal");
@@ -535,6 +549,9 @@
             modal.style.display = "none";
         }
     });
+    // Ensure dropdown.js is linked, if not already:
+    // Example: <script src="../js/dropdown.js"></script>
+    // Ensure dropdown.js is linked
     </script>
     
     <!-- Botón de donación PayPal fijo abajo a la derecha -->
