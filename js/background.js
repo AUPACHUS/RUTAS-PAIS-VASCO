@@ -1,30 +1,29 @@
 // Lista de imágenes de fondo (ajusta según tus archivos en img/)
 const fondoImagenes = [
-    'img/naturaleza1.jpg',
-    'img/naturaleza2.jpg',
-    'img/naturaleza3.jpg',
-    'img/naturaleza4.jpg'   ,
-    'img/naturaleza5.jpg',                  
-    'img/naturaleza6.jpg',
-    'img/naturaleza7.jpg',              
-    'img/naturaleza8.jpg',
-    'img/naturaleza9.jpg',  
-    'img/naturaleza10.jpg',
-    'img/naturaleza11.jpg',
-    'img/naturaleza12.jpg',
-    'img/naturaleza13.jpg',
-    'img/naturaleza14.jpg',
-    'img/naturaleza15.jpg',
-    'img/naturaleza16.jpg',
-    'img/naturaleza17.jpg',
-    'img/naturaleza18.jpg',
-    'img/naturaleza19.jpg',
-    'img/naturaleza20.jpg',
-    'img/naturaleza21.jpg',
-    'img/naturaleza22.jpg',
-    'img/naturaleza24.jpg',
-
-
+    '../img/naturaleza1.jpg',
+    '../img/naturaleza2.jpg',
+    '../img/naturaleza3.jpg',
+    '../img/naturaleza4.jpg',
+    '../img/naturaleza5.jpg',
+    '../img/naturaleza6.jpg',
+    '../img/naturaleza7.jpg',
+    '../img/naturaleza8.jpg',
+    '../img/naturaleza9.jpg',
+    '../img/naturaleza10.jpg',
+    '../img/naturaleza11.jpg',
+    '../img/naturaleza12.jpg',
+    '../img/naturaleza13.jpg',
+    '../img/naturaleza14.jpg',
+    '../img/naturaleza15.jpg',
+    '../img/naturaleza16.jpg',
+    '../img/naturaleza17.jpg',
+    '../img/naturaleza18.jpg',
+    '../img/naturaleza19.jpg',
+    '../img/naturaleza20.jpg',
+    '../img/naturaleza21.jpg',
+    '../img/naturaleza22.jpg',
+    // 'img/naturaleza23.jpg', // Descomenta si existe
+    '../img/naturaleza24.jpg',
     // Añade más si tienes más imágenes
 ];
 
@@ -37,8 +36,11 @@ if (!bgDiv) {
 }
 
 function cambiarFondo() {
-    const random = Math.floor(Math.random() * fondoImagenes.length);
-    bgDiv.style.backgroundImage = `url('${fondoImagenes[random]}')`;
+    if (fondoImagenes.length > 0) {
+        const random = Math.floor(Math.random() * fondoImagenes.length);
+        // Asegúrate de que bgDiv exista antes de intentar establecer su estilo
+        if (bgDiv) bgDiv.style.backgroundImage = `url('${fondoImagenes[random]}')`;
+    }
 }
 
 // Cambia el fondo al cargar la página
@@ -55,7 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollY = window.scrollY;
         const top = document.getElementById('background-top');
         const bottom = document.getElementById('background-bottom');
-        top.style.opacity = 1 - Math.min(scrollY / 300, 1);
-        bottom.style.opacity = 1 - Math.min((document.body.scrollHeight - window.innerHeight - scrollY) / 300, 1);
+        
+        if (top) {
+            top.style.opacity = 1 - Math.min(scrollY / 300, 1);
+        }
+        if (bottom) {
+            bottom.style.opacity = 1 - Math.min((document.body.scrollHeight - window.innerHeight - scrollY) / 300, 1);
+        }
     });
 });

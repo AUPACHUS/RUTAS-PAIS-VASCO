@@ -79,7 +79,7 @@
         }
     </style>
 </head>
-<body>
+<body class="darkmode"> <!-- Dark mode by default -->
     <div id="background-top"></div>
     <div id="background-bottom"></div>
     <div id="background-image"></div>
@@ -104,24 +104,34 @@
     <header>
         <nav class="navbar">
             <div class="navbar-left">
-                <button class="home-btn" onclick="window.location.href='../index.html'">Inicio</button>
+                <button class="home-btn" onclick="window.location.href='../index.html'" data-key="navHome">Inicio</button>
             </div>
             <ul>
-                <li><a href="pareja.html">En pareja</a></li>
-                <li><a href="perros.html">Con perros</a></li>
-                <li><a href="niños.html">Con niños</a></li>
-                <li><a href="escalada.html">Escalada</a></li>
-                <li><a href="skate.html">Skate</a></li>
-                <li><a href="gastronomia.html">Gastronomía</a></li>
-                <li><a href="moto125.html">Aventura</a></li>
-                <li><a href="camper.html" class="active">MTB</a></li>
+                <li><a href="pareja.html" data-key="navPareja">En pareja</a></li>
+                <li><a href="perros.html" data-key="navPerros">Con perros</a></li>
+                <li><a href="niños.html" data-key="navNinos">Con niños</a></li>
+                <li><a href="escalada.html" data-key="navEscalada">Escalada</a></li>
+                <li><a href="skate.html" data-key="navSkate">Skate</a></li>
+                <li><a href="gastronomia.html" data-key="navGastronomia">Gastronomía</a></li>
+                <li><a href="moto125.html" data-key="navAventura">Aventura</a></li>
+                <li><a href="camper.html" class="active" data-key="navMTB">MTB</a></li>
             </ul>
             <div class="navbar-right">
-                <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'">Contáctame</button>
-                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
+                <div class="dropdown">
+                    <button class="dropdown-toggle-btn" id="repo-dropdown-btn" data-key="navRepos">Mis Repositorios ▼</button>
+                    <div class="dropdown-content" id="repo-dropdown-content">
+                        <a href="https://github.com/AUPACHUS/Rutas-Pais-Vasco" target="_blank" rel="noopener noreferrer">Rutas País Vasco (Este Proyecto)</a>
+                        <a href="https://github.com/AUPACHUS/AUPACHUS" target="_blank" rel="noopener noreferrer">Mi Perfil Principal</a>
+                        <a href="https://aupachus.github.io/web2/#top" target="_blank" rel="noopener noreferrer">Mi Web Personal (web2)</a>
+                        <a href="https://aupachus.github.io/HACKENVIRONMENT/" target="_blank" rel="noopener noreferrer">Hack Environment</a>
+                        <a href="https://github.com/AUPACHUS?tab=repositories" target="_blank" rel="noopener noreferrer">Todos mis Repositorios</a>
+                    </div>
+                </div>
+                <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'" data-key="contacto">Contáctame</button>
+                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">☀️</button>
             </div>
         </nav>
-        <h1 id="main-title">Rutas en Camper por el País Vasco, Cantabria y Navarra</h1>
+        <h1 id="main-title" data-key="mainTitleCamper">Rutas en Camper por el País Vasco, Cantabria y Navarra</h1>
         <div id="lang-switcher" style="margin:1em 0; text-align:center;">
             <button class="lang-btn" data-lang="es" title="Español">🇪🇸</button>
             <button class="lang-btn" data-lang="eu" title="Euskera">🇪🇺</button>
@@ -129,132 +139,133 @@
         </div>
     </header>
     <main>
-        <p>Descubre los mejores lugares para visitar con tu camper en el norte de España. Encuentra áreas para pernoctar gratuitas, sitios recomendados y toda la información que necesitas para tu aventura sobre ruedas.</p>
+        <p data-key="introCamper">Descubre los mejores lugares para visitar con tu camper en el norte de España. Encuentra áreas para pernoctar gratuitas, sitios recomendados y toda la información que necesitas para tu aventura sobre ruedas.</p>
         <div class="area-section">
-            <h2 class="area-title">País Vasco</h2>
+            <h2 class="area-title" data-key="pvTitle">País Vasco</h2>
             <div class="lugar">
-                <h3>Playa de Laida (Urdaibai, Bizkaia)</h3>
+                <h3 data-key="laidaTitle">Playa de Laida (Urdaibai, Bizkaia)</h3>
                 <p><span class="gratis">GRATIS</span> <span class="recomendado">RECOMENDADO</span></p>
-                <p><strong>Ubicación:</strong> Reserva de la Biosfera de Urdaibai</p>
-                <p><strong>Pernocta:</strong> Aparcamiento junto a la playa (máx. 24h)</p>
-                <p><strong>Servicios:</strong> Sin servicios específicos para camper, pero cerca hay restaurantes y baños públicos.</p>
-                <p><strong>Atractivos:</strong> Una de las playas más bonitas de Bizkaia, ideal para surfistas y amantes de la naturaleza.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="laidaUbicacion">Reserva de la Biosfera de Urdaibai</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="laidaPernocta">Aparcamiento junto a la playa (máx. 24h)</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="laidaServicios">Sin servicios específicos para camper, pero cerca hay restaurantes y baños públicos.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="laidaAtractivos">Una de las playas más bonitas de Bizkaia, ideal para surfistas y amantes de la naturaleza.</span></p>
             </div>
             <div class="lugar">
-                <h3>Parking de Hondarribia (Gipuzkoa)</h3>
+                <h3 data-key="hondarribiaTitle">Parking de Hondarribia (Gipuzkoa)</h3>
                 <p><span class="gratis">GRATIS</span></p>
-                <p><strong>Ubicación:</strong> Aparcamiento junto al puerto pesquero</p>
-                <p><strong>Pernocta:</strong> Tolerado fuera de temporada alta</p>
-                <p><strong>Servicios:</strong> Sin servicios, pero a 5 minutos del centro histórico.</p>
-                <p><strong>Atractivos:</strong> Precioso casco histórico amurallado y excelente gastronomía vasca.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="hondarribiaUbicacion">Aparcamiento junto al puerto pesquero</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="hondarribiaPernocta">Tolerado fuera de temporada alta</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="hondarribiaServicios">Sin servicios, pero a 5 minutos del centro histórico.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="hondarribiaAtractivos">Precioso casco histórico amurallado y excelente gastronomía vasca.</span></p>
             </div>
             <div class="lugar">
-                <h3>Área de Laguardia (Álava)</h3>
+                <h3 data-key="laguardiaTitle">Área de Laguardia (Álava)</h3>
                 <p><span class="recomendado">RECOMENDADO</span></p>
-                <p><strong>Ubicación:</strong> En las afueras del pueblo medieval</p>
-                <p><strong>Pernocta:</strong> Área específica para autocaravanas (pago módico)</p>
-                <p><strong>Servicios:</strong> Agua, electricidad y vaciado de aguas.</p>
-                <p><strong>Atractivos:</strong> En plena Rioja Alavesa, rodeado de bodegas y paisajes de viñedos.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="laguardiaUbicacion">En las afueras del pueblo medieval</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="laguardiaPernocta">Área específica para autocaravanas (pago módico)</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="laguardiaServicios">Agua, electricidad y vaciado de aguas.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="laguardiaAtractivos">En plena Rioja Alavesa, rodeado de bodegas y paisajes de viñedos.</span></p>
             </div>
             <div class="lugar">
-                <h3>Playa de Zarautz (Gipuzkoa)</h3>
+                <h3 data-key="zarautzTitle">Playa de Zarautz (Gipuzkoa)</h3>
                 <p><span class="gratis">GRATIS</span></p>
-                <p><strong>Ubicación:</strong> Aparcamiento junto al paseo marítimo</p>
-                <p><strong>Pernocta:</strong> Tolerado fuera de temporada alta</p>
-                <p><strong>Servicios:</strong> Baños públicos cerca y numerosos restaurantes.</p>
-                <p><strong>Atractivos:</strong> Una de las playas urbanas más largas del País Vasco, famosa por el surf.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="zarautzUbicacion">Aparcamiento junto al paseo marítimo</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="zarautzPernocta">Tolerado fuera de temporada alta</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="zarautzServicios">Baños públicos cerca y numerosos restaurantes.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="zarautzAtractivos">Una de las playas urbanas más largas del País Vasco, famosa por el surf.</span></p>
             </div>
         </div>
         <div class="area-section">
-            <h2 class="area-title">Cantabria</h2>
+            <h2 class="area-title" data-key="cantabriaTitle">Cantabria</h2>
             <div class="lugar">
-                <h3>Playa de Berria (Santoña)</h3>
+                <h3 data-key="berriaTitle">Playa de Berria (Santoña)</h3>
                 <p><span class="gratis">GRATIS</span> <span class="recomendado">RECOMENDADO</span></p>
-                <p><strong>Ubicación:</strong> Aparcamiento junto a la playa</p>
-                <p><strong>Pernocta:</strong> Tolerado fuera de temporada alta</p>
-                <p><strong>Servicios:</strong> Sin servicios específicos, pero cerca hay restaurantes.</p>
-                <p><strong>Atractivos:</strong> Playa salvaje espectacular, ideal para senderismo y avistamiento de aves.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="berriaUbicacion">Aparcamiento junto a la playa</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="berriaPernocta">Tolerado fuera de temporada alta</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="berriaServicios">Sin servicios específicos, pero cerca hay restaurantes.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="berriaAtractivos">Playa salvaje espectacular, ideal para senderismo y avistamiento de aves.</span></p>
             </div>
             <div class="lugar">
-                <h3>Área de San Vicente de la Barquera</h3>
+                <h3 data-key="sanVicenteTitle">Área de San Vicente de la Barquera</h3>
                 <p><span class="recomendado">RECOMENDADO</span></p>
-                <p><strong>Ubicación:</strong> Junto al puerto pesquero</p>
-                <p><strong>Pernocta:</strong> Área específica para autocaravanas (pago módico)</p>
-                <p><strong>Servicios:</strong> Agua, electricidad y vaciado de aguas.</p>
-                <p><strong>Atractivos:</strong> Pueblo marinero con castillo medieval y excelente marisco.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="sanVicenteUbicacion">Junto al puerto pesquero</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="sanVicentePernocta">Área específica para autocaravanas (pago módico)</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="sanVicenteServicios">Agua, electricidad y vaciado de aguas.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="sanVicenteAtractivos">Pueblo marinero con castillo medieval y excelente marisco.</span></p>
             </div>
             <div class="lugar">
-                <h3>Parking de Cabárceno</h3>
+                <h3 data-key="cabarcenoTitle">Parking de Cabárceno</h3>
                 <p><span class="gratis">GRATIS</span></p>
-                <p><strong>Ubicación:</strong> Parque de la Naturaleza de Cabárceno</p>
-                <p><strong>Pernocta:</strong> Permitido en parking exterior</p>
-                <p><strong>Servicios:</strong> Sin servicios, pero acceso al parque.</p>
-                <p><strong>Atractivos:</strong> Uno de los parques zoológicos más espectaculares de Europa.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="cabarcenoUbicacion">Parque de la Naturaleza de Cabárceno</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="cabarcenoPernocta">Permitido en parking exterior</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="cabarcenoServicios">Sin servicios, pero acceso al parque.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="cabarcenoAtractivos">Uno de los parques zoológicos más espectaculares de Europa.</span></p>
             </div>
             <div class="lugar">
-                <h3>Playa de Oyambre (Comillas)</h3>
+                <h3 data-key="oyambreTitle">Playa de Oyambre (Comillas)</h3>
                 <p><span class="gratis">GRATIS</span></p>
-                <p><strong>Ubicación:</strong> Aparcamiento junto al Parque Natural de Oyambre</p>
-                <p><strong>Pernocta:</strong> Tolerado fuera de temporada alta</p>
-                <p><strong>Servicios:</strong> Sin servicios específicos.</p>
-                <p><strong>Atractivos:</strong> Playa salvaje en entorno natural protegido, cerca de Comillas con su Capricho de Gaudí.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="oyambreUbicacion">Aparcamiento junto al Parque Natural de Oyambre</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="oyambrePernocta">Tolerado fuera de temporada alta</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="oyambreServicios">Sin servicios específicos.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="oyambreAtractivos">Playa salvaje en entorno natural protegido, cerca de Comillas con su Capricho de Gaudí.</span></p>
             </div>
         </div>
         <div class="area-section">
-            <h2 class="area-title">Navarra</h2>
+            <h2 class="area-title" data-key="navarraTitle">Navarra</h2>
             <div class="lugar">
-                <h3>Área de Ochagavía (Selva de Irati)</h3>
+                <h3 data-key="ochagaviaTitle">Área de Ochagavía (Selva de Irati)</h3>
                 <p><span class="recomendado">RECOMENDADO</span></p>
-                <p><strong>Ubicación:</strong> En el pueblo de Ochagavía</p>
-                <p><strong>Pernocta:</strong> Área específica para autocaravanas (gratis)</p>
-                <p><strong>Servicios:</strong> Agua y vaciado de aguas.</p>
-                <p><strong>Atractivos:</strong> Puerta de entrada a la Selva de Irati, uno de los hayedos más grandes de Europa.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="ochagaviaUbicacion">En el pueblo de Ochagavía</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="ochagaviaPernocta">Área específica para autocaravanas (gratis)</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="ochagaviaServicios">Agua y vaciado de aguas.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="ochagaviaAtractivos">Puerta de entrada a la Selva de Irati, uno de los hayedos más grandes de Europa.</span></p>
             </div>
             <div class="lugar">
-                <h3>Parking de Ujué</h3>
+                <h3 data-key="ujueTitle">Parking de Ujué</h3>
                 <p><span class="gratis">GRATIS</span></p>
-                <p><strong>Ubicación:</strong> Aparcamiento superior del pueblo medieval</p>
-                <p><strong>Pernocta:</strong> Tolerado</p>
-                <p><strong>Servicios:</strong> Sin servicios específicos.</p>
-                <p><strong>Atractivos:</strong> Pueblo medieval espectacular con vistas a toda la Navarra media.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="ujueUbicacion">Aparcamiento superior del pueblo medieval</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="ujuePernocta">Tolerado</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="ujueServicios">Sin servicios específicos.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="ujueAtractivos">Pueblo medieval espectacular con vistas a toda la Navarra media.</span></p>
             </div>
             <div class="lugar">
-                <h3>Área de Bardenas Reales</h3>
+                <h3 data-key="bardenasTitle">Área de Bardenas Reales</h3>
                 <p><span class="recomendado">RECOMENDADO</span></p>
-                <p><strong>Ubicación:</strong> Junto al centro de visitantes</p>
-                <p><strong>Pernocta:</strong> Área específica para autocaravanas (pago módico)</p>
-                <p><strong>Servicios:</strong> Agua, electricidad y vaciado de aguas.</p>
-                <p><strong>Atractivos:</strong> Parque natural semidesértico de paisajes lunares, escenario de Juego de Tronos.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="bardenasUbicacion">Junto al centro de visitantes</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="bardenasPernocta">Área específica para autocaravanas (pago módico)</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="bardenasServicios">Agua, electricidad y vaciado de aguas.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="bardenasAtractivos">Parque natural semidesértico de paisajes lunares, escenario de Juego de Tronos.</span></p>
             </div>
             <div class="lugar">
-                <h3>Parking de Roncesvalles</h3>
+                <h3 data-key="roncesvallesTitle">Parking de Roncesvalles</h3>
                 <p><span class="gratis">GRATIS</span></p>
-                <p><strong>Ubicación:</strong> Aparcamiento del monasterio</p>
-                <p><strong>Pernocta:</strong> Tolerado</p>
-                <p><strong>Servicios:</strong> Sin servicios específicos, pero acceso al albergue de peregrinos.</p>
-                <p><strong>Atractivos:</strong> Punto de inicio del Camino de Santiago en España, entorno histórico y natural.</p>
+                <p><strong data-key="ubicacion">Ubicación:</strong> <span data-key="roncesvallesUbicacion">Aparcamiento del monasterio</span></p>
+                <p><strong data-key="pernocta">Pernocta:</strong> <span data-key="roncesvallesPernocta">Tolerado</span></p>
+                <p><strong data-key="servicios">Servicios:</strong> <span data-key="roncesvallesServicios">Sin servicios específicos, pero acceso al albergue de peregrinos.</span></p>
+                <p><strong data-key="atractivos">Atractivos:</strong> <span data-key="roncesvallesAtractivos">Punto de inicio del Camino de Santiago en España, entorno histórico y natural.</span></p>
             </div>
         </div>
         <div class="cuadro-historia">
-            <h2>Consejos para viajar en camper</h2>
-            <p>
-                <strong>Respeto al medio ambiente:</strong> Siempre deja los lugares como los encontraste o mejor. No dejes basura y utiliza los servicios de vaciado adecuados.<br><br>
-                <strong>Normativas locales:</strong> Infórmate sobre las normativas específicas de cada municipio respecto a la pernocta de autocaravanas.<br><br>
-                <strong>Temporada alta:</strong> En verano y puentes, muchas zonas restringen la pernocta. Planifica con antelación.<br><br>
-                <strong>Seguridad:</strong> Evita lugares aislados o poco transitados para pernoctar. Los aparcamientos bien iluminados cerca de zonas urbanas suelen ser más seguros.<br><br>
-                <strong>Apps útiles:</strong> Park4Night, CamperContact y Google Maps son tus mejores aliados para encontrar lugares donde dormir.
-            </p>
+            <h2 data-key="consejosCamperTitle">Consejos para viajar en camper</h2>
+            <ul data-key="listaConsejosCamper">
+                <li><strong data-key="consejoCamper1Title">Respeto al medio ambiente:</strong> <span data-key="consejoCamper1Desc">Siempre deja los lugares como los encontraste o mejor. No dejes basura y utiliza los servicios de vaciado adecuados.</span></li>
+                <li><strong data-key="consejoCamper2Title">Normativas locales:</strong> <span data-key="consejoCamper2Desc">Infórmate sobre las normativas específicas de cada municipio respecto a la pernocta de autocaravanas.</span></li>
+                <li><strong data-key="consejoCamper3Title">Temporada alta:</strong> <span data-key="consejoCamper3Desc">En verano y puentes, muchas zonas restringen la pernocta. Planifica con antelación.</span></li>
+                <li><strong data-key="consejoCamper4Title">Seguridad:</strong> <span data-key="consejoCamper4Desc">Evita lugares aislados o poco transitados para pernoctar. Los aparcamientos bien iluminados cerca de zonas urbanas suelen ser más seguros.</span></li>
+                <li><strong data-key="consejoCamper5Title">Apps útiles:</strong> <span data-key="consejoCamper5Desc">Park4Night, CamperContact y Google Maps son tus mejores aliados para encontrar lugares donde dormir.</span></li>
+            </ul>
         </div>
     </main>
     <footer>
-        <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
+        <p data-key="footerCopy">© 2024 - Rutas País Vasco-AUPACHUS</p>
     </footer>
+    <script src="../js/background.js" defer></script>
+    <script src="../js/dropdown.js" defer></script>
     <script>
     // Traducciones
     const translations = {
         es: {
-            mainTitle: "Rutas en Camper por el País Vasco, Cantabria y Navarra",
-            bienvenida: "Descubre los mejores lugares para visitar con tu camper en el norte de España.",
+            navHome: "Inicio",
             navPareja: "En pareja",
             navPerros: "Con perros",
             navNinos: "Con niños",
@@ -263,11 +274,58 @@
             navGastronomia: "Gastronomía",
             navAventura: "Aventura",
             navMTB: "MTB",
-            contacto: "Contáctame"
+            contacto: "Contáctame",
+            navRepos: "Mis Repositorios ▼",
+            footerCopy: "© 2024 - Rutas País Vasco-AUPACHUS",
+            mainTitleCamper: "Rutas en Camper por el País Vasco, Cantabria y Navarra",
+            introCamper: "Descubre los mejores lugares para visitar con tu camper en el norte de España. Encuentra áreas para pernoctar gratuitas, sitios recomendados y toda la información que necesitas para tu aventura sobre ruedas.",
+            pvTitle: "País Vasco",
+            cantabriaTitle: "Cantabria",
+            navarraTitle: "Navarra",
+            ubicacion: "Ubicación:",
+            pernocta: "Pernocta:",
+            servicios: "Servicios:",
+            atractivos: "Atractivos:",
+            laidaTitle: "Playa de Laida (Urdaibai, Bizkaia)",
+            laidaUbicacion: "Reserva de la Biosfera de Urdaibai",
+            laidaPernocta: "Aparcamiento junto a la playa (máx. 24h)",
+            laidaServicios: "Sin servicios específicos para camper, pero cerca hay restaurantes y baños públicos.",
+            laidaAtractivos: "Una de las playas más bonitas de Bizkaia, ideal para surfistas y amantes de la naturaleza.",
+            hondarribiaTitle: "Parking de Hondarribia (Gipuzkoa)",
+            hondarribiaUbicacion: "Aparcamiento junto al puerto pesquero",
+            hondarribiaPernocta: "Tolerado fuera de temporada alta",
+            hondarribiaServicios: "Sin servicios, pero a 5 minutos del centro histórico.",
+            hondarribiaAtractivos: "Precioso casco histórico amurallado y excelente gastronomía vasca.",
+            laguardiaTitle: "Área de Laguardia (Álava)",
+            laguardiaUbicacion: "En las afueras del pueblo medieval",
+            laguardiaPernocta: "Área específica para autocaravanas (pago módico)",
+            laguardiaServicios: "Agua, electricidad y vaciado de aguas.",
+            laguardiaAtractivos: "En plena Rioja Alavesa, rodeado de bodegas y paisajes de viñedos.",
+            zarautzTitle: "Playa de Zarautz (Gipuzkoa)",
+            zarautzUbicacion: "Aparcamiento junto al paseo marítimo",
+            zarautzPernocta: "Tolerado fuera de temporada alta",
+            zarautzServicios: "Baños públicos cerca y numerosos restaurantes.",
+            zarautzAtractivos: "Una de las playas urbanas más largas del País Vasco, famosa por el surf.",
+            berriaTitle: "Playa de Berria (Santoña)",
+            berriaUbicacion: "Aparcamiento junto a la playa",
+            berriaPernocta: "Tolerado fuera de temporada alta",
+            berriaServicios: "Sin servicios específicos, pero cerca hay restaurantes.",
+            berriaAtractivos: "Playa salvaje espectacular, ideal para senderismo y avistamiento de aves.",
+            // ... (Completar para San Vicente, Cabárceno, Oyambre, Ochagavía, Ujué, Bardenas, Roncesvalles)
+            consejosCamperTitle: "Consejos para viajar en camper",
+            consejoCamper1Title: "Respeto al medio ambiente:",
+            consejoCamper1Desc: "Siempre deja los lugares como los encontraste o mejor. No dejes basura y utiliza los servicios de vaciado adecuados.",
+            consejoCamper2Title: "Normativas locales:",
+            consejoCamper2Desc: "Infórmate sobre las normativas específicas de cada municipio respecto a la pernocta de autocaravanas.",
+            consejoCamper3Title: "Temporada alta:",
+            consejoCamper3Desc: "En verano y puentes, muchas zonas restringen la pernocta. Planifica con antelación.",
+            consejoCamper4Title: "Seguridad:",
+            consejoCamper4Desc: "Evita lugares aislados o poco transitados para pernoctar. Los aparcamientos bien iluminados cerca de zonas urbanas suelen ser más seguros.",
+            consejoCamper5Title: "Apps útiles:",
+            consejoCamper5Desc: "Park4Night, CamperContact y Google Maps son tus mejores aliados para encontrar lugares donde dormir."
         },
         eu: {
-            mainTitle: "Euskal Herria, Kantabria eta Nafarroara Camping-auto bidaiak",
-            bienvenida: "Ezagutu iparraldeko leku onenak zure camping-autoarekin bisitatzeko.",
+            navHome: "Hasiera",
             navPareja: "Bikotean",
             navPerros: "Txakurrekin",
             navNinos: "Haurrekin",
@@ -276,11 +334,38 @@
             navGastronomia: "Gastronomia",
             navAventura: "Abentura",
             navMTB: "MTB",
-            contacto: "Kontaktatu"
+            contacto: "Kontaktatu",
+            navRepos: "Nire Biltegiak ▼",
+            footerCopy: "© 2024 - Rutas País Vasco-AUPACHUS", // Traducir
+            mainTitleCamper: "Euskal Herria, Kantabria eta Nafarroara Camping-auto bidaiak",
+            introCamper: "Ezagutu iparraldeko leku onenak zure camping-autoarekin bisitatzeko. Aurkitu doako gaua pasatzeko guneak, gomendatutako lekuak eta gurpil gaineko abenturarako behar duzun informazio guztia.",
+            pvTitle: "Euskal Herria",
+            cantabriaTitle: "Kantabria",
+            navarraTitle: "Nafarroa",
+            ubicacion: "Kokapena:",
+            pernocta: "Gaua ematea:",
+            servicios: "Zerbitzuak:",
+            atractivos: "Erakargarriak:",
+            laidaTitle: "Laidako Hondartza (Urdaibai, Bizkaia)",
+            laidaUbicacion: "Urdaibaiko Biosfera Erreserba",
+            laidaPernocta: "Hondartza ondoko aparkalekua (gehienez 24h)",
+            laidaServicios: "Ez dago camperrentzako zerbitzu espezifikorik, baina jatetxeak eta komun publikoak gertu daude.",
+            laidaAtractivos: "Bizkaiko hondartzarik politenetako bat, surflarientzat eta naturazaleentzat aproposa.",
+            // ... (Completar para el resto de lugares y consejos)
+            consejosCamperTitle: "Camperrean bidaiatzeko aholkuak",
+            consejoCamper1Title: "Ingurumenarekiko errespetua:",
+            consejoCamper1Desc: "Beti utzi tokiak aurkitu dituzun bezala edo hobeto. Ez utzi zaborrik eta erabili hustuketa zerbitzu egokiak.",
+            consejoCamper2Title: "Tokiko araudiak:",
+            consejoCamper2Desc: "Informatu zaitez udalerri bakoitzeko autokarabanen gaua emateari buruzko araudi espezifikoei buruz.",
+            consejoCamper3Title: "Goi denboraldia:",
+            consejoCamper3Desc: "Udan eta zubietan, gune askok gaua ematea mugatzen dute. Planifikatu aldez aurretik.",
+            consejoCamper4Title: "Segurtasuna:",
+            consejoCamper4Desc: "Saihestu toki isolatuak edo gutxi ibiliak gaua emateko. Hiri-guneetatik gertu dauden ondo argiztatutako aparkalekuak seguruagoak izan ohi dira.",
+            consejoCamper5Title: "App erabilgarriak:",
+            consejoCamper5Desc: "Park4Night, CamperContact eta Google Maps dira lo egiteko tokiak aurkitzeko zure aliatu onenak."
         },
         en: {
-            mainTitle: "Camper Routes in Basque Country, Cantabria and Navarra",
-            bienvenida: "Discover the best places to visit with your camper in northern Spain.",
+            navHome: "Home",
             navPareja: "For couples",
             navPerros: "With dogs",
             navNinos: "With children",
@@ -289,13 +374,53 @@
             navGastronomia: "Gastronomy",
             navAventura: "Adventure",
             navMTB: "MTB",
-            contacto: "Contact me"
+            contacto: "Contact me",
+            navRepos: "My Repositories ▼",
+            footerCopy: "© 2024 - Basque Country Routes-AUPACHUS", // Translate
+            mainTitleCamper: "Camper Routes in Basque Country, Cantabria and Navarra",
+            introCamper: "Discover the best places to visit with your camper in northern Spain. Find free overnight areas, recommended sites, and all the information you need for your adventure on wheels.",
+            pvTitle: "Basque Country",
+            cantabriaTitle: "Cantabria",
+            navarraTitle: "Navarre",
+            ubicacion: "Location:",
+            pernocta: "Overnight stay:",
+            servicios: "Services:",
+            atractivos: "Attractions:",
+            laidaTitle: "Laida Beach (Urdaibai, Bizkaia)",
+            laidaUbicacion: "Urdaibai Biosphere Reserve",
+            laidaPernocta: "Parking next to the beach (max. 24h)",
+            laidaServicios: "No specific camper services, but restaurants and public toilets nearby.",
+            laidaAtractivos: "One of the most beautiful beaches in Bizkaia, ideal for surfers and nature lovers.",
+            // ... (Complete for the rest of the places and tips)
+            consejosCamperTitle: "Tips for traveling by camper",
+            consejoCamper1Title: "Respect for the environment:",
+            consejoCamper1Desc: "Always leave places as you found them or better. Don't leave trash and use appropriate disposal services.",
+            consejoCamper2Title: "Local regulations:",
+            consejoCamper2Desc: "Find out about the specific regulations of each municipality regarding overnight stays for motorhomes.",
+            consejoCamper3Title: "High season:",
+            consejoCamper3Desc: "In summer and on long weekends, many areas restrict overnight stays. Plan ahead.",
+            consejoCamper4Title: "Safety:",
+            consejoCamper4Desc: "Avoid isolated or unfrequented places for overnight stays. Well-lit car parks near urban areas are usually safer.",
+            consejoCamper5Title: "Useful apps:",
+            consejoCamper5Desc: "Park4Night, CamperContact, and Google Maps are your best allies for finding places to sleep."
         }
     };
 
     function setLanguage(lang) {
-        document.getElementById('main-title').textContent = translations[lang].mainTitle;
-        // Puedes añadir más traducciones si etiquetas los elementos con data-key
+        const currentTranslations = translations[lang] || translations.es; // Fallback to Spanish
+        document.getElementById('main-title').textContent = currentTranslations.mainTitleCamper;
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            if (currentTranslations[key]) {
+                // For elements that might contain HTML (like <strong> or <ul> generated from JS)
+                // or are simple text nodes.
+                if (el.tagName === 'P' || el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'BUTTON' || el.tagName === 'A' || el.tagName === 'STRONG' || el.tagName === 'SPAN' || el.tagName === 'LI' || el.tagName === 'UL' || el.tagName === 'OL') {
+                    el.innerHTML = currentTranslations[key];
+                } else {
+                    el.textContent = currentTranslations[key];
+                }
+            }
+        });
     }
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -303,17 +428,19 @@
             setLanguage(btn.getAttribute('data-lang'));
         });
     });
-
-    // Dark mode toggle
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggle = document.getElementById('darkmode-toggle');
-        if(toggle) {
-            toggle.addEventListener('click', () => {
+    
+    const darkModeToggle = document.getElementById('darkmode-toggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
                 document.body.classList.toggle('darkmode');
-                toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙';
-            });
-        }
-    });
+            darkModeToggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙';
+        });
+        // Ensure correct icon on load
+        darkModeToggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙';
+    }
+
+    // Set initial language
+    setLanguage('es');
     </script>
     <!-- Botón de donación PayPal fijo abajo a la derecha -->
     <div id="donate-button-container" style="position: fixed; bottom: 24px; right: 24px; z-index: 9999;">
