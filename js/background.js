@@ -13,6 +13,17 @@ const fondoImagenes = [
     'img/naturaleza11.jpg',
     'img/naturaleza12.jpg',
     'img/naturaleza13.jpg',
+    'img/naturaleza14.jpg',
+    'img/naturaleza15.jpg',
+    'img/naturaleza16.jpg',
+    'img/naturaleza17.jpg',
+    'img/naturaleza18.jpg',
+    'img/naturaleza19.jpg',
+    'img/naturaleza20.jpg',
+    'img/naturaleza21.jpg',
+    'img/naturaleza22.jpg',
+    'img/naturaleza24.jpg',
+
 
     // Añade más si tienes más imágenes
 ];

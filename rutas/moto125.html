@@ -32,7 +32,7 @@
         }
     </style>
 </head>
-<body>
+<body class="darkmode"> <!-- Añadido darkmode por defecto -->
     <div id="background-top"></div>
     <div id="background-bottom"></div>
     <div id="background-image"></div>
@@ -57,7 +57,7 @@
     <header>
         <nav class="navbar">
             <div class="navbar-left">
-                <button class="home-btn" onclick="window.location.href='../index.html'">Inicio</button>
+                <button class="home-btn" onclick="window.location.href='../index.html'" data-key="navHome">Inicio</button>
             </div>
             <ul>
                 <li><a href="../rutas/pareja.html" data-key="navPareja">En pareja</a></li>
@@ -70,11 +70,21 @@
                 <li><a href="../rutas/camper.html" data-key="navMTB">MTB</a></li>
             </ul>
             <div class="navbar-right">
+                <div class="dropdown">
+                    <button class="dropdown-toggle-btn" id="repo-dropdown-btn" data-key="navRepos">Mis Repositorios ▼</button>
+                    <div class="dropdown-content" id="repo-dropdown-content">
+                        <a href="https://github.com/AUPACHUS/Rutas-Pais-Vasco" target="_blank" rel="noopener noreferrer">Rutas País Vasco (Este Proyecto)</a>
+                        <a href="https://github.com/AUPACHUS/AUPACHUS" target="_blank" rel="noopener noreferrer">Mi Perfil Principal</a>
+                        <a href="https://aupachus.github.io/web2/#top" target="_blank" rel="noopener noreferrer">Mi Web Personal (web2)</a>
+                        <a href="https://aupachus.github.io/HACKENVIRONMENT/" target="_blank" rel="noopener noreferrer">Hack Environment</a>
+                        <a href="https://github.com/AUPACHUS?tab=repositories" target="_blank" rel="noopener noreferrer">Todos mis Repositorios</a>
+                    </div>
+                </div>
                 <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'" data-key="contacto">Contáctame</button>
-                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
+                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">☀️</button> <!-- Icono inicial para darkmode -->
             </div>
         </nav>
-        <h1 id="main-title">Rutas para Moto 125cc en el Norte de España</h1>
+        <h1 id="main-title" data-key="mainTitle">Rutas para Moto 125cc en el Norte de España</h1> <!-- Añadido data-key -->
         <div id="lang-switcher" style="margin:1em 0; text-align:center;">
             <button class="lang-btn" data-lang="es" title="Español">🇪🇸</button>
             <button class="lang-btn" data-lang="eu" title="Euskera">🇪🇺</button>
@@ -199,7 +209,8 @@
     <footer>
         <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
     </footer>
-    <script src="../js/background.js"></script>
+    <script src="../js/background.js" defer></script>
+    <script src="../js/dropdown.js" defer></script> <!-- Añadido dropdown.js -->
     <script>
     // Traducciones específicas para moto125
     const translations = {
@@ -239,6 +250,7 @@
             navAventura: "Aventura",
             navMTB: "MTB",
             contacto: "Contáctame"
+            // navHome y navRepos se añadirán si es necesario para la barra de navegación
         },
         eu: {
             mainTitle: "125cc-ko motoentzako ibilbideak Ipar Euskal Herrian",
@@ -275,7 +287,8 @@
             navGastronomia: "Gastronomia",
             navAventura: "Abentura",
             navMTB: "MTB",
-            contacto: "Kontaktatu"
+            contacto: "Kontaktatu",
+            navHome: "Hasiera" // Añadido para el botón de inicio
         },
         en: {
             mainTitle: "Routes for 125cc Motorcycles in Northern Spain",
@@ -312,19 +325,23 @@
             navGastronomia: "Gastronomy",
             navAventura: "Adventure",
             navMTB: "MTB",
-            contacto: "Contact me"
+            contacto: "Contact me",
+            navHome: "Home" // Añadido para el botón de inicio
         }
     };
 
     function setLanguage(lang) {
-        document.getElementById('main-title').textContent = translations[lang].mainTitle;
+        const currentTranslations = translations[lang] || translations.es; // Fallback a español
+        document.getElementById('main-title').textContent = currentTranslations.mainTitle;
         document.querySelectorAll('[data-key]').forEach(el => {
             const key = el.getAttribute('data-key');
-            if (translations[lang][key]) {
-                if (el.tagName === 'H2' || el.tagName === 'P' || el.tagName === 'BUTTON') {
-                    el.innerHTML = translations[lang][key];
+            if (currentTranslations[key]) {
+                // Para elementos que pueden contener HTML (como strong en los detalles de ruta)
+                // o son botones/enlaces de navegación que solo cambian texto.
+                if (el.tagName === 'P' && (key.includes('Desc') || key.includes('Details')) || el.classList.contains('dropdown-toggle-btn') || el.classList.contains('contact-btn') || el.classList.contains('home-btn') || el.tagName === 'A' || el.tagName === 'STRONG' || el.tagName === 'LI' || el.tagName === 'H2' || el.tagName === 'H3') {
+                    el.innerHTML = currentTranslations[key];
                 } else {
-                    el.textContent = translations[lang][key];
+                    el.textContent = currentTranslations[key];
                 }
             }
         });
@@ -337,15 +354,23 @@
     });
 
     // Dark mode toggle
-    const toggle = document.getElementById('darkmode-toggle');
-    toggle.addEventListener('click', () => {
-        document.body.classList.toggle('darkmode');
-        if(document.body.classList.contains('darkmode')) {
-            toggle.textContent = '☀️';
+    const darkModeToggle = document.getElementById('darkmode-toggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('darkmode');
+            darkModeToggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙';
+        });
+        // Asegurar que el icono del botón de modo oscuro sea correcto al cargar la página
+        if (document.body.classList.contains('darkmode')) {
+            darkModeToggle.textContent = '☀️';
         } else {
-            toggle.textContent = '🌙';
+            darkModeToggle.textContent = '🌙';
         }
-    });
+    }
+
+    // Set initial language
+    setLanguage('es');
+
     </script>
 
     <!-- Botón de donación PayPal fijo abajo a la derecha -->
