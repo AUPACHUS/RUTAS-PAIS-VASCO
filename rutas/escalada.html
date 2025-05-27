@@ -37,6 +37,57 @@
             margin-left: auto; /* Empuja el botón a la derecha */
             flex-shrink: 0; /* Evita que el botón se encoja */
         }
+
+        /* Estilos para el botón desplegable de repositorios */
+        .navbar-right .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-right: 10px; /* Espacio entre el desplegable y el botón de contacto */
+        }
+
+        .navbar-right .dropdown-toggle-btn {
+            /* Hereda estilos de .home-btn o .contact-btn si es necesario, o define aquí */
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #3498db; /* Color similar al home-btn */
+            color: white;
+            font-weight: bold;
+        }
+        .darkmode .navbar-right .dropdown-toggle-btn {
+            background-color: #4e5d6c; /* Un color para modo oscuro */
+        }
+
+        .navbar-right .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1001; /* Encima de la barra de navegación si es necesario */
+            border-radius: 4px;
+            right: 0; /* Alinea a la derecha del botón, o ajusta según necesidad */
+        }
+        .darkmode .navbar-right .dropdown-content {
+            background-color: #3a3a3a;
+        }
+
+        .navbar-right .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .darkmode .navbar-right .dropdown-content a {
+            color: #eee;
+        }
+        .navbar-right .dropdown-content a:hover {background-color: #f1f1f1;}
+        .darkmode .navbar-right .dropdown-content a:hover {background-color: #555;}
+
+        .navbar-right .dropdown-content.show {
+            display: block;
+        }
     </style>
 </head>
 <body class="darkmode">
@@ -77,6 +128,14 @@
                 <li><a href="camper.html" data-key="navMTB">MTB</a></li>
             </ul>
             <div class="navbar-right">
+                <div class="dropdown">
+                    <button class="dropdown-toggle-btn" id="repo-dropdown-btn" data-key="navRepos">Mis Repositorios ▼</button>
+                    <div class="dropdown-content" id="repo-dropdown-content">
+                        <a href="https://github.com/AUPACHUS/Rutas-Pais-Vasco" target="_blank" rel="noopener noreferrer">Rutas País Vasco (Este Proyecto)</a>
+                        <a href="https://github.com/AUPACHUS/AUPACHUS" target="_blank" rel="noopener noreferrer">Mi Perfil Principal</a>
+                        <a href="https://github.com/AUPACHUS?tab=repositories" target="_blank" rel="noopener noreferrer">Todos mis Repositorios</a>
+                    </div>
+                </div>
                 <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'" data-key="contacto">Contáctame</button>
                 <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">☀️</button>
             </div>
@@ -340,7 +399,8 @@
             navAventura: "Aventura",
             navMTB: "MTB",
             contacto: "Contáctame"
-            // Add other nav keys if needed
+            // Add other nav keys if needed,
+            navRepos: "Mis Repositorios ▼"
         },
         eu: {
             navHome: "Hasiera",
@@ -441,7 +501,8 @@
             navAventura: "Abentura",
             navMTB: "MTB",
             contacto: "Kontaktatu"
-            // Add other nav keys if needed
+            // Add other nav keys if needed,
+            navRepos: "Nire Biltegiak ▼"
         },
         en: {
             navHome: "Home",
@@ -542,7 +603,8 @@
             navAventura: "Adventure",
             navMTB: "MTB",
             contacto: "Contact me"
-            // Add other nav keys if needed
+            // Add other nav keys if needed,
+            navRepos: "My Repositories ▼"
         }
     };
 
@@ -575,7 +637,29 @@
 
     // Dark mode toggle
     const toggle = document.getElementById('darkmode-toggle');
-    toggle.addEventListener('click', () => { document.body.classList.toggle('darkmode'); toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙'; });
+    if (toggle) {
+        toggle.addEventListener('click', () => { document.body.classList.toggle('darkmode'); toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙'; });
+    }
+
+    // Repositories Dropdown
+    const repoDropdownBtn = document.getElementById('repo-dropdown-btn');
+    const repoDropdownContent = document.getElementById('repo-dropdown-content');
+
+    if (repoDropdownBtn && repoDropdownContent) {
+        repoDropdownBtn.addEventListener('click', function(event) {
+            event.stopPropagation(); // Evita que el evento de clic en window lo cierre inmediatamente
+            repoDropdownContent.classList.toggle('show');
+        });
+
+        // Cierra el desplegable si se hace clic fuera de él
+        window.addEventListener('click', function(event) {
+            if (!repoDropdownBtn.contains(event.target) && !repoDropdownContent.contains(event.target)) {
+                if (repoDropdownContent.classList.contains('show')) {
+                    repoDropdownContent.classList.remove('show');
+                }
+            }
+        });
+    }
     </script>
 
     <!-- Botón de donación PayPal fijo abajo a la derecha -->
