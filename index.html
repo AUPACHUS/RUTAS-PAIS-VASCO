@@ -6,7 +6,7 @@
     <title>Rutas por el País Vasco</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="darkmode">
     <div id="background-top"></div>
     <div id="background-bottom"></div>
     <div id="background-image"></div>
@@ -45,7 +45,7 @@
             </ul>
             <div class="navbar-right">
                 <button class="contact-btn" onclick="window.location.href='mailto:tartemugiocursojava@gmail.com'" data-key="contacto">Contáctame</button>
-                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">🌙</button>
+                <button class="darkmode-btn" id="darkmode-toggle" title="Alternar modo oscuro">☀️</button>
             </div>
         </nav>
         <h1 id="main-title">Rutas por el País Vasco</h1>
@@ -63,11 +63,20 @@
     </header>
     <main>
         <p data-key="bienvenida">Bienvenido a la guía de rutas turísticas del País Vasco.</p>
+        <div class="cuadro-historia">
+            <h2 data-key="mainTitle">Rutas por el País Vasco</h2>
+        </div>                  
+        <div style="text-align: center; margin: 1em 0;">
+            <a href="https://www.openstreetmap.org/#map=6/40.01/-2.49" target="_blank" rel="noopener noreferrer">
+                <button class="home-btn" data-key="osmLink">Explorar en OpenStreetMap</button>
+            </a>
+        </div>
         <p data-key="explora">Explora la belleza natural y cultural de esta región a través de nuestras rutas seleccionadas.</p>
         <p data-key="busca">Ya sea que busques aventuras al aire libre, gastronomía local o actividades para toda la familia, aquí encontrarás lo que necesitas.</p>
-        <p data-key="hazclic">Haz clic en los enlaces de arriba para descubrir rutas específicas según tus intereses.</p>
+        <p data-key="hazclic">Haz clic en los enlaces a los mapas en la parte izquierda para poder buscar rutas acotadas a ese territorio.</p>
         <p data-key="disfruta">¡Disfruta de tu viaje!</p>
         <p data-key="contacta">Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos.</p>
+        
 
         <div class="cuadro-historia">
             <h2 data-key="historiaEuskadiTitulo">Euskadi: Tierra de Historia y Cultura</h2>
@@ -107,6 +116,7 @@
             explora: "Explora la belleza natural y cultural de esta región a través de nuestras rutas seleccionadas.",
             busca: "Ya sea que busques aventuras al aire libre, gastronomía local o actividades para toda la familia, aquí encontrarás lo que necesitas.",
             hazclic: "Haz clic en los enlaces de arriba para descubrir rutas específicas según tus intereses.",
+            osmLink: "Explorar en OpenStreetMap",
             disfruta: "¡Disfruta de tu viaje!",
             contacta: "Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos.",
             navPareja: "En pareja",
@@ -133,6 +143,7 @@
             explora: "Eskualde honen edertasun naturala eta kulturala ezagutu gure ibilbide hautatuen bidez.",
             busca: "Aire zabaleko abenturak, tokiko gastronomia edo familia osoarentzako jarduerak bilatzen badituzu, hemen aurkituko duzu behar duzuna.",
             hazclic: "Goiko esteketan klik egin zure interesen araberako ibilbideak ezagutzeko.",
+            osmLink: "Arakatu OpenStreetMap-en",
             disfruta: "Gozatu zure bidaiari!",
             contacta: "Galderarik baduzu edo informazio gehiago behar baduzu, jar zaitez gurekin harremanetan.",
             navPareja: "Bikotean",
@@ -159,6 +170,7 @@
             explora: "Explore the natural and cultural beauty of this region through our selected routes.",
             busca: "Whether you seek outdoor adventures, local gastronomy, or family activities, you'll find what you need here.",
             hazclic: "Click the links above to discover routes according to your interests.",
+            osmLink: "Explore on OpenStreetMap",
             disfruta: "Enjoy your trip!",
             contacta: "If you have any questions or need more information, feel free to contact us.",
             navPareja: "For couples",
@@ -185,6 +197,7 @@
             explora: "Entdecken Sie die natürliche und kulturelle Schönheit dieser Region mit unseren ausgewählten Routen.",
             busca: "Ob Outdoor-Abenteuer, lokale Gastronomie oder Aktivitäten für die ganze Familie – hier finden Sie, was Sie suchen.",
             hazclic: "Klicken Sie oben auf die Links, um Routen nach Ihren Interessen zu entdecken.",
+            osmLink: "Auf OpenStreetMap erkunden",
             disfruta: "Gute Reise!",
             contacta: "Wenn Sie Fragen haben oder weitere Informationen benötigen, kontaktieren Sie uns gerne.",
             navPareja: "Für Paare",
@@ -211,6 +224,7 @@
             explora: "Découvrez la beauté naturelle et culturelle de cette région à travers nos itinéraires sélectionnés.",
             busca: "Que vous recherchiez des aventures en plein air, la gastronomie locale ou des activités familiales, vous trouverez ici ce qu'il vous faut.",
             hazclic: "Cliquez sur les liens ci-dessus pour découvrir des itinéraires selon vos intérêts.",
+            osmLink: "Explorer sur OpenStreetMap",
             disfruta: "Bon voyage !",
             contacta: "Si vous avez des questions ou besoin de plus d'informations, n'hésitez pas à nous contacter.",
             navPareja: "En couple",
@@ -237,6 +251,7 @@
             explora: "Исследуйте природную и культурную красоту этого региона с нашими избранными маршрутами.",
             busca: "Ищете ли вы приключения на природе, местную гастрономию или семейные мероприятия — здесь вы найдете всё необходимое.",
             hazclic: "Нажмите на ссылки выше, чтобы узнать маршруты по интересам.",
+            osmLink: "Исследовать на OpenStreetMap",
             disfruta: "Приятного путешествия!",
             contacta: "Если у вас есть вопросы или нужна дополнительная информация, свяжитесь с нами.",
             navPareja: "Для пар",
@@ -263,6 +278,7 @@
             explora: "استكشف الجمال الطبيعي والثقافي لهذه المنطقة من خلال مساراتنا المختارة.",
             busca: "سواء كنت تبحث عن مغامرات في الهواء الطلق أو المأكولات المحلية أو أنشطة عائلية، ستجد هنا ما تحتاجه.",
             hazclic: "انقر على الروابط أعلاه لاكتشاف المسارات حسب اهتماماتك.",
+            osmLink: "استكشف على OpenStreetMap",
             disfruta: "نتمنى لك رحلة سعيدة!",
             contacta: "إذا كان لديك أي أسئلة أو تحتاج إلى مزيد من المعلومات، لا تتردد في التواصل معنا.",
             navPareja: "للأزواج",
@@ -289,6 +305,7 @@
             explora: "通过我们精选的路线，探索该地区的自然与文化之美。",
             busca: "无论您寻找户外探险、本地美食还是家庭活动，这里都能满足您的需求。",
             hazclic: "点击上方链接，按兴趣发现专属路线。",
+            osmLink: "在 OpenStreetMap 上探索",
             disfruta: "祝您旅途愉快！",
             contacta: "如有疑问或需要更多信息，欢迎联系我们。",
             navPareja: "情侣路线",
@@ -315,6 +332,7 @@
             explora: "厳選されたルートで、この地域の自然と文化の美しさを体験しましょう。",
             busca: "アウトドア、地元グルメ、家族向けアクティビティなど、ここで必要なものが見つかります。",
             hazclic: "上のリンクをクリックして、興味に合わせたルートを見つけてください。",
+            osmLink: "OpenStreetMap で探索",
             disfruta: "良い旅を！",
             contacta: "ご質問や詳細情報が必要な場合は、お気軽にご連絡ください。",
             navPareja: "カップル向け",
