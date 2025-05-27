@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutas por el País Vasco</title>
+    <style>
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Espacio entre imágenes */
+            margin-top: 15px; /* Espacio sobre la galería */
+        }
+        .photo-gallery img {
+            width: calc(25% - 10px); /* Para 4 imágenes en una fila, ajusta según el gap */
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="darkmode">
@@ -94,24 +107,48 @@
             <p data-key="historiaEuskadi">
                 El País Vasco (<strong>Euskadi</strong> en euskera) es una comunidad autónoma con una identidad única, lengua propia y una historia milenaria. Sus paisajes verdes y su cultura ancestral la convierten en un destino especial en Europa.
             </p>
+            <div class="photo-gallery">
+                <img src="img/euskadi_foto1.jpg" alt="Paisaje de Euskadi 1">
+                <img src="img/euskadi_foto2.jpg" alt="Cultura Vasca 1">
+                <img src="img/euskadi_foto3.jpg" alt="Costa Vasca">
+                <img src="img/euskadi_foto4.jpg" alt="Interior de Euskadi">
+            </div>
         </div>
         <div class="cuadro-historia">
             <h2 data-key="historiaBizkaiaTitulo">Bizkaia: Corazón Industrial y Marítimo</h2>
             <p data-key="historiaBizkaia">
                 <strong>Bizkaia</strong> es conocida por su tradición marinera, su industria y su capital, Bilbao. El Puente Colgante de Portugalete y el Museo Guggenheim son símbolos de su modernidad y su historia.
             </p>
+            <div class="photo-gallery">
+                <img src="img/bizkaia_foto1.jpg" alt="Bilbao y el Guggenheim">
+                <img src="img/bizkaia_foto2.jpg" alt="Puente Colgante de Portugalete">
+                <img src="img/bizkaia_foto3.jpg" alt="Costa de Bizkaia">
+                <img src="img/bizkaia_foto4.jpg" alt="San Juan de Gaztelugatxe">
+            </div>
         </div>
         <div class="cuadro-historia">
             <h2 data-key="historiaGetxoTitulo">Getxo: Belleza Costera y Patrimonio</h2>
             <p data-key="historiaGetxo">
                 <strong>Getxo</strong> destaca por sus playas, acantilados y barrios históricos como Algorta. Es un lugar ideal para pasear junto al mar y descubrir la arquitectura señorial de sus palacetes.
             </p>
+            <div class="photo-gallery">
+                <img src="img/getxo_foto1.jpg" alt="Playa de Getxo">
+                <img src="img/getxo_foto2.jpg" alt="Puerto Viejo de Algorta">
+                <img src="img/getxo_foto3.jpg" alt="Acantilados de La Galea">
+                <img src="img/getxo_foto4.jpg" alt="Palacetes de Getxo">
+            </div>
         </div>
         <div class="cuadro-historia">
             <h2 data-key="historiaArtazaTitulo">Palacio Artaza: Elegancia en Leioa</h2>
             <p data-key="historiaArtaza">
                 El <strong>Palacio Artaza</strong>, construido a principios del siglo XX, es uno de los edificios más emblemáticos de Leioa y Bizkaia. Rodeado de jardines, fue residencia de la nobleza y hoy es un espacio para eventos y cultura.
             </p>
+            <div class="photo-gallery">
+                <img src="img/artaza_foto1.jpg" alt="Palacio Artaza Exterior">
+                <img src="img/artaza_foto2.jpg" alt="Jardines del Palacio Artaza">
+                <img src="img/artaza_foto3.jpg" alt="Detalle arquitectónico Palacio Artaza">
+                <img src="img/artaza_foto4.jpg" alt="Vista del Palacio Artaza">
+            </div>
         </div>
     </main>
     <footer>
