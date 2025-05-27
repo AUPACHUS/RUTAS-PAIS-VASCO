@@ -296,6 +296,7 @@
         <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
     </footer>
     <script src="../js/background.js"></script>
+    <script src="../js/dropdown.js"></script> <!-- Enlaza el nuevo script del desplegable -->
     <script>
     // Traducciones específicas para escalada
     const translations = {
@@ -629,36 +630,10 @@
         });
     });
 
-    // Set initial language (default to Spanish if browser language not available)
-    // const userLang = navigator.language.split('-')[0] || 'es';
-    // setLanguage(translations[userLang] ? userLang : 'es');
-    // Or simply set a default language
-    setLanguage('es');
-
     // Dark mode toggle
     const toggle = document.getElementById('darkmode-toggle');
     if (toggle) {
         toggle.addEventListener('click', () => { document.body.classList.toggle('darkmode'); toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙'; });
-    }
-
-    // Repositories Dropdown
-    const repoDropdownBtn = document.getElementById('repo-dropdown-btn');
-    const repoDropdownContent = document.getElementById('repo-dropdown-content');
-
-    if (repoDropdownBtn && repoDropdownContent) {
-        repoDropdownBtn.addEventListener('click', function(event) {
-            event.stopPropagation(); // Evita que el evento de clic en window lo cierre inmediatamente
-            repoDropdownContent.classList.toggle('show');
-        });
-
-        // Cierra el desplegable si se hace clic fuera de él
-        window.addEventListener('click', function(event) {
-            if (!repoDropdownBtn.contains(event.target) && !repoDropdownContent.contains(event.target)) {
-                if (repoDropdownContent.classList.contains('show')) {
-                    repoDropdownContent.classList.remove('show');
-                }
-            }
-        });
     }
     </script>
 
