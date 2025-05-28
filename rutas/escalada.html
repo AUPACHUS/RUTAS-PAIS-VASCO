@@ -6,6 +6,13 @@
     <title>Rutas de Escalada - País Vasco y Navarra</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
+        .rutas-escalada-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columnas responsivas */
+            gap: 20px;
+            padding: 20px;
+        }
+
         /* Estilos específicos para las tarjetas de escalada */
         .escalada-card {
             /* Asegura que la tarjeta sea un contenedor flexible si es necesario,
@@ -88,6 +95,35 @@
         .navbar-right .dropdown-content.show {
             display: block;
         }
+
+        /* Estilo para el título de la región dentro de la tarjeta */
+        .route-card-region {
+            font-size: 0.9em;
+            color: #7f8c8d; /* Un color tenue */
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+        .darkmode .route-card-region {
+            color: #bdc3c7;
+            border-bottom-color: #444;
+        }
+        /* Estilos para la galería de imágenes dentro de la tarjeta */
+        .card-image-gallery {
+            display: flex;
+            gap: 10px; /* Espacio entre imágenes */
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .card-image-gallery img {
+            width: calc(50% - 5px); /* Dos imágenes, teniendo en cuenta el gap */
+            height: 150px; /* Altura fija para las imágenes de la galería */
+            object-fit: cover;
+            border-radius: 6px;
+        }
     </style>
 </head>
 <body class="darkmode">
@@ -143,12 +179,13 @@
             </div>
         </nav>
         <h1 id="main-title">Rutas de Escalada en el País Vasco y Navarra</h1>
-        <div id="lang-switcher" style="margin:1em 0; text-align:center;">
+        <div id="lang-switcher" style="margin:1em 0; text-align:center;" data-key="langSwitcher">
             <button class="lang-btn" data-lang="es" title="Español">🇪🇸</button>
             <button class="lang-btn" data-lang="eu" title="Euskera">🇪🇺</button>
             <button class="lang-btn" data-lang="en" title="English">🇬🇧</button>
             <button class="lang-btn" data-lang="de" title="Deutsch">🇩🇪</button>
             <button class="lang-btn" data-lang="fr" title="Français">🇫🇷</button>
+            <!-- Añadir más botones de idioma si es necesario -->
             <button class="lang-btn" data-lang="ru" title="Русский">🇷🇺</button>
             <button class="lang-btn" data-lang="ar" title="العربية">🇸🇦</button>
             <button class="lang-btn" data-lang="zh" title="中文">🇨🇳</button>
@@ -160,11 +197,16 @@
             <p data-key="introEscalada">Descubre los mejores lugares para practicar escalada en el norte de España, con rutas para todos los niveles en roca caliza, arenisca y conglomerado.</p>
         </section>
 
-        <section class="route-section">
-            <h2 data-key="alavaTitle">Álava</h2>
+        <div class="rutas-escalada-grid">
+            <!-- Álava -->
             <div class="route-card escalada-card">
+                <h4 class="route-card-region" data-key="alavaTitle">Álava</h4>
                 <h3 data-key="sierraCantabriaTitle">Sierra de Cantabria - Peña Las Doce</h3>
                 <p data-key="sierraCantabriaDesc"><span class="activity-text">Más de 100 vías de escalada en roca caliza con dificultades desde IV hasta 7b. Zona ideal para escalada deportiva con vistas espectaculares sobre los viñedos de Rioja Alavesa.</span><a href="https://www.google.com/maps/search/Peña+Las+Doce+Sierra+de+Cantabria" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
+                <div class="card-image-gallery">
+                    <img src="../img/escalada/alava_sierra_cantabria1.jpg" alt="Vista de Sierra de Cantabria">
+                    <img src="../img/escalada/alava_sierra_cantabria2.jpg" alt="Escalador en Peña Las Doce">
+                </div>
                 <div class="escalada-details">
                     <p data-key="sierraCantabriaDificultad"><strong>Dificultad:</strong> IV a 7b</p>
                     <p data-key="sierraCantabriaTipo"><strong>Tipo:</strong> Deportiva</p>
@@ -176,13 +218,16 @@
                     <span class="grade-value">5c-7b</span>
                 </div>
             </div>
-        </section>
 
-        <section class="route-section">
-            <h2 data-key="bizkaiaTitle">Bizkaia</h2>
+            <!-- Bizkaia -->
             <div class="route-card escalada-card">
+                <h4 class="route-card-region" data-key="bizkaiaTitle">Bizkaia</h4>
                 <h3 data-key="pegoTitle">Pego de Etxauri - Bizkaia</h3>
                 <p data-key="pegoDesc"><span class="activity-text">Sector con más de 50 vías en conglomerado, perfecto para iniciación y escalada clásica. Vías bien equipadas y de longitud media (15-25m).</span><a href="https://www.google.com/maps/search/Pego+de+Etxauri" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
+                <div class="card-image-gallery">
+                    <img src="../img/escalada/bizkaia_pego_etxauri1.jpg" alt="Pego de Etxauri conglomerado">
+                    <img src="../img/escalada/bizkaia_pego_etxauri2.jpg" alt="Escalando en Pego de Etxauri">
+                </div>
                 <div class="escalada-details">
                     <p data-key="pegoDificultad"><strong>Dificultad:</strong> III a 6c</p>
                     <p data-key="pegoTipo"><strong>Tipo:</strong> Tradicional y deportiva</p>
@@ -196,8 +241,13 @@
             </div>
 
             <div class="route-card escalada-card">
+                <h4 class="route-card-region" data-key="bizkaiaTitle">Bizkaia</h4>
                 <h3 data-key="urtzaganTitle">Urtzagan</h3>
                 <p data-key="urtzaganDesc"><span class="activity-text">Uno de los mejores lugares de escalada deportiva en Bizkaia, con más de 200 vías en roca caliza de calidad. Sector bien equipado y mantenido.</span><a href="https://www.google.com/maps/search/Urtzagan+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
+                <div class="card-image-gallery">
+                    <img src="../img/escalada/bizkaia_urtzagan1.jpg" alt="Sector de escalada Urtzagan">
+                    <img src="../img/escalada/bizkaia_urtzagan2.jpg" alt="Escalador en Urtzagan">
+                </div>
                 <div class="escalada-details">
                     <p data-key="urtzaganDificultad"><strong>Dificultad:</strong> 5a a 8a</p>
                     <p data-key="urtzaganTipo"><strong>Tipo:</strong> Deportiva</p>
@@ -209,13 +259,16 @@
                     <span class="grade-value">5a-8a</span>
                 </div>
             </div>
-        </section>
 
-        <section class="route-section">
-            <h2 data-key="gipuzkoaTitle">Gipuzkoa</h2>
+            <!-- Gipuzkoa -->
             <div class="route-card escalada-card">
+                <h4 class="route-card-region" data-key="gipuzkoaTitle">Gipuzkoa</h4>
                 <h3 data-key="jaizkibelTitle">Jaizkibel</h3>
                 <p data-key="jaizkibelDesc"><span class="activity-text">Escalada en acantilados marinos con vistas al Cantábrico. Más de 150 vías en roca arenisca, incluyendo algunas big walls para escalada de varios largos.</span><a href="https://www.google.com/maps/search/Jaizkibel+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
+                <div class="card-image-gallery">
+                    <img src="../img/escalada/gipuzkoa_jaizkibel1.jpg" alt="Acantilados de Jaizkibel">
+                    <img src="../img/escalada/gipuzkoa_jaizkibel2.jpg" alt="Escalada en Jaizkibel">
+                </div>
                 <div class="escalada-details">
                     <p data-key="jaizkibelDificultad"><strong>Dificultad:</strong> 4a a 7c</p>
                     <p data-key="jaizkibelTipo"><strong>Tipo:</strong> Tradicional y deportiva</p>
@@ -227,13 +280,16 @@
                     <span class="grade-value">4a-7c</span>
                 </div>
             </div>
-        </section>
 
-        <section class="route-section">
-            <h2 data-key="navarraTitle">Navarra</h2>
+            <!-- Navarra -->
             <div class="route-card escalada-card">
+                <h4 class="route-card-region" data-key="navarraTitle">Navarra</h4>
                 <h3 data-key="etxauriTitle">Etxauri</h3>
                 <p data-key="etxauriDesc"><span class="activity-text">Meca de la escalada en Navarra con más de 500 vías en roca caliza. Sector mítico para escalada deportiva y tradicional, con vías de todos los niveles.</span><a href="https://www.google.com/maps/search/Etxauri+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
+                <div class="card-image-gallery">
+                    <img src="../img/escalada/navarra_etxauri1.jpg" alt="Paredes de Etxauri">
+                    <img src="../img/escalada/navarra_etxauri2.jpg" alt="Escalador en Etxauri">
+                </div>
                 <div class="escalada-details">
                     <p data-key="etxauriDificultad"><strong>Dificultad:</strong> III a 8c</p>
                     <p data-key="etxauriTipo"><strong>Tipo:</strong> Tradicional y deportiva</p>
@@ -247,8 +303,13 @@
             </div>
 
             <div class="route-card escalada-card">
+                <h4 class="route-card-region" data-key="navarraTitle">Navarra</h4>
                 <h3 data-key="lezizaTitle">Leziza</h3>
                 <p data-key="lezizaDesc"><span class="activity-text">Sector de escalada deportiva con más de 100 vías bien equipadas en roca caliza. Ideal para escaladores de nivel intermedio.</span><a href="https://www.google.com/maps/search/Leziza+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
+                <div class="card-image-gallery">
+                    <img src="../img/escalada/navarra_leziza1.jpg" alt="Sector Leziza">
+                    <img src="../img/escalada/navarra_leziza2.jpg" alt="Escalada en Leziza">
+                </div>
                 <div class="escalada-details">
                     <p data-key="lezizaDificultad"><strong>Dificultad:</strong> 5a a 7b</p>
                     <p data-key="lezizaTipo"><strong>Tipo:</strong> Deportiva</p>
@@ -260,13 +321,16 @@
                     <span class="grade-value">5a-7b</span>
                 </div>
             </div>
-        </section>
 
-        <section class="route-section">
-            <h2 data-key="cantabriaTitle">Cantabria</h2>
+            <!-- Cantabria -->
             <div class="route-card escalada-card">
+                <h4 class="route-card-region" data-key="cantabriaTitle">Cantabria</h4>
                 <h3 data-key="santaMariaTitle">Santa María de Águilas</h3>
                 <p data-key="santaMariaDesc"><span class="activity-text">Escalada en roca caliza con más de 80 vías equipadas. Sector orientado al sur, ideal para escalar en invierno.</span><a href="https://www.google.com/maps/search/Santa+María+de+Águilas+escalada" target="_blank" rel="noopener noreferrer" title="Ver en Google Maps"><button class="home-btn map-link-btn-inline">🗺️</button></a></p>
+                <div class="card-image-gallery">
+                    <img src="../img/escalada/cantabria_santamaria1.jpg" alt="Santa María de Águilas">
+                    <img src="../img/escalada/cantabria_santamaria2.jpg" alt="Escalador en Santa María">
+                </div>
                 <div class="escalada-details">
                     <p data-key="santaMariaDificultad"><strong>Dificultad:</strong> 4b a 7c</p>
                     <p data-key="santaMariaTipo"><strong>Tipo:</strong> Deportiva</p>
@@ -278,7 +342,7 @@
                     <span class="grade-value">4b-7c</span>
                 </div>
             </div>
-        </section>
+        </div>
 
         <section class="tips-section">
             <h2 data-key="consejosTitle">Consejos para escalada segura</h2>
@@ -295,15 +359,16 @@
         </section>
     </main>
     <footer>
-        <p>© 2022 - Rutas País Vasco-AUPACHUS</p>
+        <p data-key="footerCopy">© 2024 - Rutas País Vasco-AUPACHUS</p>
     </footer>
-    <script src="../js/background.js"></script>
-    <script src="../js/dropdown.js"></script> <!-- Enlaza el nuevo script del desplegable -->
+    <script src="../js/background.js" defer></script>
+    <script src="../js/dropdown.js" defer></script> <!-- Enlaza el nuevo script del desplegable -->
     <script>
     // Traducciones específicas para escalada
     const translations = {
         // Añade navHome y otros nav links si no están ya en style.css o un script global
         es: {
+            footerCopy: "© 2024 - Rutas País Vasco-AUPACHUS",
             navHome: "Inicio", // Asegúrate de que esta clave exista si el botón de inicio tiene data-key="navHome"
             mainTitle: "Rutas de Escalada en el País Vasco y Navarra",
             introEscalada: "Descubre los mejores lugares para practicar escalada en el norte de España, con rutas para todos los niveles en roca caliza, arenisca y conglomerado.",
@@ -406,6 +471,7 @@
             navRepos: "Mis Repositorios ▼"
         },
         eu: {
+            footerCopy: "© 2024 - Rutas País Vasco-AUPACHUS", // Traducir si es necesario
             navHome: "Hasiera",
             mainTitle: "Euskal Herriko eta Nafarroako Eskalada Ibilbideak",
             introEscalada: "Ezagutu Espainiako iparraldeko eskala-lekurik onenak, maila guztietarako ibilbideak kareharrian, hareharrian eta konglomeratuetan.",
@@ -508,6 +574,7 @@
             navRepos: "Nire Biltegiak ▼"
         },
         en: {
+            footerCopy: "© 2024 - Basque Country Routes-AUPACHUS", // Traducir si es necesario
             navHome: "Home",
             mainTitle: "Climbing Routes in Basque Country and Navarre",
             introEscalada: "Discover the best climbing spots in northern Spain, with routes for all levels on limestone, sandstone and conglomerate rock.",
@@ -610,17 +677,24 @@
             navRepos: "My Repositories ▼"
         }
     };
+    // Añadir traducciones para otros idiomas si es necesario, incluyendo footerCopy
+    // Ejemplo para alemán (debes añadir el resto de traducciones de 'de' que ya tenías)
+    translations.de = translations.de || {};
+    translations.de.footerCopy = "© 2024 - Routen Baskenland-AUPACHUS"; // Ejemplo
+    // Repetir para fr, ru, ar, zh, ja
 
     function setLanguage(lang) {
-        document.getElementById('main-title').textContent = translations[lang].mainTitle || translations['es'].mainTitle; // Fallback to Spanish if key is missing
+        const currentTranslations = translations[lang] || translations.es; // Fallback a español
+        document.getElementById('main-title').textContent = currentTranslations.mainTitle || currentTranslations.mainTitle;
+
         document.querySelectorAll('[data-key]').forEach(el => {
             const key = el.getAttribute('data-key');
-            if (translations[lang][key]) {
+            if (currentTranslations[key]) {
                 // Use innerHTML for elements that might contain HTML tags (like strong, span, a, button)
-                if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'P' || el.tagName === 'BUTTON' || el.tagName === 'UL' || el.tagName === 'DIV' || el.tagName === 'A' || el.tagName === 'SPAN') {
-                    el.innerHTML = translations[lang][key];
+                if (el.tagName === 'H1' || el.tagName === 'H2' || el.tagName === 'H3' || el.tagName === 'H4' || el.tagName === 'P' || el.tagName === 'BUTTON' || el.tagName === 'UL' || el.tagName === 'DIV' || el.tagName === 'A' || el.tagName === 'SPAN' || el.tagName === 'LI') {
+                    el.innerHTML = currentTranslations[key];
                 } else {
-                     el.textContent = translations[lang][key]; // Use textContent for simple text nodes
+                     el.textContent = currentTranslations[key];
                 }
             }
         });
@@ -635,8 +709,15 @@
     // Dark mode toggle
     const toggle = document.getElementById('darkmode-toggle');
     if (toggle) {
-        toggle.addEventListener('click', () => { document.body.classList.toggle('darkmode'); toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙'; });
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('darkmode');
+            toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙';
+        });
+        // Asegurar icono correcto al cargar
+        toggle.textContent = document.body.classList.contains('darkmode') ? '☀️' : '🌙';
     }
+    // Inicializar idioma
+    setLanguage('es');
     </script>
 
     <!-- Botón de donación PayPal fijo abajo a la derecha -->
