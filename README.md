@@ -111,7 +111,7 @@ Rutas-Pais-Vasco/
 5. Abre un Pull Request
 
 ## Contacto
-Para cualquier consulta o sugerencia, puedes contactar a través de: tartemugiocursojava@gmail.com
+Para cualquier consulta o sugerencia, puedes contactar a través de: artemugiocursojava@gmail.com
 
 ## Licencia
 Este proyecto está licenciado bajo [MIT License](LICENSE).

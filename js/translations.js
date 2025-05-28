@@ -150,7 +150,7 @@ const translations = {
         zarautzDesc: "Zarautz: hondartza luzea eta giro lasaia. Getaria: arrantzale herria jatetxe bikaineekin (Elkano bezalakoa) eta Balenciaga museoarekin.",
         
         flysch: "Zumaiako Flysch-a (Gipuzkoa)",
-        flyschDesc: "Harri-eraketa bereziak dituzten itsaslabar ikusgarriak. Itsasontzi bat edo Itzurungo hondartzako oinez ibiltzea ezinezkoa da.",
+        flyschDesc: "Harri-eraketa bereziak dituzten itsaslabar ikusgarriak. Itsasontzi bat edo Itzurungo hondartzako oinez ibiltzea ahaztezina da.",
         
         balnearios: "Bainuetxe erromantikoak",
         balneariosDesc: "Araxako Bainuetxea (Araba) edo La Perlako Bainuetxea (Donostia): elkarrekin erlaxatzeko egun bat.",
@@ -161,7 +161,7 @@ const translations = {
         gastroDesc3: "Dastaketa menua Michelin izarreko jatetxe batean (Azurmendi edo Arzak bezalakoa).",
         
         parejaConclusion: "Euskal Herriak natura, kultura eta gastronomia uztartzen ditu, ihes erromantiko baterako ezin hobea. Zerbait aktiboago, lasaiago edo gourmet bilatzen duzu?",
-        parejaFinal: "Gozatu bidaiari! 💑✨",
+        parejaFinal: "Gozatu bidaiaz! 💑✨",
         
         // Historia común
         historiaEuskadiTitulo: "Euskadi: Historia eta Kultura Lurra",
