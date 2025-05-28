@@ -261,59 +261,6 @@ const translations = {
         historiaArtaza: "<strong>Artaza Palace</strong>, built at the beginning of the 20th century, is one of the most emblematic buildings in Leioa and Bizkaia. Surrounded by gardens, it was once a noble residence and today is a venue for events and culture."
     },
     
-    // Añadiré más idiomas...
-    de: {
-        // Navegación común
-        navPareja: "Für Paare",
-        navPerros: "Mit Hunden",
-        navNinos: "Mit Kindern",
-        navEscalada: "Klettern",
-        navSkate: "Skate",
-        navGastronomia: "Gastronomie",
-        navAventura: "Abenteuer",
-        navMTB: "MTB",
-        contacto: "Kontakt",
-        inicio: "Start",
-        
-        mainTitle: "Routen im Baskenland",
-        parejaTitle: "Routen für Paare",
-        
-        bienvenida: "Willkommen beim Reiseführer für das Baskenland.",
-        explora: "Entdecken Sie die natürliche und kulturelle Schönheit dieser Region mit unseren ausgewählten Routen.",
-        busca: "Ob Outdoor-Abenteuer, lokale Gastronomie oder Aktivitäten für die ganze Familie – hier finden Sie, was Sie suchen.",
-        hazclic: "Klicken Sie oben auf die Links, um Routen nach Ihren Interessen zu entdecken.",
-        disfruta: "Gute Reise!",
-        contacta: "Wenn Sie Fragen haben oder weitere Informationen benötigen, kontaktieren Sie uns gerne.",
-        
-        parejaIntro: "Entdecken Sie die besten romantischen Routen für Paare im Baskenland.",
-        parejaMainTitle: "Das Baskenland für Paare: Ideen und romantische Orte",
-        parejaMainDesc: "Das Baskenland ist ein ideales Reiseziel für Paare mit spektakulären Landschaften, charmanten Dörfern, exquisiter Gastronomie und romantischen Ecken. Hier sind einige Ideen für Paare:",
-        
-        parejaConclusion: "Das Baskenland bietet eine perfekte Kombination aus Natur, Kultur und Gastronomie, ideal für einen romantischen Kurzurlaub.",
-        parejaFinal: "Gute Reise! 💑✨"
-    },
-    
-    fr: {
-        navPareja: "En couple",
-        navPerros: "Avec des chiens",
-        navNinos: "Avec des enfants",
-        navEscalada: "Escalade",
-        navSkate: "Skate",
-        navGastronomia: "Gastronomie",
-        navAventura: "Aventure",
-        navMTB: "VTT",
-        contacto: "Contactez-moi",
-        inicio: "Accueil",
-        
-        mainTitle: "Itinéraires au Pays Basque",
-        parejaTitle: "Itinéraires en couple",
-        
-        bienvenida: "Bienvenue dans le guide des itinéraires touristiques du Pays Basque.",
-        parejaIntro: "Découvrez les meilleurs itinéraires romantiques pour les couples au Pays Basque.",
-        parejaMainTitle: "Le Pays Basque en couple : idées et coins romantiques",
-        parejaConclusion: "Le Pays Basque offre une combinaison parfaite de nature, culture et gastronomie, idéale pour une escapade romantique.",
-        parejaFinal: "Bon voyage ! 💑✨"
-    },
     
     ru: {
         navPareja: "Для пар",
@@ -336,25 +283,6 @@ const translations = {
         parejaFinal: "Приятного путешествия! 💑✨"
     },
     
-    ar: {
-        navPareja: "للأزواج",
-        navPerros: "مع الكلاب", 
-        navNinos: "مع الأطفال",
-        navEscalada: "تسلق",
-        navSkate: "تزلج",
-        navGastronomia: "المأكولات",
-        navAventura: "مغامرة",
-        navMTB: "دراجة جبلية",
-        contacto: "اتصل بي",
-        inicio: "الرئيسية",
-        
-        mainTitle: "مسارات في بلاد الباسك",
-        parejaTitle: "مسارات للأزواج",
-        
-        bienvenida: "مرحبًا بك في دليل مسارات السياحة في بلاد الباسك.",
-        parejaIntro: "اكتشف أفضل المسارات الرومانسية للأزواج في بلاد الباسك.",
-        parejaFinal: "نتمنى لك رحلة سعيدة! 💑✨"
-    },
     
     zh: {
         navPareja: "情侣路线",
